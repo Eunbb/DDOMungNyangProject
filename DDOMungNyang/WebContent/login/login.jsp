@@ -15,19 +15,22 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="/bbs/assets/css/login.css" />
    </head>
-   <body class="homepage is-preload">
+   <body class="/main/homepage is-preload">
       <div id="page-wrapper">
          <!-- 로그인/회원가입 버튼 -->
          <section id="starter">
-         <div id="btn_group">
+         <div id="menu">
+         
             <button id="home_btn" onclick="location.href='/bbs/index.jsp' " >HOME</button>
             <button id="register_btn" onclick="location.href='/bbs/login/register.jsp'">회원가입</button>
+            
             </div>
           </section>
+          
             
       
          <!-- Header -->
-           
+            <section id="header">
             
                <!-- Logo -->
                   <h1><a href="/bbs/index.jsp">DDO:MUNGNYANG</a></h1>
@@ -58,6 +61,11 @@
       </form> 
      </div>
    </div>
-              
+               <!-- Banner -->
+                  <section id="banner">
+                     <header>
+
+                     </header>
+                  </section>
    </body>
 </html>

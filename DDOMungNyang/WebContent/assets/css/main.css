@@ -1615,8 +1615,8 @@ input, select, textarea {
 		cursor: pointer;
 		border: 0;
 		border-radius: 5px;
-		background: #d52349;
-		color: #fff !important;
+		background: transparent;
+		color: #87CEFA !important;
 		font-weight: 700;
 		outline: 0;
 		font-size: 1.1em;
@@ -2074,13 +2074,17 @@ input, select, textarea {
 	}
 	#login_btn {
 		border-radius:10px;
-		margin-right:10px;
+		margin-right:5	px;
 				}
-	#login_btn:hover{background-color:#ee99ac;}
+	#login_btn:hover{background-color:transparent !important;
+	                 color: rgba(96, 87, 87, 0.55) !important;
+	                 display: inline-block;}
 	#register_btn{
 		border-radius:10px;
 			}
-	#register_btn:hover{background-color:#ee99ac;}
+	#register_btn:hover{background-color:transparent !important;
+	                    color: rgba(96, 87, 87, 0.55) !important;
+	                    display: inline-block;}
 
 	
 /* Header */
@@ -2091,6 +2095,8 @@ input, select, textarea {
 		border-bottom: solid 1px #ccc;
 		padding: 5em 0 4em 0;
 		text-align: center;
+		
+		
 	}
 
 		#header h1 {
@@ -2098,7 +2104,9 @@ input, select, textarea {
 			font-weight: 900;
 			font-size: 2.5em;
 			letter-spacing: -0.035em;
-			line-height: 1;
+			line-height: 2;
+			position: relative;
+			bottom: 30px;
 		}
 
 /* Nav */
@@ -2108,7 +2116,7 @@ input, select, textarea {
 	}
 
 		#nav > ul {
-			margin: 0;
+			margin: 1.0em 0;
 		}
 
 			#nav > ul > li {
@@ -2195,7 +2203,7 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		height: 400px;
+		height: 500px;
 		background:url("../../images/main6.jpg") no-repeat center center scroll;
 		-webkit-background-size: cover;
   		-moz-background-size: cover;

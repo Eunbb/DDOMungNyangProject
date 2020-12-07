@@ -6,7 +6,7 @@
 	<select id="getLoginUser" parameterType="LoginDTO" resultType="LoginDTO">
 		<![CDATA[
 			SELECT * 
-			FROM USERS WHERE ID=#{id} AND PWD=#{pwd}
+			FROM TEST1 WHERE ID=#{id} AND PW=#{pw} 
 		]]>
 	</select>
 	<select id="signUp" parameterType="LoginDTO" >

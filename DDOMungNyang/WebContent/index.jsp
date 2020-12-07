@@ -29,7 +29,8 @@
    }else{
 %>
 				<button id="logout_btn">로그아웃</button>
-				<button id="profile_btn">내정보</button>
+				<button id="profile_btn">내정보</button><br>
+				<%= entity.getNick() %>님 반가워요^^
 <%                         
    }
 %>

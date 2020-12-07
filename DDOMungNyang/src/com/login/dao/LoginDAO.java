@@ -21,9 +21,9 @@ public class LoginDAO {
 		}catch(IOException e) {}
 	}
 	//----------------------------------------------------------------------
-	public LoginDTO getLoginUser(String id, String pwd) {
+	public LoginDTO getLoginUser(String id, String pw) {
 		SqlSession session=factory.openSession();
-		LoginDTO dto=new LoginDTO(id,pwd,"","","","",0,0,"");
+		LoginDTO dto=new LoginDTO(id,pw,"","","","",0,0,"");
 		LoginDTO entity=session.selectOne("mybatis.LoginMapper.getLoginUser", dto);
 		session.close();
 		return entity;		
@@ -48,8 +48,3 @@ public class LoginDAO {
 		return n;
 	}
 }
-
-
-
-
-

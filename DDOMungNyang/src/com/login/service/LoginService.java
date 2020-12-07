@@ -15,6 +15,7 @@ public class LoginService implements CommandAction{
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		String id=request.getParameter("id");
 		String pwd=request.getParameter("pwd");
+		
 //		System.out.println(id+"  "+pwd);
 	
 		LoginDAO dao=new LoginDAO();
@@ -30,11 +31,6 @@ public class LoginService implements CommandAction{
 		}
 	}
 }
-
-
-
-
-
 
 
 

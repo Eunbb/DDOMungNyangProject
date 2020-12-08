@@ -15,6 +15,22 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/bbs/assets/css/register.css" />
+<script>
+	function pwCheck() {
+		if (document.signup.pw.value == "") {
+			alert("비밀번호를 입력하세요");
+			signup.pw.focus();
+		} else if (document.signup.repw.value == "") {
+			alert("비밀번호를 입력하세요");
+			signup.repw.focus();
+		} else if (document.signup.pw.value != document.signup.repw.value) {
+			alert("비밀번호가 일치하지 않습니다.")
+		} else {
+			document.signup.submit();
+		}
+
+	}
+</script>
 </head>
 <body class="homepage is-preload">
 	<div id="page-wrapper">
@@ -32,7 +48,8 @@
 		<h1>
 			<a href="/bbs/index.jsp">DDO:MUNGNYANG</a>
 		</h1>
-		<form class="form-horizontal" action="/bbs/SignUp.do" method="post">
+		<form class="form-horizontal" action="/bbs/SignUp.do" method="post"
+			name="signup">
 			<div id="container">
 				<div class="join_content">
 					<div class="row_group">
@@ -86,11 +103,15 @@
 							<h3 class="col-sm-2 control-label">
 								<label for="pwdCheck" id="pwdCheck">비밀번호 확인</label>
 							</h3>
-							<div class="col-sm-6">
-								<input type="password" class="form-control" name="repw"
-									id="repw">
-								<p style="color: red;">${pwdCheckError}</p>
+							<div class="col-sm-3">
+								<input type="password" id="repw" name="repw"
+									class="form-control" value="${member.email }">
 							</div>
+							<div class="adress_button">
+								<input type="button" id="pwbtn" onclick="pwCheck()" value="중복확인"
+									class="btn">
+							</div>
+
 						</div>
 					</div>
 					<div class="row_group">
@@ -110,15 +131,15 @@
 							</h3>
 							<div class="bir_wrap">
 								<div class="bir_yy">
-									<span class="ps_box"> <input type="text" id="yy" name="yy"
-										placeholder="년(4자)" aria-label="년(4자)" class="int"
+									<span class="ps_box"> <input type="text" id="yy"
+										name="yy" placeholder="년(4자)" aria-label="년(4자)" class="int"
 										maxlength="4">
 									</span>
 								</div>
 								<div class="bir_wrap">
 									<div class="bir_mm">
-										<span class="ps_box"> <select id="mm" class="sel"  name="mm"
-											aria-label="월">
+										<span class="ps_box"> <select id="mm" class="sel"
+											name="mm" aria-label="월">
 												<option value="">월</option>
 												<option value="01">1</option>
 												<option value="02">2</option>
@@ -136,9 +157,9 @@
 										</span>
 									</div>
 									<div class=" bir_dd">
-										<span class="ps_box"> <input type="text" id="dd"  name="dd"
-											placeholder="일" aria-label="일" class="int" maxlength="2">
-											<label for="dd" class="lbl"></label>
+										<span class="ps_box"> <input type="text" id="dd"
+											name="dd" placeholder="일" aria-label="일" class="int"
+											maxlength="2"> <label for="dd" class="lbl"></label>
 										</span>
 									</div>
 								</div>
@@ -148,7 +169,7 @@
 						</div>
 						<div class="join_row">
 							<h3 class="col-sm-2 control-label">
-								<label for="email" id="email" >닉네임</label>
+								<label for="email" id="email">닉네임</label>
 							</h3>
 							<div class="col-sm-6">
 								<input type="text" class="form-control" name="nick" id="ncik"
@@ -223,13 +244,13 @@
 							</div>
 						</div>
 					</div>
-					
+
 
 				</div>
 
 			</div>
-			</form>
+		</form>
 	</div>
-	
+
 </body>
 </html>

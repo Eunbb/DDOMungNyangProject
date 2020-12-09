@@ -349,3 +349,7 @@ input, select, textarea {
 				font-size: 2.5em;
 				margin: 0 0 0.65em 0;
 			}
+			
+			#emailwait {
+			color:#F08080;
+			text-align:center;}

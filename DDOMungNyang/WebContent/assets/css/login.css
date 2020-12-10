@@ -1,6 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic");
-
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 /*
 	Dopetrope by HTML5 UP
 	html5up.net | @ajlkn
@@ -82,7 +82,7 @@ input, select, textarea {
 		}
 
 	body, input, textarea, select {
-		font-family: 'Source Sans Pro';
+		font-family: 'Jua', sans-serif;
 		font-weight: 300;
 		color: #5d5d5d;
 		font-size: 14pt;
@@ -104,7 +104,7 @@ input, select, textarea {
 	}
 
 	i, em {
-		font-style: italic;
+		font-family: 'Jua', sans-serif;
 	}
 
 	sub {
@@ -122,7 +122,7 @@ input, select, textarea {
 	blockquote {
 		border-left: solid 0.75em #dddddd;
 		padding: 1em 0 1em 1.5em;
-		font-style: italic;
+		font-family: 'Jua', sans-serif;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -144,7 +144,7 @@ input, select, textarea {
 	}
 
 	a {
-		color: #d52349;
+		color: #f44336;
 		text-decoration: underline;
 	}
 
@@ -174,13 +174,14 @@ input, select, textarea {
 	input[type="reset"],
 	button,
 	.button {
+		font-family: 'Jua', sans-serif;
 		-webkit-appearance: none;
 		display: inline-block;
 		text-decoration: none;
 		cursor: pointer;
 		border: 0;
 		border-radius: 5px;
-		background: #d52349;
+		background: #f44336;
 		color: #fff !important;
 		font-weight: 700;
 		outline: 0;
@@ -198,7 +199,8 @@ input, select, textarea {
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background: #e53359;
+			background: #ff7961
+;
 		}
 
 		input[type="button"]:active,
@@ -206,7 +208,7 @@ input, select, textarea {
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
-			background: #c51349;
+			background: #f44336;
 		}
 
 		input[type="button"].alt,
@@ -272,7 +274,7 @@ input, select, textarea {
 		border-radius:10px;
 		margin-right:10px;
 				}
-	#home_btn:hover{background-color:#ee99ac;}			
+	#home_btn:hover{background-color:#ff7961;}			
 	#register_btn{
 		margin-top: 20px;
 		padding-top:7.5px; 
@@ -280,12 +282,12 @@ input, select, textarea {
 		border-radius:10px;
 		margin-right: 20px;
 			}
-	#register_btn:hover{background-color:#ee99ac;}
+	#register_btn:hover{background-color:#ff7961;}
 	
 	#btn_group button {
 	position: relative;
-	font-style: italic;
-	background-color: #d52349;
+	font-family: 'Jua', sans-serif;
+	background-color: #f44336;
 	color: #d52349;
 	
 
@@ -349,7 +351,6 @@ input, select, textarea {
 				font-size: 2.5em;
 				margin: 0 0 0.65em 0;
 			}
-			
 			#emailwait {
-			color:#F08080;
-			text-align:center;}
+         color:#F08080;
+         text-align:center;}

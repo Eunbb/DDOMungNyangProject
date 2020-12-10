@@ -1,8 +1,8 @@
 @import url("fontawesome-all.min.css");
 
 @import
-	url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic")
-	;
+	url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic");
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 /*
    Dopetrope by HTML5 UP
@@ -30,7 +30,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup,
 }
 
 label {
-	font-family: Dotum, '돋움', Helvetica, sans-serif;
+	font-family: 'Jua', sans-serif;
 	font-size: 14px;
 	font-weight: 700;
 }
@@ -108,7 +108,7 @@ body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 }
 
 body, input, textarea, select {
-	font-family: 'Source Sans Pro';
+	font-family: 'Jua', sans-serif;
 	font-weight: 300;
 	color: #5d5d5d;
 	font-size: 14pt;
@@ -125,7 +125,7 @@ strong, b {
 }
 
 i, em {
-	font-style: italic;
+	font-family: 'Jua', sans-serif;
 }
 
 sub {
@@ -143,12 +143,12 @@ sup {
 blockquote {
 	border-left: solid 0.75em #dddddd;
 	padding: 1em 0 1em 1.5em;
-	font-style: italic;
+	font-family: 'Jua', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: #6784db;
-	font-weight: 700;
+	color: #f44336;
+	/* font-weight: 700; */
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -240,9 +240,8 @@ input[type="button"], /*    input[type="submit"], */
 	cursor: pointer;
 	border: 0;
 	border-radius: 5px;
-	background: #d52349;
+	background: #f44336;
 	color: #fff !important;
-	font-weight: 700;
 	outline: 0;
 	font-size: 0.6em;
 	padding: 0.65em 1.5em 0.65em 1.5em;
@@ -257,16 +256,15 @@ input[type="submit"], input[type="reset"] {
 	-webkit-appearance: none;
 	display: inline-block;
 	margin-top: 50px;
-	width: 400px;
+	
 	text-decoration: none;
 	cursor: pointer;
 	border: 0;
 	border-radius: 5px;
-	background: #d52349;
+	background: #f44336;
 	color: #fff !important;
-	font-weight: 700;
 	outline: 0;
-	font-size: 1em;
+	font-size: 20sp;
 	padding: 0.65em 1.5em 0.65em 1.5em;
 	text-align: center;
 	-moz-transition: background-color .25s ease-in-out;
@@ -277,12 +275,12 @@ input[type="submit"], input[type="reset"] {
 
 input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover,
 	button:hover, .button:hover {
-	background: #e53359;
+	background: #f44336;
 }
 
 input[type="button"]:active, input[type="submit"]:active, input[type="reset"]:active,
 	button:active, .button:active {
-	background: #c51349;
+	background: #f44336;
 }
 
 input[type="button"].alt, input[type="submit"].alt, input[type="reset"].alt,
@@ -345,9 +343,9 @@ input[type="button"].large, input[type="submit"].large, input[type="reset"].larg
 	
 	#btn_group button {
 	position: relative;
-	font-style: italic;
-	background-color: #d52349;
-	color: #d52349;
+	font-family: 'Jua', sans-serif;
+	background-color: #f44336;
+	
 	
 
 }
@@ -482,13 +480,14 @@ select {
     height: 52px;
     padding-top: 3px;
     border: 1px solid #b4beec;
-    font-weight: bold;
-    color: #6e81df;
+   
+   
 }
 .btn2{
     display: inline-block;
     width: 112px;
     height: 52px;
+    font-size:20sp;
     padding-top: 3px;
     border: 1px solid #b4beec;
     font-weight: bold;

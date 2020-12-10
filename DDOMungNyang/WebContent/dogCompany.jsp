@@ -31,7 +31,12 @@
                         </li>
                         
                         <li><a href="cat.html">고양이 분양</a></li>
-                        <li><a href="abandoned.html">유기동물 분양</a></li>
+                        	 <ul>
+                              <li><a href=#>업체 분양</a></li>
+                              <li><a href=#>개인 분양 </a></li>
+                              <li><a href=#>유기 분양</a></li>
+                           </ul> 
+                        <li><a href="abandoned.html">심리테스트</a></li>
                         <li><a href="service.html">서비스</a></li>
                         <li><a href="qna.html">Q&A</a></li>
                      </ul>
@@ -48,27 +53,41 @@
                         <!-- Portfolio 	-->
                            <section>
                               <header class="major">
-                                 <h2>강아지</h2>
+                                 <h2>강아지 업체분양</h2>
                               </header>
                               <div class="row">
                                  <div class="col-4 col-6-medium col-12-small">
                                     <section class="box">
                                        <a href="#" class="image featured"><img src="images/dog1/sibal.jpg" alt="" /></a>
                                        <header>
+                                        
                                           <h3>시바견 Shibainu</h3>
-                                       </header>
-                                       <p><input type="checkbox" id="heart1"/>
-                                       <label for="heart1">❤</label></p>
-                                    </section>
-                                 </div>
+                                        <form style="margin-top:10px">
+                                        <input type="checkbox" style="margin-right:10px" onclick="javascript:this.form.amount.value++;" id="heart1"/>
+                         	            <label for="heart1">❤</label>
+                                       	<input type="text" name="amount" style="width:70px; height:20px;color:#43bff0;font-size:20px;text-align:left;" value="1" disabled/>
+                                       
+                         	               </form>
+                         	               
+                         	                </header>
+                         	               
+                         	               </section>
+										</div> 
+                                
                                  <div class="col-4 col-6-medium col-12-small">
                                     <section class="box">
                                        <a href="#" class="image featured"><img src="images/dog1/bi.jpg" alt="" /></a>
                                        <header>
                                           <h3>비숑프리제 Bichon Frise</h3>
+                                          <form style="margin-top:10px">
+                                          <input type="checkbox" style="margin-top:210px" onclick="javascript:this.form.amount1.value++;" id="heart2"/>
+          								 <label for="heart2">❤</label>
+                                       	<input type="text" name="amount1" style="width:70px; height:20px;font-size:20px;text-align:center;" value="1" disabled/>
+
+                                       </form>
                                        </header>
-                                       <p><input id="heart2" type="checkbox" />
-                                          <label for="heart2">❤</label></p>
+                                      
+                                         
                                     </section>
                                  </div>
                                  <div class="col-4 col-6-medium col-12-small">
@@ -76,9 +95,14 @@
                                        <a href="#" class="image featured"><img src="images/dog1/pome.jpg" alt="" /></a>
                                        <header>
                                           <h3>포메라니안 Pomeranian</h3>
+                                             <form style="margin-top:10px">
+                                        <input type="checkbox" style="margin-top:210px" onclick="javascript:this.form.amount2.value++;" id="heart3"/>
+                						<label for="heart3">❤</label>
+                                       	<input type="text" name="amount2" style="width:70px; height:20px;font-size:20px;text-align:center;" value="1" disabled/>
+
+                                       </form>
                                        </header>
-                                       <p><input id="heart3" type="checkbox" />
-                                          <label for="heart3">❤</label></p>
+                                       
                                     </section>
                                  </div>
                                  <div class="col-4 col-6-medium col-12-small">
@@ -86,9 +110,14 @@
                                        <a href="#" class="image featured"><img src="images/dog1/wel.jpg" alt="" /></a>
                                        <header>
                                           <h3>웰시코기 Welshcorgi</h3>
+                                             <form style="margin-top:10px">
+                                             <input type="checkbox" style="margin-top:210px" onclick="javascript:this.form.amount3.value++;" id="heart4"/>
+                                      		 <label for="heart4">❤</label>
+                                       		<input type="text" name="amount3" style="width:70px; height:20px;font-size:20px;text-align:center;" value="1" disabled/>
+                                       	
+                                       </form>
                                        </header>
-                                       <p><input id="heart4" type="checkbox" />
-                                          <label for="heart4">❤</label></p>
+                                       
                                     </section>
                                  </div>
                                  <div class="col-4 col-6-medium col-12-small">
@@ -96,9 +125,14 @@
                                        <a href="#" class="image featured"><img src="images/dog1/poodle.jpg" alt="" /></a>
                                        <header>
                                           <h3>푸들 Poodle</h3>
+                                             <form style="margin-top:10px">
+                                             <input type="checkbox" style="margin-top:210px" onclick="javascript:this.form.amount4.value++;" id="heart5"/>
+                                     		  <label for="heart5">❤</label>
+                                      		 	<input type="text" name="amount4" style="width:70px; height:20px;font-size:20px;text-align:center;" value="1" disabled/>
+                                       		
+                                       </form>
                                        </header>
-                                       <p><input id="heart5" type="checkbox" />
-                                          <label for="heart5">❤</label></p>
+                                      
                                     </section>
                                  </div>
                                  <div class="col-4 col-6-medium col-12-small">
@@ -106,9 +140,14 @@
                                        <a href="#" class="image featured"><img src="images/dog1/husky.jpg" alt="" /></a>
                                        <header>
                                           <h3>허스키 Siberian Husky</h3>
+                                        <form style="margin-top:10px">
+                                        <input type="checkbox" style="margin-top:210px" onclick="javascript:this.form.amount5.value++;" id="heart6"/>
+                                       <label for="heart6">❤</label>
+                                       	<input type="text" name="amount5" style="width:70px; height:20px;font-size:20px;text-align:center;" value="1" disabled/>
+                                       	
+                                       </form>
                                        </header>
-                                       <p><input id="heart6" type="checkbox" />
-                                          <label for="heart6">❤</label></p>
+                                    
                                     </section>
                                  </div>
                               </div>

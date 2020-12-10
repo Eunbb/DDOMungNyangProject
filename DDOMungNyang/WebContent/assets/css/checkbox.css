@@ -20,7 +20,7 @@
 [for="heart1"]:hover,[for="heart2"]:hover,
 [for="heart3"]:hover,[for="heart4"]:hover,
 [for="heart5"]:hover,[for="heart6"]:hover {
-  color: grey;
+  color: #f08ca0;
 }
 
 [for="heart1"]::selection,[for="heart2"]::selection,

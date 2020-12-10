@@ -13,7 +13,7 @@ insert into users(id,pwd,name,point) values('admin','1111','어드민',35.34);
 insert into users(id,pwd,name,point) values('abcd','1111','테스트',65.78);
 commit
 
-select * from test1;
+select * from test1 where id = 'admin@daum.com'
 
 create table test1(
 id varchar2(30) primary key,       

@@ -47,4 +47,12 @@ public class LoginDAO {
 		}
 		return n;
 	}
+	public String overlap(String id) {
+		SqlSession session = factory.openSession();
+		System.out.println("DAO : " + id);
+		String str = session.selectOne("mybatis.LoginMapper.overlap",id);
+		System.out.println("DAO : " + str);
+		return str;
+	}
+	
 }

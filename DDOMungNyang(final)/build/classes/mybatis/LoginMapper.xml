@@ -15,4 +15,12 @@
 		VALUES (#{id},#{pw},#{repw},#{name},#{nick},#{birth},#{phone},#{zipcode},#{addr})
 	]]>
 	</select>
+	
+	<select id="overlap" parameterType="java.lang.String" resultType="String">
+		<![CDATA[
+			select * from test1 where id =#{id} 
+		
+		]]>
+	
+	</select>
 </mapper>

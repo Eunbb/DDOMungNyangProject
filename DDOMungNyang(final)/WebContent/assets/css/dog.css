@@ -2942,11 +2942,19 @@ input, select, textarea {
 			}
 
 	}
+	.doglist_bottom_search_form{
+		text-align: right;
+	}
+	.serch{
+	text-align: center;
+	}
+
 /* paging-block */
 	.paging-block {
 	  display: inline-block;
 	  text-align: center;
 	  vertical-align: middle;
+	  padding-left: 400px;
 	}
 	
 	.paging-block a {

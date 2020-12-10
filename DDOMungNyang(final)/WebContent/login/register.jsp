@@ -1,3 +1,4 @@
+<%@page import="com.login.dto.LoginDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,6 +18,10 @@
     }else if(str=="emailcheck"){
        alert('이메일 인증을 해주세요');
      }
+ }
+ function overlap(){
+	 signup.action="/bbs/overlap.do"
+	 
  }
 
 </script>
@@ -42,9 +47,27 @@
       }
 
    }
+   
+ 
 </script>
 </head>
 <body class="homepage is-preload">
+
+<%
+	String str = (String)request.getAttribute("id");
+	String result;
+	if(str == null){
+		result="아이디를 입력해주세요";
+	}
+	else if(str == ""){
+		result="사용가능한 아이디입니다";
+	}
+	else{
+		result="이미 등록된 아이디 입니다";
+	}
+	
+
+%>
    <div id="page-wrapper">
       <!-- 로그인/회원가입 버튼 -->
       <section id="starter">
@@ -71,17 +94,19 @@
                      <div class="inputWrap">
                         <!-- div시작 -->
                         <div class="col-sm-3">
-                           <input type="email" id="sample6_postcode"
+                           <input type="email" id="id"
                               placeholder="이메일을 입력해주세요" name="id" class="form-control">
                         </div>
                         <div class="adress_button">
-							<input type="button" id="emailchk_button" onclick=""
+							<input type="submit" id="emailchk_button" onclick="overlap()"
 									style="font-size:0.8em;margin:0" value="중복확인" class="btn">
 						</div>
+						
                         <div class="adress_button">
                            <input type="submit" id="adress_button" onclick='btn_click("sendMail");'
                               value="이메일 인증" style="font-size:0.8em;margin:0" class="btn">
                         </div>
+                        <%=result %>
                         <!-- div 끝 -->
                      </div>
                         

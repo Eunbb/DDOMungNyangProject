@@ -1,3 +1,4 @@
+<%@page import="com.login.dto.LoginDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,7 +12,10 @@
    </head>
    <body class="left-sidebar is-preload">
       <div id="page-wrapper">
-
+<%
+   LoginDTO entity = (LoginDTO)session.getAttribute("logOK");
+  
+%>
          <!-- Header -->
             <section id="header">
 
@@ -146,7 +150,12 @@
                               </div>
                            </section>
                               <div class=doglist_bottom_search_form>
-                                 <input type ="text" placeholder="Search" name="keyword">
+                              <%if(entity ==null){ %>
+                                 <button id="hi" onclick="location.href='/bbs/login/login.jsp'">글등록</button>
+                                 <%} else{%>
+                                  <button id="hi" onclick="">글등록</button>
+                                 
+                                 <%} %>
                               </div>
                               <div class="paging-block">
                                  <a href="#"><span>Previous</span></a>

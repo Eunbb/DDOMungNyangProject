@@ -15,7 +15,13 @@ function btn_write() {
 // 		writeUp.action="/bbs/index.jsp"
 	}
   }
-
+function checkLogin(id,seq,pg){
+	if(id=='null'){
+		alert("먼저 로그인 해주세요");	
+	}else{
+		location.href="/bbs/boardView.do?seq="+seq+"&pg="+pg;	
+	}	
+}
 </script>
 
 <!DOCTYPE HTML>
@@ -109,7 +115,7 @@ input[type="submit"]{padding: 0.6em 1.5em 0.65em 0.5em;}
 				if(ob.getPseq() != 0)    // 원래글은 표식(X), 댓글에 표식(O)
 				{
 %>				
-				<img src="image/reply.gif">
+				<img src="image/qna/reply.gif">
 <%
 				}
 %>			

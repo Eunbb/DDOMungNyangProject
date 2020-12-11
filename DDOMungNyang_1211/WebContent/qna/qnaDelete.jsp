@@ -1,25 +1,10 @@
-<%@page import="com.login.dto.LoginDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.board.dto.BoardPaging"%>
 <%@page import="com.board.dto.BoardDTO"%>
 <%@page import="java.util.List"%>
-
-
-<script>				
-function btn_write() {
-	var entity ='<%=(LoginDTO)session.getAttribute("logOK")%>';
-	if(entity == "null") {
-	   alert('로그인이 필요합니다');
-	} else {
-		alert('페이지로 이동합니다');
-// 		writeUp.action="/bbs/index.jsp"
-	}
-  }
-function boardView(seq,pg){
-	location.href="/bbs/boardView.do?seq="+seq+"&pg="+pg;	
-}
-</script>
-
+<%
+   int pg=(Integer)request.getAttribute("pg");
+%>
 <!DOCTYPE HTML>
 <!--
 	Dopetrope by HTML5 UP
@@ -33,7 +18,7 @@ function boardView(seq,pg){
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body class="right-sidebar is-preload">
+	<body class="right-sidebar is-preload" onload = "alert('삭제되었습니다'); location.href='/bbs/boardList.do?pg=<%=pg%>';">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -53,94 +38,12 @@ function boardView(seq,pg){
 								<li class="current"><a href="#">Q&A</a></li>
 							</ul>
 						</nav>
+
 				</section>
 
+<!-- boardView -->
 
-
-<!-- QnA board -->
-
-<%
-	List<BoardDTO> list=(List<BoardDTO>)request.getAttribute("list");
-	int pg=(Integer)request.getAttribute("pg");
-	BoardPaging paging=(BoardPaging)request.getAttribute("paging");
-%>
-
-<style>
-#header {border-bottom: 1px #ccc;}
-div.write {background-color:#ffffff;}
-input[type="submit"]{padding: 0.6em 1.5em 0.65em 0.5em;}
-</style>
-
-   <form class="form-horizontal"  method="post" name="writeUp">
-                       <div class="write">        
-							<input type="submit" id="register_btn" onclick="btn_write()"
-									style="font-size:1.5em; margin:0" value="글등록하기★" class="btn">
-						</div>
-						</form>
-<table>
-	<tr>
-		<td colspan="5" bgcolor="777777"></td>
-	</tr>
-	<tr>
-		<th width="100">글번호</th>
-		<th width="300">제목</th>
-		<th width="100">작성자</th>
-		<th width="100">조회수</th>
-		<th width="100">작성일</th>
-	</tr>
-	<tr>
-		<td colspan="5" bgcolor="777777"></td>
-	</tr>
-<%
-	if(list != null)
-	{
-		for(BoardDTO ob:list)
-		{
-%>	
-		<tr>
-			<td align="center"><%=ob.getSeq()%></td>
-			<td>
-<%
-				for(int i=0; i<ob.getLev(); i++)  //댓글 들여쓰기
-				{
-%>				
-				&nbsp;
-<%
-				}
-
-				if(ob.getPseq() != 0)    // 원래글은 표식(X), 댓글에 표식(O)
-				{
-%>				
-				<img src="images/qna/reply.gif">
-<%
-				}
-%>			
-			   <a href="#" 
-			   onclick="boardView('<%=ob.getSeq()%>','<%=pg%>')" 
-			   class="subjectA"><%=ob.getSubject()%></a>
-		
-			</td>
-			<td align="center"><%=ob.getId()%></td>
-			<td align="center"><%=ob.getHit()%></td>
-			<td align="center"><%=ob.getLogtime()%></td>
-		</tr>
-		<tr>
-			<td colspan="5" bgcolor="cccccc"></td>
-		</tr>
-<%
-		}//end for
-	} //end if
-%>	
-	<tr>
-		<td colspan="5" bgcolor="777777"></td>
-	</tr>
-	<tr>	
-		<td colspan="5" align="center"><%=paging.getPagingHTML()%> </td>
-	</tr>
-</table>
-                     
-
-
+<br><br><br>
 			<!-- Footer -->
 				<section id="footer">
             <div class="container">
@@ -148,7 +51,7 @@ input[type="submit"]{padding: 0.6em 1.5em 0.65em 0.5em;}
                   <div class="col-8 col-12-medium">
                      <section id="footer">
                         <header>
-                           <h2></h2>
+                           <h2>Blandit nisl adipiscing</h2>
                         </header>
                         <ul class="dates">
                            <li><span class="date">연중무휴</span>

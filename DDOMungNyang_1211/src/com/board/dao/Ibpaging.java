@@ -31,23 +31,23 @@ public class Ibpaging {
 		
 		if(startPage > pageBlock) {		
 			pagingHTML.append("<span id='pagingSpan'"
-					+ "onclick='imageBoardPaging(" + (startPage - 1) + ")'>[이전]</span>");
+					+ "onclick='ibpaging(" + (startPage - 1) + ")'>[이전]</span>");
 		}
 		
 		for(int i = startPage; i <= endPage; i++) {
 			if(currentPage == i) {
 				pagingHTML.append("<span id='currentPagingSpan'"
-						+ "onclick='imageBoardPaging("+ i +")'>["+ i +"]</span>");
+						+ "onclick='ibpaging("+ i +")'>["+ i +"]</span>");
 			
 			} else {			
 				pagingHTML.append("<span id='pagingSpan'"
-						+ "onclick='imageBoardPaging("+ i +")'>["+ i +"]</span>");
+						+ "onclick='ibpaging("+ i +")'>["+ i +"]</span>");
 			}
 		}
 		
 		if(endPage < totalP) {
 			pagingHTML.append("<span id='pagingSpan'"//id는 스타일시트때문에 만든다
-					+ "onclick='imageBoardPaging(" + (startPage + pageBlock) + ")'>[다음]</span>");
+					+ "onclick='ibpaging(" + (startPage + pageBlock) + ")'>[다음]</span>");
 		}
 	}
 	

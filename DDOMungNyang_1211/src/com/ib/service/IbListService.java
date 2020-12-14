@@ -21,8 +21,10 @@ public class IbListService implements CommandAction{
 		System.out.println(pg); // 1
 		//select-DB
 		BoardDAO dao = BoardDAO.getInstance();
-		int endNum= pg*6; // 6건씩 보여줌 한 페이지에
+		int endNum= pg*6; // 6건씩 보여줌 한 페이지에\
+		System.out.println(endNum + "List");
 		int startNum = endNum-5; // -5
+		System.out.println(startNum + "pro");
 		
 		Map<String,Object> map = new HashMap<>();
 		map.put("startNum", startNum);
@@ -30,7 +32,7 @@ public class IbListService implements CommandAction{
 		List<IbDTO> list = dao.getImageList(map);
 		
 		//페이지처리
-		Ibpaging paging = new Ibpaging(pg,3,6); // 현재페이지,표시할 페이지수, 출력할게시물수
+		Ibpaging paging = new Ibpaging(pg,5,6); // 현재페이지,표시할 페이지수, 출력할게시물수
 		paging.makePagingHTML();
 		
 		//request객체에 등록

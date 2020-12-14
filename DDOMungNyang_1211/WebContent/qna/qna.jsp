@@ -3,6 +3,29 @@
 <%@page import="com.board.dto.BoardPaging"%>
 <%@page import="com.board.dto.BoardDTO"%>
 <%@page import="java.util.List"%>
+
+<script>				
+function btn_write() {
+ 	var entity ='<%=(LoginDTO)session.getAttribute("logOK")%>';
+	if(entity == "null") {
+ 	   alert('로그인이 필요합니다');
+	} else {
+ 		writeUp.action="/bbs/qna/qnaWrite.jsp"
+	}
+  } 
+
+function boardView(seq,pg){
+	location.href="/bbs/boardView.do?seq="+seq+"&pg="+pg;	
+}
+</script>
+
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
 <style>
 #header {border-bottom: 1px #ccc;}
 div.write {background-color:#ffffff;}
@@ -50,29 +73,6 @@ font {
  color: #FFA07A;
 }
 </style>
-
-<script>				
-function btn_write() {
- 	var entity ='<%=(LoginDTO)session.getAttribute("logOK")%>';
-	if(entity == "null") {
- 	   alert('로그인이 필요합니다');
-	} else {
- 		writeUp.action="/bbs/qna/qnaWrite.jsp"
-	}
-  } 
-
-function boardView(seq,pg){
-	location.href="/bbs/boardView.do?seq="+seq+"&pg="+pg;	
-}
-</script>
-
-<!DOCTYPE HTML>
-<!--
-	Dopetrope by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
 	<head>
 		<title>Dopetrope by HTML5 UP</title>
 		<meta charset="utf-8" />

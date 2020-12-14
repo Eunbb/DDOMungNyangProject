@@ -29,7 +29,7 @@
 								<li><a href="cat.html">고양이 분양</a></li>
 								<li><a href="abandoned.html">유기동물 분양</a></li>
 								<li><a href="service.html">서비스</a></li>
-								<li class="current"><a href="#">Q&A</a></li>
+								<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li>
 							</ul>
 						</nav>
 

@@ -1,10 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="com.board.dto.BoardPaging"%>
-<%@page import="com.board.dto.BoardDTO"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="com.login.dto.LoginDTO" %>
 <%@page import="java.util.List"%>
-<%
-   int pg=(Integer)request.getAttribute("pg");
-%>
 <!DOCTYPE HTML>
 <!--
 	Dopetrope by HTML5 UP
@@ -12,13 +8,23 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<script>
+function checkBoardReply(){
+	if(document.boardReplyForm.subject.value=="") 
+		alert("제목을 입력하세요");	
+	else if(document.boardReplyForm.content.value=="") 
+		alert("내용을 입력하세요");
+	else 
+		document.boardReplyForm.submit();
+}
+</script>
 	<head>
-		<title>Dopetrope by HTML5 UP</title>
+		<title>또멍냥</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="/bbs/assets/css/main.css" />
 	</head>
-	<body class="right-sidebar is-preload" onload = "alert('삭제되었습니다'); location.href='/bbs/boardList.do?pg=<%=pg%>';">
+	<body class="right-sidebar is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -41,10 +47,51 @@
 
 				</section>
 
-<!-- boardView -->
+<!-- ReplyForm -->
+<%
+// 	LoginDTO log=(LoginDTO)session.getAttribute("logOK");
+	int pseq=(Integer)request.getAttribute("pseq");
+	int pg=(Integer)request.getAttribute("pg");
+%>
+<form name="boardReplyForm" method="post" action="/bbs/boardReply.do">
+<input type="hidden" name="pseq" value="<%=pseq%>">
+<input type="hidden" name="pg" value="<%=pg%>">
+<h3>답글쓰기</h3>
+<table border="1" >
+	<tr>
+		<td>아이디</td>
+		<td><input type="text" name="id" size="50"  value="<%-- <%=log.getId() %> --%>id" readonly></td>
+	</tr>
+	<tr>
+		<td>이름</td>
+		<td><input type="text" name="name" size="50" value="<%-- <%=log.getName()%> --%>name" readonly></td>
+	</tr>	
+	<tr>
+		<td>이메일</td>
+		<td><input type="text" name="email" size="50"></td>
+	</tr>
+	<tr>
+		<td>제 목</td>
+		<td><input type="text" name="subject" size="50"></td>
+	</tr>
+	
+	<tr>
+		<td>내 용</td>
+		<td><textarea name="content" cols="50" rows="15"></textarea></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2" align="center">
+		<input type="button" value="답글쓰기" onclick="checkBoardReply()">
+		<input type="reset" value="다시작성">
+		</td>
+		
+	</tr>
+</table>
+</form>
 
-<br><br><br>
-			<!-- Footer -->
+
+<!-- Footer -->
 				<section id="footer">
             <div class="container">
                <div class="row">
@@ -112,6 +159,7 @@
                      </div>
 
                   </div>
+               </div>
                </div>
          </section>
 

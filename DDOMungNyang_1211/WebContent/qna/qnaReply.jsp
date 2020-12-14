@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="com.board.dto.BoardPaging"%>
-<%@page import="com.board.dto.BoardDTO"%>
-<%@page import="java.util.List"%>
 <%
    int pg=(Integer)request.getAttribute("pg");
 %>
@@ -18,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body class="right-sidebar is-preload" onload = "alert('삭제되었습니다'); location.href='/bbs/boardList.do?pg=<%=pg%>';">
+	<body class="right-sidebar is-preload" onload = "alert('댓글을 저장했습니다.'); location.href='/bbs/boardList.do?pg=<%=pg%>';">
 		<div id="page-wrapper">
 
 			<!-- Header -->

@@ -7,14 +7,15 @@
 
 <script>				
 function btn_write() {
- 	var entity ='<%=(LoginDTO)session.getAttribute("logOK")%>';
+	location.href="/bbs/qna/qnaWrite.jsp";
+<%-- 	var entity ='<%=(LoginDTO)session.getAttribute("logOK")%>';
 	if(entity == "null") {
  	   alert('로그인이 필요합니다');
 	} else {
  		writeUp.action="/bbs/qna/qnaWrite.jsp"
 	}
-  } 
-
+  } --%>
+}
 function boardView(seq,pg){
 	location.href="/bbs/boardView.do?seq="+seq+"&pg="+pg;	
 }
@@ -50,7 +51,7 @@ function boardView(seq,pg){
 								<li><a href="cat.html">고양이 분양</a></li>
 								<li><a href="abandoned.html">유기동물 분양</a></li>
 								<li><a href="service.html">서비스</a></li>
-								<li class="current"><a href="#">Q&A</a></li>
+								<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li>
 							</ul>
 						</nav>
 				</section>
@@ -69,68 +70,25 @@ function boardView(seq,pg){
 #header {border-bottom: 1px #ccc;}
 div.write {background-color:#ffffff;}
 input[type="submit"]{padding: 0.6em 1.5em 0.65em 0.5em;}
-
-table.QnA-table tr th {
-  width: 150px;
-  padding: 10px;
-  font-weight: bold;
-  vertical-align: top;
-  color: #000000;
-  background: #FFFAFA;
-  margin: 20px 10px;
-  
-}
-
-table.QnA-table td.td1  {
-  width: 150px;
-  padding: 10px;
-  
-  vertical-align: top;
-  color: #A9A9A9;
-  background: #FFFAFA;
-  margin: 20px 10px;
-}
-
-.subjectA {
-  width: 150px;
-  font-weight: bold;
-  vertical-align: top;
-  color: #FFA07A;
-  background: #FFFAFA;
-  text-align:left;
-}
-
-table.QnA-table tr th.th1 {
-  text-align: center;
-}
-
-a {
- color: #FFA07A;
- text-decoration: underline;
-}
-font {
- color: #FFA07A;
-}
 </style>
 
-<form class="form-horizontal"  method="post" name="writeUp">
 <div class="write">        
-<input type="submit" id="register_btn" onclick="btn_write()"
-		style="font-size:1.5em; margin:0" value="글등록하기★" class="btn">
+<input type="button" id="register_btn" onclick="btn_write()"
+		style="font-size:1.5em; margin:0" value="글 등록하기" class="btn">
 </div>
-<table class="QnA-table">
+<table>
 	<tr>
-		<td colspan="5" bgcolor="#ffffff"></td>
+		<td colspan="5" bgcolor="777777"></td>
 	</tr>
 	<tr>
 		<th width="100">글번호</th>
 		<th width="300">제목</th>
-		<th class="th1" width="100">작성자</th>
-		<th class="th1" width="100">조회수</th>
-		<th class="th1" width="100">작성일</th>
+		<th width="100">작성자</th>
+		<th width="100">조회수</th>
+		<th width="100">작성일</th>
 	</tr>
 	<tr>
-		<td colspan="5" bgcolor="#ffffff"></td>
+		<td colspan="5" bgcolor="777777"></td>
 	</tr>
 <%
 	if(list != null)
@@ -139,8 +97,8 @@ font {
 		{
 %>	
 		<tr>
-			<td class="td1"><%=ob.getSeq()%></td>
-			<td class="td1">
+			<td align="center"><%=ob.getSeq()%></td>
+			<td>
 <%
 				for(int i=0; i<ob.getLev(); i++)  //댓글 들여쓰기
 				{
@@ -161,24 +119,24 @@ font {
 			   class="subjectA"><%=ob.getSubject()%></a>
 		
 			</td>
-			<td class="td1" align="center"><%=ob.getId()%></td>
-			<td class="td1" align="center"><%=ob.getHit()%></td>
-			<td class="td1" align="center"><%=ob.getLogtime()%></td>
+			<td align="center"><%=ob.getId()%></td>
+			<td align="center"><%=ob.getHit()%></td>
+			<td align="center"><%=ob.getLogtime()%></td>
 		</tr>
 		<tr>
-			
+			<td colspan="5" bgcolor="cccccc"></td>
 		</tr>
 <%
 		}//end for
 	} //end if
 %>	
 	<tr>
-		<td colspan="5" bgcolor="#ffffff"></td>
+		<td colspan="5" bgcolor="777777"></td>
 	</tr>
 	<tr>	
-		<td colspan="5" align="center" bgcolor="#ffffff"><%=paging.getPagingHTML()%> </td>
+		<td colspan="5" align="center"><%=paging.getPagingHTML()%> </td>
 	</tr>
-</table><br>
+</table>
                      
 
 
@@ -211,14 +169,16 @@ font {
                               <h2>또먹냥~?</h2>
                            </header>
                            <ul class="social">
-                              <li><a class="fab fa-facebook-f" href="#"><span
-                                    class="label"></span></a></li>
-                              <li><a class="fab fa-twitter" href="#"><span
-                                    class="label"></span></a></li>
-                              <li><a class="fab fa-instagram" href="#"><span
-                                    class="label"></span></a></li>
-                              <li><a class="fab fa-youtube" href="#"><span
-                                    class="label"></span></a></li>
+                              <li><a class="icon brands fa-facebook-f" href="#"><span
+                                    class="label">Facebook</span></a></li>
+                              <li><a class="icon brands fa-twitter" href="#"><span
+                                    class="label">Twitter</span></a></li>
+                              <li><a class="icon brands fa-dribbble" href="#"><span
+                                    class="label">Dribbble</span></a></li>
+                              <li><a class="icon brands fa-tumblr" href="#"><span
+                                    class="label">Tumblr</span></a></li>
+                              <li><a class="icon brands fa-linkedin-in" href="#"><span
+                                    class="label">LinkedIn</span></a></li>
                            </ul>
                            <ul class="contact">
                               <li>

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.board.dto.BoardPaging"%>
 <%@page import="com.board.dto.BoardDTO"%>
 <%@page import="java.util.List"%>
@@ -45,7 +45,7 @@ function del() {
 								<li><a href="cat.html">고양이 분양</a></li>
 								<li><a href="abandoned.html">유기동물 분양</a></li>
 								<li><a href="service.html">서비스</a></li>
-								<li class="current"><a href="#">Q&A</a></li>
+								<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li>
 							</ul>
 						</nav>
 
@@ -169,6 +169,7 @@ function del() {
                      </div>
 
                   </div>
+               </div>
                </div>
          </section>
 

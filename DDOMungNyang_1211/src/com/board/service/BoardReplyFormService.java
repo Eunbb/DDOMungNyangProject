@@ -15,6 +15,6 @@ public class BoardReplyFormService implements CommandAction{
 	    request.setAttribute("pseq", pseq);
 	    request.setAttribute("pg", pg);
 	    
-		return "board/boardReplyForm.jsp";
+	    return "qna/qnaReplyForm.jsp";
 	}
 }

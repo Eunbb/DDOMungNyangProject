@@ -40,6 +40,6 @@ public class BoardReplyService implements CommandAction{
 	      
 	      request.setAttribute("pg", pg);
 	      
-		return "board/boardReply.jsp";
+	      return "qna/qnaReply.jsp";
 	}
 }

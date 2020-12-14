@@ -11,6 +11,7 @@
 -->
 <html>
 <head>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script language =javascript>
  function btn_click(str) {
     if(str=="sendMail"){
@@ -25,31 +26,35 @@
  }
 
 </script>
-
+<script>
+$(document).ready(function(){
+	
+	//jQuery
+	$("#pw").keyup(function(){
+		pw1=$("#pw").val();
+		if(pw1 != ""){
+			$("#pwd1").html("");
+		}
+	});
+	
+	$("#repw").keyup(function(){
+		pw1=$("#pw").val();
+		pw2=$("#repw").val();
+		
+		if(pw1==pw2){
+			$("#pwd2").text("비밀번호가 일치합니다.").css({'font-weight' : 'bold','color':'green'});
+		}else{
+			$("#pwd2").text("비밀번호가 일치하지않습니다").css({'font-weight' : 'bold','color':'red'});
+		}
+	})
+});
+</script>
 
 <title>DDO:MUNGNYANG</title>
 <meta charset="utf-8" />
 <meta name="viewport"
    content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/bbs/assets/css/register.css" />
-<script>
-   function pwCheck() {
-      if (document.signup.pw.value == "") {
-         alert("비밀번호를 입력하세요");
-         signup.pw.focus();
-      } else if (document.signup.repw.value == "") {
-         alert("비밀번호를 입력하세요");
-         signup.repw.focus();
-      } else if (document.signup.pw.value != document.signup.repw.value) {
-         alert("비밀번호가 일치하지 않습니다.")
-      } else {
-         document.signup.submit();
-      }
-
-   }
-   
- 
-</script>
 </head>
 <body class="homepage is-preload">
 
@@ -116,19 +121,19 @@
                      </h3>
                      <div class="col-sm-6">
                         <input type="password" class="form-control" name="pw" id="pw">
-                        <p style="color: red;">${pwdError}</p>
                      </div>
                      <h3 class="col-sm-2 control-label">
                         <label for="pwdCheck" id="pwdCheck">비밀번호 확인</label>
                      </h3>
                      <div class="col-sm-3">
-                        <input type="password" id="repw" name="repw"
-                           class="form-control" value="${member.email }">
+                        <input type="password" id="repw" name="repw" class="form-control" >
+                        <p style="color: red;" id="pwd2">${pwdError}</p>
                      </div>
-                     <div class="adress_button">
+                     
+<%--                      <div class="adress_button">
                         <input type="button" id="pwbtn" onclick="pwCheck()" value="중복확인"
                            class="btn">
-                     </div>
+                     </div> --%>
 
                   </div>
                </div>

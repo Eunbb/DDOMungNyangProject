@@ -25,6 +25,6 @@ public class BoardModifyService implements CommandAction{
 	    request.setAttribute("seq", seq);
 	    request.setAttribute("pg", pg);
 	    
-		return "board/boardModify.jsp";
+		return "qna/qnaModify.jsp";
 	}
 }

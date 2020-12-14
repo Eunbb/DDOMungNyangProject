@@ -28,6 +28,6 @@ public class BoardUpdateService implements CommandAction{
 		
 		request.setAttribute("pg",pg);
 		
-		return "board/boardUpdate.jsp";
+		return "qna/qnaUpdate.jsp";
 	}
 }

@@ -203,16 +203,14 @@
                               <h2>또먹냥~?</h2>
                            </header>
                            <ul class="social">
-                              <li><a class="icon brands fa-facebook-f" href="#"><span
-                                    class="label">Facebook</span></a></li>
-                              <li><a class="icon brands fa-twitter" href="#"><span
-                                    class="label">Twitter</span></a></li>
-                              <li><a class="icon brands fa-dribbble" href="#"><span
-                                    class="label">Dribbble</span></a></li>
-                              <li><a class="icon brands fa-tumblr" href="#"><span
-                                    class="label">Tumblr</span></a></li>
-                              <li><a class="icon brands fa-linkedin-in" href="#"><span
-                                    class="label">LinkedIn</span></a></li>
+                              <li><a class="fab fa-facebook-f " href="https://www.facebook.com"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-twitter " href="#"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-instagram" href="#"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-youtube" href="#"><span
+                                    class="label"></span></a></li>
                            </ul>
                            <ul class="contact">
                               <li>

@@ -1,26 +1,8 @@
-<%@page import="com.login.dto.LoginDTO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="com.login.dto.LoginDTO" %>
 <%@page import="com.board.dto.BoardPaging"%>
 <%@page import="com.board.dto.BoardDTO"%>
 <%@page import="java.util.List"%>
-
-
-<script>				
-function btn_write() {
-	location.href="/bbs/qna/qnaWrite.jsp";
-<%-- 	var entity ='<%=(LoginDTO)session.getAttribute("logOK")%>';
-	if(entity == "null") {
- 	   alert('로그인이 필요합니다');
-	} else {
- 		writeUp.action="/bbs/qna/qnaWrite.jsp"
-	}
-  } --%>
-}
-function boardView(seq,pg){
-	location.href="/bbs/boardView.do?seq="+seq+"&pg="+pg;	
-}
-</script>
-
 <!DOCTYPE HTML>
 <!--
 	Dopetrope by HTML5 UP
@@ -28,11 +10,24 @@ function boardView(seq,pg){
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<script>
+function checkBoardWrite(){
+	if(document.boardWriteForm.subject.value==""){
+		alert("제목을 입력하세요");
+		boardWriteForm.subject.focus();
+	}else if(document.boardWriteForm.content.value==""){
+		alert("내용을 입력하세요");
+		boardWriteForm.content.focus();
+	}else{ 
+		document.boardWriteForm.submit();
+	}
+}
+</script>
 	<head>
-		<title>Dopetrope by HTML5 UP</title>
+		<title>또멍냥</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="/bbs/assets/css/main.css" />
 	</head>
 	<body class="right-sidebar is-preload">
 		<div id="page-wrapper">
@@ -54,100 +49,58 @@ function boardView(seq,pg){
 								<li class="current"><a href="#">Q&A</a></li>
 							</ul>
 						</nav>
+
 				</section>
 
-
-
-<!-- QnA board -->
-
-<%
-	List<BoardDTO> list=(List<BoardDTO>)request.getAttribute("list");
-	int pg=(Integer)request.getAttribute("pg");
-	BoardPaging paging=(BoardPaging)request.getAttribute("paging");
-%>
-
-<style>
-#header {border-bottom: 1px #ccc;}
-div.write {background-color:#ffffff;}
-input[type="submit"]{padding: 0.6em 1.5em 0.65em 0.5em;}
-</style>
-
-<div class="write">        
-<input type="button" id="register_btn" onclick="btn_write()"
-		style="font-size:1.5em; margin:0" value="글 등록하기" class="btn">
-</div>
-<table>
+<!-- boardWrite -->
+<%-- <%
+	LoginDTO ob=(LoginDTO)session.getAttribute("logOK");
+	if(ob != null){
+%> --%>
+<form name="boardWriteForm" method="post" action="/bbs/boardInsert.do">
+<h3>글쓰기</h3>
+<table border="1" >
 	<tr>
-		<td colspan="5" bgcolor="777777"></td>
+		<td>아이디</td>
+		<td><input type="text" name="id" size="50"  value="id" readonly></td>
 	</tr>
 	<tr>
-		<th width="100">글번호</th>
-		<th width="300">제목</th>
-		<th width="100">작성자</th>
-		<th width="100">조회수</th>
-		<th width="100">작성일</th>
+		<td>이름</td>
+		<td><input type="text" name="name" size="50" value="name" readonly></td>
+	</tr>	
+	<tr>
+		<td>이메일</td>
+		<td><input type="text" name="email" size="50"></td>
 	</tr>
 	<tr>
-		<td colspan="5" bgcolor="777777"></td>
+		<td>제 목</td>
+		<td><input type="text" name="subject" size="50"></td>
 	</tr>
-<%
-	if(list != null)
-	{
-		for(BoardDTO ob:list)
-		{
-%>	
-		<tr>
-			<td align="center"><%=ob.getSeq()%></td>
-			<td>
-<%
-				for(int i=0; i<ob.getLev(); i++)  //댓글 들여쓰기
-				{
-%>				
-				&nbsp;
-<%
-				}
-
-				if(ob.getPseq() != 0)    // 원래글은 표식(X), 댓글에 표식(O)
-				{
-%>				
-				<img src="images/qna/reply.gif">
-<%
-				}
-%>			
-			   <a href="#" 
-			   onclick="boardView('<%=ob.getSeq()%>','<%=pg%>')" 
-			   class="subjectA"><%=ob.getSubject()%></a>
-		
-			</td>
-			<td align="center"><%=ob.getId()%></td>
-			<td align="center"><%=ob.getHit()%></td>
-			<td align="center"><%=ob.getLogtime()%></td>
-		</tr>
-		<tr>
-			<td colspan="5" bgcolor="cccccc"></td>
-		</tr>
-<%
-		}//end for
-	} //end if
-%>	
 	<tr>
-		<td colspan="5" bgcolor="777777"></td>
+		<td>내 용</td>
+		<td><textarea name="content" cols="50" rows="15"></textarea></td>
 	</tr>
-	<tr>	
-		<td colspan="5" align="center"><%=paging.getPagingHTML()%> </td>
+	
+	<tr>
+		<td colspan="2" align="center">
+		<input type="button" value="글쓰기" onclick="checkBoardWrite()">
+		<input type="reset" value="다시작성">
+		</td>
 	</tr>
 </table>
-                     
+</form>
+<%-- <%
+	} //end if
+%> --%>
 
-
-			<!-- Footer -->
+<!-- Footer -->
 				<section id="footer">
             <div class="container">
                <div class="row">
                   <div class="col-8 col-12-medium">
                      <section id="footer">
                         <header>
-                           <h2></h2>
+                           <h2>Blandit nisl adipiscing</h2>
                         </header>
                         <ul class="dates">
                            <li><span class="date">연중무휴</span>
@@ -208,6 +161,7 @@ input[type="submit"]{padding: 0.6em 1.5em 0.65em 0.5em;}
                      </div>
 
                   </div>
+               </div>
                </div>
          </section>
 

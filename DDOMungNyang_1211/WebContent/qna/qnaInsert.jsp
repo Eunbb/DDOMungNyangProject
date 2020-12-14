@@ -1,26 +1,4 @@
-<%@page import="com.login.dto.LoginDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="com.board.dto.BoardPaging"%>
-<%@page import="com.board.dto.BoardDTO"%>
-<%@page import="java.util.List"%>
-
-
-<script>				
-function btn_write() {
-	location.href="/bbs/qna/qnaWrite.jsp";
-<%-- 	var entity ='<%=(LoginDTO)session.getAttribute("logOK")%>';
-	if(entity == "null") {
- 	   alert('로그인이 필요합니다');
-	} else {
- 		writeUp.action="/bbs/qna/qnaWrite.jsp"
-	}
-  } --%>
-}
-function boardView(seq,pg){
-	location.href="/bbs/boardView.do?seq="+seq+"&pg="+pg;	
-}
-</script>
-
 <!DOCTYPE HTML>
 <!--
 	Dopetrope by HTML5 UP
@@ -54,92 +32,22 @@ function boardView(seq,pg){
 								<li class="current"><a href="#">Q&A</a></li>
 							</ul>
 						</nav>
+
 				</section>
 
-
-
-<!-- QnA board -->
-
+<!-- InsertMessage -->
 <%
-	List<BoardDTO> list=(List<BoardDTO>)request.getAttribute("list");
-	int pg=(Integer)request.getAttribute("pg");
-	BoardPaging paging=(BoardPaging)request.getAttribute("paging");
+	int n=(Integer)request.getAttribute("n");
+	if(n > 0){
+		response.sendRedirect("boardList.do?pg=1");
+	}else{
+%>
+		저장을 실패하였습니다
+<%		
+	}
 %>
 
-<style>
-#header {border-bottom: 1px #ccc;}
-div.write {background-color:#ffffff;}
-input[type="submit"]{padding: 0.6em 1.5em 0.65em 0.5em;}
-</style>
-
-<div class="write">        
-<input type="button" id="register_btn" onclick="btn_write()"
-		style="font-size:1.5em; margin:0" value="글 등록하기" class="btn">
-</div>
-<table>
-	<tr>
-		<td colspan="5" bgcolor="777777"></td>
-	</tr>
-	<tr>
-		<th width="100">글번호</th>
-		<th width="300">제목</th>
-		<th width="100">작성자</th>
-		<th width="100">조회수</th>
-		<th width="100">작성일</th>
-	</tr>
-	<tr>
-		<td colspan="5" bgcolor="777777"></td>
-	</tr>
-<%
-	if(list != null)
-	{
-		for(BoardDTO ob:list)
-		{
-%>	
-		<tr>
-			<td align="center"><%=ob.getSeq()%></td>
-			<td>
-<%
-				for(int i=0; i<ob.getLev(); i++)  //댓글 들여쓰기
-				{
-%>				
-				&nbsp;
-<%
-				}
-
-				if(ob.getPseq() != 0)    // 원래글은 표식(X), 댓글에 표식(O)
-				{
-%>				
-				<img src="images/qna/reply.gif">
-<%
-				}
-%>			
-			   <a href="#" 
-			   onclick="boardView('<%=ob.getSeq()%>','<%=pg%>')" 
-			   class="subjectA"><%=ob.getSubject()%></a>
-		
-			</td>
-			<td align="center"><%=ob.getId()%></td>
-			<td align="center"><%=ob.getHit()%></td>
-			<td align="center"><%=ob.getLogtime()%></td>
-		</tr>
-		<tr>
-			<td colspan="5" bgcolor="cccccc"></td>
-		</tr>
-<%
-		}//end for
-	} //end if
-%>	
-	<tr>
-		<td colspan="5" bgcolor="777777"></td>
-	</tr>
-	<tr>	
-		<td colspan="5" align="center"><%=paging.getPagingHTML()%> </td>
-	</tr>
-</table>
-                     
-
-
+<br><br><br>
 			<!-- Footer -->
 				<section id="footer">
             <div class="container">
@@ -147,7 +55,7 @@ input[type="submit"]{padding: 0.6em 1.5em 0.65em 0.5em;}
                   <div class="col-8 col-12-medium">
                      <section id="footer">
                         <header>
-                           <h2></h2>
+                           <h2>Blandit nisl adipiscing</h2>
                         </header>
                         <ul class="dates">
                            <li><span class="date">연중무휴</span>

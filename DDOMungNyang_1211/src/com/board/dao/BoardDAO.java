@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.board.dto.BoardDTO;
+import com.ib.dto.IbDTO;
 
 public class BoardDAO {
 	private static SqlSessionFactory factory;
@@ -211,6 +212,15 @@ public class BoardDAO {
          session.close();
       }
    }
+ //------------------------------------------------------------------------글 등록했을때 불러오기
+ 	public List<IbDTO> getImageList(Map<String, Object> map) {
+ 		SqlSession session =factory.openSession();
+ 		System.out.println("DAOtest:"+map.get("startNum")+"  "+map.get("endNum"));
+ 		List<IbDTO> list = session.selectList("mybatis.IbMapper.getImageList",map);
+ 		System.out.println("DAOList = " + list.get(0).getPetid());
+ 		session.close();
+ 		return list;
+ 	}
 }
 
 

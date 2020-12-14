@@ -1,6 +1,8 @@
 <%@page import="com.login.dto.LoginDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
    <head>
@@ -42,7 +44,7 @@
                            </ul> 
                         <li><a href="abandoned.html">유기동물 분양</a></li>
                         <li><a href="service.html">서비스</a></li>
-						<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li>
+                        <li><a href="qna.html">Q&A</a></li>
                      </ul>
                   </nav>
 
@@ -60,115 +62,44 @@
                                  <h2>강아지 업체분양</h2>
                               </header>
                               <div class="row">
-                                 <div class="col-4 col-6-medium col-12-small">
-                                    <section class="box">
-                                       <a href="#" class="image featured"><img src="images/dog1/sibal.jpg" alt="" /></a>
-                                       <header>
-                                       
-                                          <h3>시바견 Shibainu</h3>
-                                      <form style="margin-top:10px">
-                                        <input type="checkbox" style="margin-right:10px" onclick="javascript:this.form.amount.value++;" id="heart1"/>
-                         	            <label for="heart1">❤</label>
-                                       	<input type="text" name="amount" style="width:70px; height:20px;color:#43bff0;font-size:20px;text-align:left;" value="1" disabled/>
+                              <c:forEach var="ibDTO" items="${list}" >  <!-- 추가한 부분 -->
+									<div class="col-4 col-6-medium col-12-small">
+									<section class="box">
+										<a href="#" class="image featured"><img
+											src="images/dog1/${ibDTO.pic}" alt="" /></a>
+										<header>
+											<h3>${ibDTO.dogkortype} ${ibDTO.dogengtype}</h3>
+											<form style="margin-top: 10px">
+												<input type="checkbox" style="margin-top: 210px"
+													onclick="javascript:this.form.amount5.value++;" id="heart6" />
+												<label for="heart6">❤</label> <input type="text"
+													name="amount5"
+													style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
+													value="1" disabled />
 
-                         	               </form>
-
-                         	                </header>
-
-                         	               </section>
-										</div> 
-                                      
-                                 <div class="col-4 col-6-medium col-12-small">
-                                    <section class="box">
-                                       <a href="#" class="image featured"><img src="images/dog1/bi.jpg" alt="" /></a>
-                                       <header>
-                                          <h3>비숑프리제 Bichon Frise</h3>
-                                       <form style="margin-top:10px">
-                                          <input type="checkbox" style="margin-top:210px" onclick="javascript:this.form.amount1.value++;" id="heart2"/>
-          								 <label for="heart2">❤</label>
-                                       	<input type="text" name="amount1" style="width:70px; height:20px;font-size:20px;text-align:center;" value="1" disabled/>
-
-                                       </form>
-                                       </header>
-                                    </section>
-                                 </div>
-                                 <div class="col-4 col-6-medium col-12-small">
-                                    <section class="box">
-                                       <a href="#" class="image featured"><img src="images/dog1/pome.jpg" alt="" /></a>
-                                       <header>
-                                          <h3>포메라니안 Pomeranian</h3>
-                                       <form style="margin-top:10px">
-                                        <input type="checkbox" style="margin-top:210px" onclick="javascript:this.form.amount2.value++;" id="heart3"/>
-                						<label for="heart3">❤</label>
-                                       	<input type="text" name="amount2" style="width:70px; height:20px;font-size:20px;text-align:center;" value="1" disabled/>
-
-                                       </form>
-                                       </header>
-                                    </section>
-                                 </div>
-                                 <div class="col-4 col-6-medium col-12-small">
-                                    <section class="box">
-                                       <a href="#" class="image featured"><img src="images/dog1/wel.jpg" alt="" /></a>
-                                       <header>
-                                          <h3>웰시코기 Welshcorgi</h3>
-                                       <form style="margin-top:10px">
-                                             <input type="checkbox" style="margin-top:210px" onclick="javascript:this.form.amount3.value++;" id="heart4"/>
-                                      		 <label for="heart4">❤</label>
-                                       		<input type="text" name="amount3" style="width:70px; height:20px;font-size:20px;text-align:center;" value="1" disabled/>
-
-                                       </form>
-                                       </header>
-                                    </section>
-                                 </div>
-                                 <div class="col-4 col-6-medium col-12-small">
-                                    <section class="box">
-                                       <a href="#" class="image featured"><img src="images/dog1/poodle.jpg" alt="" /></a>
-                                       <header>
-                                          <h3>푸들 Poodle</h3>
-                                      <form style="margin-top:10px">
-                                             <input type="checkbox" style="margin-top:210px" onclick="javascript:this.form.amount4.value++;" id="heart5"/>
-                                     		  <label for="heart5">❤</label>
-                                      		 	<input type="text" name="amount4" style="width:70px; height:20px;font-size:20px;text-align:center;" value="1" disabled/>
-                                       </form>
-                                       </header>
-                                    </section>
-                                 </div>
-                                 <div class="col-4 col-6-medium col-12-small">
-                                    <section class="box">
-                                       <a href="#" class="image featured"><img src="images/dog1/husky.jpg" alt="" /></a>
-                                       <header>
-                                          <h3>허스키 Siberian Husky</h3>
-                                       <form style="margin-top:10px">
-                                        <input type="checkbox" style="margin-top:210px" onclick="javascript:this.form.amount5.value++;" id="heart6"/>
-                                       <label for="heart6">❤</label>
-                                       	<input type="text" name="amount5" style="width:70px; height:20px;font-size:20px;text-align:center;" value="1" disabled/>
-
-                                       </form>
-                                       </header>
-                                    </section>
-                                 </div>
-                              </div>
+											</form>
+										</header>
+									</section>
+								
+								</div>
+								</c:forEach> <!--  여기 까지 -->
+								</div>
                            </section>
                               <div class=doglist_bottom_search_form>
                               <%if(entity ==null){ %>
-                                 <button id="hi" onclick="location.href='/bbs/login/login.jsp'">글등록</button>
+                                 <button id="hi" onclick="location.href='/bbs/dogboard/imageBoardWrite.html'">글등록</button>
                                  <%} else{%>
                                   <button id="hi" onclick="">글등록</button>
                                  
                                  <%} %>
                               </div>
-                              <div class="paging-block">
-                                 <a href="#"><span>Previous</span></a>
-                                 <a href="#">1</a>
-                                 <a href="#">2</a>
-                                 <a href="#">3</a>
-                                 <a href="#">4</a>
-                                 <a href="#">5</a>
-                                 <a href="#">6</a>
-                                 <a href="#"><span>Next</span></a>
-                              </div>
+						<div class="paging-block">
+							<a href="#"><span>Previous</span></a> <a href="#">1</a> <a
+								href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a>
+							<a href="#">6</a> <a href="#"><span>Next</span></a>
+						</div>
 
-                     </div>
+					</div>
                   </div>
                </div>
             </section>

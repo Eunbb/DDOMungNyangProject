@@ -1,5 +1,5 @@
 select * from tab;
-select * from users;
+select * from test1;
 drop table test1;
 
 --primary key : unique + not null

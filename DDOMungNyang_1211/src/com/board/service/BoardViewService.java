@@ -26,7 +26,7 @@ public class BoardViewService implements CommandAction{
 		request.setAttribute("pg", pg);
 		request.setAttribute("seq", seq);
 		
-		return "qna/qnaView.jsp";
+		return "board/boardView.jsp";
 	}
 }
 

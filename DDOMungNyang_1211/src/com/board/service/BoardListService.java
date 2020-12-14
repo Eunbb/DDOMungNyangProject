@@ -40,7 +40,7 @@ public class BoardListService implements CommandAction{
 		request.setAttribute("pg", pg);
 		request.setAttribute("paging", paging);
 		
-		return "qna/qna.jsp";
+		return "board/boardList.jsp";
 	}
 }
 

@@ -51,7 +51,7 @@
 								<li>
 									<a >강아지분양</a>
 									 <ul>
-										<li><a href="/bbs/dogCompany.jsp">업체 분양</a></li>
+										<li><a href="/bbs/Iblist.do?pg=1">업체 분양</a></li>
 										<li><a href="/bbs/dogPeople.jsp">개인 분양 </a></li>
 										<li><a href="abandoned.html">유기 분양</a></li>
 									</ul> 

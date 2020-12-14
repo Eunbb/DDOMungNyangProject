@@ -22,6 +22,6 @@ public class BoardDeleteService implements CommandAction{
 	    
 	    request.setAttribute("pg", pg);
 		
-	    return "qna/qnaDelete.jsp";
+		return "board/boardDelete.jsp";
 	}
 }

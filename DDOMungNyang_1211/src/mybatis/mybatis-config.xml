@@ -23,6 +23,7 @@
 	<mappers>
 		<mapper resource="mybatis/LoginMapper.xml"/> 
 		<mapper resource="mybatis/BoardMapper.xml"/>
+		<mapper resource="mybatis/IbMapper.xml"/>
 	</mappers>
 </configuration>
 

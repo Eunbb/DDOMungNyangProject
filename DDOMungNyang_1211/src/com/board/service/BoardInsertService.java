@@ -33,7 +33,7 @@ public class BoardInsertService implements CommandAction{
 		
 //		System.out.println("n:" +n);
 		request.setAttribute("n", n);
-		return "qna/qnaInsert.jsp";
+		return "board/boardInsert.jsp";
 	}
 }
 

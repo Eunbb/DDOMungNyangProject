@@ -1,11 +1,7 @@
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="com.ib.dto.Ibpaging"%>
-<%@page import="com.ib.dto.IbDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <%
-	IbDTO dto=(IbDTO)request.getAttribute("dto");
-	int pg=(Integer)request.getAttribute("pg");
-	int petid=(Integer)request.getAttribute("petid");
+   int pg=(Integer)request.getAttribute("pg");
 %>
 <!DOCTYPE HTML>
 <!--
@@ -14,21 +10,13 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-<script>
-function del() {
-	   var del = confirm("삭제할까요?");
-	   if(del){
-    	  location.href='dogDelete.do?petid=<%=petid%>&pg=<%=pg%>'
-	   }
-	}
-</script>
 	<head>
 		<title>Dopetrope by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body class="right-sidebar is-preload">
+	<body class="right-sidebar is-preload" onload = "alert('삭제되었습니다'); location.href='/bbs/Iblist.do?pg=<%=pg%>';">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -52,51 +40,6 @@ function del() {
 				</section>
 
 <!-- boardView -->
-<table width="500">
-<tr>
-	<td colspan="3" bgcolor="777777"></td>
-</tr>
-
-<tr>
-	<td colspan="3"><font size="5"><%=dto.getDogkortype()%></font></td>
-</tr>
-
-<tr>
-	<td colspan="3" bgcolor="777777"></td>
-</tr>
-<tr>
-	<td width="150">성별 :<%=dto.getGender()%></td>
-</tr>
-<tr>
-	<td colspan="3" bgcolor="777777"></td>
-</tr>
-
-<tr>
-	<td colspan="3" height="200" valign="top"><pre> 아지아지강아지</pre></td>
-</tr>
-
-<tr>
-	<td colspan="3" bgcolor="777777"></td>
-</tr>
-</table>
-
-<input type="button" value="목록" onclick="location.href='boardList.do?pg=<%=pg%>'">
-<%-- <%
-	LoginDTO log=(LoginDTO)session.getAttribute("logOK");
-	if(log.getId().equals(dto.getId()))
-	{
-%> --%>
-		<input type="button" value="글수정"
-		   onclick="location.href='boardModify.do?seq=<%=petid%>&pg=<%=pg%>'">
-		<input type="button" value="글삭제" onclick="del()">
-				   
-<%-- <%
-	}
-%> --%>
-<input type="button" value="답글"
-       onclick="location.href='boardReplyForm.do?pseq=<%=petid%>&pg=<%=pg%>'">
-<%-- 		<input type="button" value="글삭제"
-		   onclick="location.href='boardDelete.do?seq=<%=seq%>&pg=<%=pg%>'"> --%>
 
 <br><br><br>
 			<!-- Footer -->
@@ -167,7 +110,6 @@ function del() {
                      </div>
 
                   </div>
-               </div>
                </div>
          </section>
 

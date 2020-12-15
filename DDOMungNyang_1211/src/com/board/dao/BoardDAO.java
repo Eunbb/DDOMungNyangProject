@@ -230,6 +230,24 @@ public class BoardDAO {
 		session.close();
 		return dto;
 	}
+	
+	//삭제하기-------------------------------------------
+	public void dogDelete(int petid) {
+		//게시글 삭제
+		SqlSession session=factory.openSession();
+		int n=0;
+		try{
+			n=session.delete("mybatis.IbMapper.dogDelete",petid);
+			if(n > 0)
+				session.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+			session.rollback();
+		}finally {
+			session.close();
+		}
+		
+	}
 }
 
 

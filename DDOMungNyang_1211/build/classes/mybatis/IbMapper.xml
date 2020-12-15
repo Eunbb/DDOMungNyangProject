@@ -20,6 +20,12 @@
 			SELECT * FROM PET WHERE PETID=#{petid}
 		]]>
 	</select>
+	
+	<delete id="dogDelete" parameterType="java.lang.Integer">
+		<![CDATA[
+			DELETE PET WHERE PETID=#{petid}
+		]]>
+	</delete>
 </mapper>
 
 

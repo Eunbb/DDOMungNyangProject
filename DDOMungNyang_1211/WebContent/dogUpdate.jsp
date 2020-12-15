@@ -1,13 +1,8 @@
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="com.board.dto.BoardPaging"%>
-<%@page import="com.board.dto.BoardDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="com.ib.dto.IbDTO"%>
 <%@page import="java.util.List"%>
 <%
-	BoardDTO dto=(BoardDTO)request.getAttribute("dto");
-	int seq=(Integer)request.getAttribute("seq");
-	int pg=(Integer)request.getAttribute("pg");
-	
-	/* LoginDTO log=(LoginDTO)session.getAttribute("logOK"); */
+   int pg=(Integer)request.getAttribute("pg");
 %>
 <!DOCTYPE HTML>
 <!--
@@ -16,23 +11,13 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-<script>
-function checkBoardModify(){
-	if(document.boardModifyForm.subject.value=="")
-		alert("제목을 입력하세요");
-	else if(document.boardModifyForm.content.value=="")
-		alert("내용을 입력하세요");
-	else
-		document.boardModifyForm.submit();
-}
-</script>
 	<head>
 		<title>Dopetrope by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body class="right-sidebar is-preload">
+	<body class="right-sidebar is-preload" onload = "alert('수정하였습니다.'); location.href='/bbs/Iblist.do?pg=<%=pg%>';">
 		<div id="page-wrapper">
 
 			<!-- Header -->
@@ -56,41 +41,6 @@ function checkBoardModify(){
 				</section>
 
 <!-- boardView -->
-<form name="boardModifyForm" method="post" 
-                   action="/bbs/boardUpdate.do?seq=<%=seq%>&pg=<%=pg%>">
-<h3>글수정</h3>
-<table border="1" >
-	<tr>
-		<td>아이디</td>
-		<td><input type="text" name="id" size="50"  value="<%-- <%=log.getId()%> --%>id" readonly></td>
-	</tr>
-	<tr>
-		<td>이름</td>
-		<td><input type="text" name="name" size="50" value="<%-- <%=log.getName()%> --%>Name" readonly></td>
-	</tr>	
-	<tr>
-		<td>이메일</td>
-		<td><input type="text" name="email" size="50" value="<%=dto.getEmail()%>"></td>
-	</tr>
-	<tr>
-		<td>제 목</td>
-		<td><input type="text" name="subject" value="<%=dto.getSubject()%>" size="50"></td>
-	</tr>
-	
-	<tr>
-		<td>내 용</td>
-		<td><textarea name="content" cols="50" rows="15"><%=dto.getContent()%></textarea></td>
-	</tr>
-	
-	<tr>
-		<td colspan="2" align="center">
-		<input type="button" value="수정완료" onclick="checkBoardModify()">
-		<input type="reset" value="다시작성">
-		</td>
-		
-	</tr>
-</table>
-</form>
 
 <br><br><br>
 			<!-- Footer -->

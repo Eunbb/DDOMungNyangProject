@@ -80,24 +80,19 @@ function del() {
 </tr>
 </table>
 
-<input type="button" value="목록" onclick="location.href='boardList.do?pg=<%=pg%>'">
+<input type="button" value="목록" onclick="location.href='/bbs/Iblist.do?pg=1'">
 <%-- <%
 	LoginDTO log=(LoginDTO)session.getAttribute("logOK");
 	if(log.getId().equals(dto.getId()))
 	{
 %> --%>
 		<input type="button" value="글수정"
-		   onclick="location.href='boardModify.do?seq=<%=petid%>&pg=<%=pg%>'">
+		   onclick="location.href='dogModify.do?petid=<%=petid%>&pg=<%=pg%>'">
 		<input type="button" value="글삭제" onclick="del()">
 				   
 <%-- <%
 	}
 %> --%>
-<input type="button" value="답글"
-       onclick="location.href='boardReplyForm.do?pseq=<%=petid%>&pg=<%=pg%>'">
-<%-- 		<input type="button" value="글삭제"
-		   onclick="location.href='boardDelete.do?seq=<%=seq%>&pg=<%=pg%>'"> --%>
-
 <br><br><br>
 			<!-- Footer -->
 				<section id="footer">

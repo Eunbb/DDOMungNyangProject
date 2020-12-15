@@ -26,6 +26,14 @@
 			DELETE PET WHERE PETID=#{petid}
 		]]>
 	</delete>
+	
+	<update id="dogUpdate" parameterType="IbDTO">
+		<![CDATA[
+			UPDATE PET 
+			SET DOGKORTYPE=#{dogkortype}  
+			WHERE petid=#{petid}
+		]]>
+	</update>
 </mapper>
 
 

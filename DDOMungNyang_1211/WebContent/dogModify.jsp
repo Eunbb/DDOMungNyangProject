@@ -1,13 +1,11 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="com.board.dto.BoardPaging"%>
-<%@page import="com.board.dto.BoardDTO"%>
+<%@page import="com.ib.dto.Ibpaging"%>
+<%@page import="com.ib.dto.IbDTO"%>
 <%@page import="java.util.List"%>
 <%
-	BoardDTO dto=(BoardDTO)request.getAttribute("dto");
-	int seq=(Integer)request.getAttribute("seq");
+	IbDTO dto=(IbDTO)request.getAttribute("dto");
 	int pg=(Integer)request.getAttribute("pg");
-	
-	/* LoginDTO log=(LoginDTO)session.getAttribute("logOK"); */
+	int petid=(Integer)request.getAttribute("petid");
 %>
 <!DOCTYPE HTML>
 <!--
@@ -17,13 +15,13 @@
 -->
 <html>
 <script>
-function checkBoardModify(){
-	if(document.boardModifyForm.subject.value=="")
+ function checkdogModify(){
+	if(document.dogModifyForm.subject.value=="")
 		alert("제목을 입력하세요");
-	else if(document.boardModifyForm.content.value=="")
+	else if(document.dogModifyForm.korname.value=="")
 		alert("내용을 입력하세요");
 	else
-		document.boardModifyForm.submit();
+		document.dogModifyForm.submit();
 }
 </script>
 	<head>
@@ -56,8 +54,8 @@ function checkBoardModify(){
 				</section>
 
 <!-- boardView -->
-<form name="boardModifyForm" method="post" 
-                   action="/bbs/boardUpdate.do?seq=<%=seq%>&pg=<%=pg%>">
+<form name="dogModifyForm" method="post" 
+                   action="/bbs/dogUpdate.do?petid=<%=petid%>&pg=<%=pg%>">
 <h3>글수정</h3>
 <table border="1" >
 	<tr>
@@ -69,22 +67,22 @@ function checkBoardModify(){
 		<td><input type="text" name="name" size="50" value="<%-- <%=log.getName()%> --%>Name" readonly></td>
 	</tr>	
 	<tr>
-		<td>이메일</td>
-		<td><input type="text" name="email" size="50" value="<%=dto.getEmail()%>"></td>
+		<td>개이름</td>
+		<td><input type="text" name="korname" size="50" value="<%=dto.getDogkortype()%>"></td>
 	</tr>
 	<tr>
-		<td>제 목</td>
-		<td><input type="text" name="subject" value="<%=dto.getSubject()%>" size="50"></td>
+		<td>개영어이름</td>
+		<td><input type="text" name="subject" value="<%=dto.getDogengtype()%>" size="50"></td>
 	</tr>
 	
 	<tr>
-		<td>내 용</td>
-		<td><textarea name="content" cols="50" rows="15"><%=dto.getContent()%></textarea></td>
+		<td>성별</td>
+		<td><textarea name="content" cols="50" rows="15"><%=dto.getGender()%></textarea></td>
 	</tr>
 	
 	<tr>
 		<td colspan="2" align="center">
-		<input type="button" value="수정완료" onclick="checkBoardModify()">
+		<input type="button" value="수정완료" onclick="checkdogModify()">
 		<input type="reset" value="다시작성">
 		</td>
 		

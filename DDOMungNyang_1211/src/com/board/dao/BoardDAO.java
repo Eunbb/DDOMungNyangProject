@@ -214,7 +214,7 @@ public class BoardDAO {
    }
  
    
- //--------------------------------------------imageboard------------------------------------------------------
+ //--------------------------------------------dog imageboard------------------------------------------------------
  //------------------------------------------------------------------------글 등록했을때 불러오기
  	public List<IbDTO> getImageList(Map<String, Object> map) {
  		SqlSession session =factory.openSession();
@@ -248,6 +248,23 @@ public class BoardDAO {
 		}
 		
 	}
+	
+	//수정하기-----------------------------------------------------------------------
+	public void dogUpdate(IbDTO dto) {
+		SqlSession session=factory.openSession();
+		int n=0;
+		try{
+			n=session.update("mybatis.IbMapper.dogUpdate",dto);
+			if(n > 0)
+				session.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+			session.rollback();
+		}finally {
+			session.close();
+		}
+	}
+
 }
 
 

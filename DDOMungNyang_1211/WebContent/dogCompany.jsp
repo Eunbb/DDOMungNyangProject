@@ -4,20 +4,24 @@
 <%@page import="com.login.dto.LoginDTO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%
+	int pg=(Integer)request.getAttribute("pg");
+	Ibpaging paging=(Ibpaging)request.getAttribute("ibpaging");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Dopetrope by HTML5 UP</title>
 <meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/dog.css" />
 <link rel="stylesheet" href="assets/css/checkbox.css" />
 <link rel="stylesheet" href="assets/css/styleImageBoard.css">
 <script>
-	function ibpaging(pg) {
-		location.href = "/bbs/Iblist.do?pg=" + pg;
+	function dogView(petid,pg){
+		location.href="/bbs/dogView.do?petid="+petid+"&pg="+pg;	
 	}
+
 </script>
 
 </head>
@@ -75,7 +79,7 @@
 									<!-- 추가한 부분 -->
 									<div class="col-4 col-6-medium col-12-small">
 										<section class="box">
-											<a href="#" class="image featured"><img
+											<a href="#" class="image featured" onclick="dogView('${ibDTO.petid}','<%=pg%>')"><img
 												src="images/dog1/${ibDTO.pic}" alt="" /></a>
 											<header>
 												<h3>${ibDTO.dogkortype}${ibDTO.dogengtype}</h3>
@@ -111,10 +115,6 @@
 								}
 							%>
 						</div>
-<%
-	int pg=(Integer)request.getAttribute("pg");
-	Ibpaging paging=(Ibpaging)request.getAttribute("ibpaging");
-%>
 						<div class="paging-block">
 							<table>
 								<tr>

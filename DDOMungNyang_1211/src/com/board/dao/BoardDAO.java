@@ -212,6 +212,9 @@ public class BoardDAO {
          session.close();
       }
    }
+ 
+   
+ //--------------------------------------------imageboard------------------------------------------------------
  //------------------------------------------------------------------------글 등록했을때 불러오기
  	public List<IbDTO> getImageList(Map<String, Object> map) {
  		SqlSession session =factory.openSession();
@@ -221,6 +224,14 @@ public class BoardDAO {
  		session.close();
  		return list;
  	}
+ 	
+	//petid에 해당하는 데이터 가져오기-----------------------------------------------------
+	public IbDTO getDog(int petid) {
+		SqlSession session=factory.openSession();
+		IbDTO dto=session.selectOne("mybatis.IbMapper.getDog",petid);
+		session.close();
+		return dto;
+	}
 }
 
 

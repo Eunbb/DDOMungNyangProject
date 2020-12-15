@@ -1,6 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@page import="com.ib.dto.Ibpaging"%>
+<%@page import="com.ib.dto.IbDTO"%>
 <%@page import="com.login.dto.LoginDTO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
@@ -110,10 +111,14 @@
 								}
 							%>
 						</div>
+<%
+	int pg=(Integer)request.getAttribute("pg");
+	Ibpaging paging=(Ibpaging)request.getAttribute("ibpaging");
+%>
 						<div class="paging-block">
 							<table>
 								<tr>
-									<td colspan="6" align="center">${ibpaging.pagingHTML}</td>
+									<td colspan="6" align="center"><%=paging.getPagingHTML()%></td>
 								</tr>
 							</table>
 						</div>

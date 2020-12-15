@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.board.dao.BoardDAO;
-import com.board.dao.Ibpaging;
 import com.ib.dto.IbDTO;
+import com.ib.dto.Ibpaging;
 
 import controller.CommandAction;
 
@@ -18,27 +18,27 @@ public class IbListService implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		int pg = Integer.parseInt(request.getParameter("pg"));
-		System.out.println(pg); // 1
-		//select-DB
-		BoardDAO dao = BoardDAO.getInstance();
-		int endNum= pg*6; // 6건씩 보여줌 한 페이지에\
-		System.out.println(endNum + "List");
-		int startNum = endNum-5; // -5
-		System.out.println(startNum + "pro");
+
+		//select DB
+		int pageSize=6; 
+		int endNum= pg*pageSize;
+		int startNum=endNum-(pageSize-1);  //시작번호
 		
 		Map<String,Object> map = new HashMap<>();
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
+		
+		BoardDAO dao = BoardDAO.getInstance();
 		List<IbDTO> list = dao.getImageList(map);
 		
 		//페이지처리
-		Ibpaging paging = new Ibpaging(pg,5,6); // 현재페이지,표시할 페이지수, 출력할게시물수
-		paging.makePagingHTML();
+		Ibpaging ibpaging = new Ibpaging(pg,2,pageSize);
+		ibpaging.makePagingHTML();
 		
 		//request객체에 등록
 		request.setAttribute("list", list);
 		request.setAttribute("pg", pg);
-		request.setAttribute("ibpaging", paging);
+		request.setAttribute("ibpaging", ibpaging);
 		return "dogCompany.jsp";
 	}
 

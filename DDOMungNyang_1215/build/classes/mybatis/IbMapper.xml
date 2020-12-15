@@ -23,9 +23,6 @@
 		]]>
 	</insert>
 	
-	
-   
-   
    	<select id="getDog" parameterType="java.lang.Integer" resultType="IbDTO">
 		<![CDATA[
 			SELECT * FROM PET WHERE PETID=#{petid}
@@ -41,7 +38,7 @@
 	<update id="dogUpdate" parameterType="IbDTO">
 		<![CDATA[
 			UPDATE PET 
-			SET DOGKORTYPE=#{dogkortype}  
+			SET DOGKORTYPE=#{dogkortype},DOGENGTYPE=#{dogengtype},AGE=#{age},GENDER=#{gender},PRICE=#{price}
 			WHERE petid=#{petid}
 		]]>
 	</update>

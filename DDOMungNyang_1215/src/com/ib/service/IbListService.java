@@ -39,7 +39,7 @@ public class IbListService implements CommandAction{
 		request.setAttribute("list", list);
 		request.setAttribute("pg", pg);
 		request.setAttribute("ibpaging", ibpaging);
-		return "dogCompany.jsp";
+		return "dogboard/dogCompany.jsp";
 	}
 
 }

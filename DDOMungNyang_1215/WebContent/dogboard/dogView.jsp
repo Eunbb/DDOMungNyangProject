@@ -2,6 +2,8 @@
 <%@page import="com.ib.dto.Ibpaging"%>
 <%@page import="com.ib.dto.IbDTO"%>
 <%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	IbDTO dto=(IbDTO)request.getAttribute("dto");
 	int pg=(Integer)request.getAttribute("pg");
@@ -15,14 +17,12 @@
 -->
 <html>
 <script>
- function checkdogModify(){
-	if(document.dogModifyForm.subject.value=="")
-		alert("제목을 입력하세요");
-	else if(document.dogModifyForm.korname.value=="")
-		alert("내용을 입력하세요");
-	else
-		document.dogModifyForm.submit();
-}
+function del() {
+	   var del = confirm("삭제할까요?");
+	   if(del){
+    	  location.href='dogDelete.do?petid=<%=petid%>&pg=<%=pg%>'
+	   }
+	}
 </script>
 	<head>
 		<title>Dopetrope by HTML5 UP</title>
@@ -54,42 +54,47 @@
 				</section>
 
 <!-- boardView -->
-<form name="dogModifyForm" method="post" 
-                   action="/bbs/dogUpdate.do?petid=<%=petid%>&pg=<%=pg%>">
-<h3>글수정</h3>
-<table border="1" >
-	<tr>
-		<td>아이디</td>
-		<td><input type="text" name="id" size="50"  value="<%-- <%=log.getId()%> --%>id" readonly></td>
-	</tr>
-	<tr>
-		<td>이름</td>
-		<td><input type="text" name="name" size="50" value="<%-- <%=log.getName()%> --%>Name" readonly></td>
-	</tr>	
-	<tr>
-		<td>개이름</td>
-		<td><input type="text" name="korname" size="50" value="<%=dto.getDogkortype()%>"></td>
-	</tr>
-	<tr>
-		<td>개영어이름</td>
-		<td><input type="text" name="subject" value="<%=dto.getDogengtype()%>" size="50"></td>
-	</tr>
-	
-	<tr>
-		<td>성별</td>
-		<td><textarea name="content" cols="50" rows="15"><%=dto.getGender()%></textarea></td>
-	</tr>
-	
-	<tr>
-		<td colspan="2" align="center">
-		<input type="button" value="수정완료" onclick="checkdogModify()">
-		<input type="reset" value="다시작성">
-		</td>
-		
-	</tr>
-</table>
-</form>
+<table width="500">
+<tr>
+	<td colspan="3" bgcolor="777777"></td>
+</tr>
 
+<tr>
+	<td colspan="3"><font size="5"><%=dto.getDogkortype()%></font></td>
+</tr>
+
+<tr>
+	<td colspan="3" bgcolor="777777"></td>
+</tr>
+<tr>
+	<td width="150">성별 :<%=dto.getGender()%></td>
+</tr>
+<tr>
+	<td colspan="3" bgcolor="777777"></td>
+</tr>
+
+<tr>
+	<td colspan="3" height="200" valign="top"><img src="/bbs/uploadImage/<%=dto.getPic()%>" alt="" /></td>
+</tr>
+
+<tr>
+	<td colspan="3" bgcolor="777777"></td>
+</tr>
+</table>
+
+<input type="button" value="목록" onclick="location.href='/bbs/Iblist.do?pg=1'">
+<%-- <%
+	LoginDTO log=(LoginDTO)session.getAttribute("logOK");
+	if(log.getId().equals(dto.getId()))
+	{
+%> --%>
+		<input type="button" value="글수정"
+		   onclick="location.href='dogModify.do?petid=<%=petid%>&pg=<%=pg%>'">
+		<input type="button" value="글삭제" onclick="del()">
+				   
+<%-- <%
+	}
+%> --%>
 <br><br><br>
 			<!-- Footer -->
 				<section id="footer">

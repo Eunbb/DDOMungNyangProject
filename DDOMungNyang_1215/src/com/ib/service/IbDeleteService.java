@@ -22,6 +22,6 @@ public class IbDeleteService implements CommandAction{
 	    
 	    request.setAttribute("pg", pg);
 		
-	    return "dogDelete.jsp";
+	    return "dogboard/dogDelete.jsp";
 	}
 }

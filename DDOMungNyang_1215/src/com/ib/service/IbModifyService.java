@@ -25,6 +25,6 @@ public class IbModifyService implements CommandAction{
 	    request.setAttribute("pg", pg);
 	    request.setAttribute("petid", petid);
 	    
-	    return "dogModify.jsp";
+	    return "dogboard/dogModify.jsp";
 	}
 }

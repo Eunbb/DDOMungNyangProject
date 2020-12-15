@@ -25,7 +25,7 @@ public class IbViewService implements CommandAction{
 		request.setAttribute("pg", pg);
 		request.setAttribute("petid", petid);
 		
-		return "dogView.jsp";
+		return "dogboard/dogView.jsp";
 	}
 }
 

@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+th {font-size:12pt}
+td {
+	font-size:12pt;
+	text-align: center;
+}
+
+a:LINK {color: black; text-decoration: none;}
+a:ACTIVE {color: black; text-decoration: none;}
+a:VISITED {color: black; text-decoration: none;}
+a:HOVER {color: black; text-decoration: underline;}
+
+/* 순서를 지켜라-우선순위가 맨밑에서부터이다  */
+.imageA:LINK {color: black; text-decoration: none;}
+.imageA:ACTIVE {color: black; text-decoration: none;}
+.imageA:VISITED {color: black; text-decoration: none;}
+.imageA:HOVER {color: green; text-decoration: underline;}
+
+#pagingSpan{
+	font-size:11pt;
+	cursor:pointer;
+}
+#currentPagingSpan{
+	font-size:11pt;
+	color:red;
+	cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+
+

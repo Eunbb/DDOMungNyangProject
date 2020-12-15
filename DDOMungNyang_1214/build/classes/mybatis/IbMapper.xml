@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.IbMapper">
+	<select id="getImageList" parameterType="hashmap"  
+	        resultType="com.ib.dto.IbDTO">
+	    <![CDATA[
+		SELECT PETID,CLASSIFY1, CLASSIFY1,DOGKORTYPE, DOGENGTYPE,
+		       GENDER, AGE,PRICE,JUSA, PIC
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum}
+	    ]]>
+	</select>
+   
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,7 +7,7 @@
 	<typeAliases>
 		<typeAlias type="com.login.dto.LoginDTO" alias="LoginDTO"/>
 		<typeAlias type="com.board.dto.BoardDTO" alias="BoardDTO"/>
-		<typeAlias type="com.board.dto.BoardDTO" alias="IbDTO"/>
+		<typeAlias type="com.ib.dto.IbDTO" alias="IbDTO"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

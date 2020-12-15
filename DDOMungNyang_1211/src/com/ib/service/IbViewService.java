@@ -19,7 +19,6 @@ public class IbViewService implements CommandAction{
 		
 		//select DB
 		BoardDAO boardDao=new BoardDAO();
-		boardDao.updateHit(petid);              //조회수
 		
 		IbDTO dto=boardDao.getDog(petid);  //글번호에 해당하는 데이터 가져오기
 		request.setAttribute("dto", dto);

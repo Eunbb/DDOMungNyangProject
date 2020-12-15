@@ -1,40 +1,47 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="com.ib.dto.Ibpaging"%>
 <%@page import="com.ib.dto.IbDTO"%>
+<%@page import="java.util.List"%>
 <%
-IbDTO dto=(IbDTO)request.getAttribute("dto");
-int pg=(Integer)request.getAttribute("pg");
-int petid=(Integer)request.getAttribute("petid");
+	IbDTO dto=(IbDTO)request.getAttribute("dto");
+	int pg=(Integer)request.getAttribute("pg");
+	int petid=(Integer)request.getAttribute("petid");
 %>
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Dopetrope by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
+<script>
+<%-- function del() {
+	   var del = confirm("삭제할까요?");
+	   if(del){
+	      location.href='dogDelete.do?petid=<%=petid%>&pg=<%=pg%>'
+	   }
+	} --%>
+</script>
 	<head>
 		<title>Dopetrope by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/dog.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body class="left-sidebar is-preload">
+	<body class="right-sidebar is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
 				<section id="header">
 
 					<!-- Logo -->
-						<h1><a href="/bbs/index.jsp">강아지 분양</a></h1>
+						<h1><a href="/bbs/index.jsp">Q & A</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
 								<li><a href="index.jsp">Home</a></li>
-								<li class="current"><a href="#">강아지분양</a>
-								    <ul>
-										<li><a href="/bbs/dogCompany.jsp">업체 분양</a></li>
-										<li><a href="/bbs/dogPeople.jsp">개인 분양 </a></li>
-										<li><a href="abandoned.html">유기 분양</a></li>
-									</ul> 
-								</li>
-								
+								<li><a href="dog.html">강아지분양</a></li>
 								<li><a href="cat.html">고양이 분양</a></li>
 								<li><a href="abandoned.html">유기동물 분양</a></li>
 								<li><a href="service.html">서비스</a></li>
@@ -44,8 +51,54 @@ int petid=(Integer)request.getAttribute("petid");
 
 				</section>
 
-			<!-- Main -->
+<!-- boardView -->
+<table width="500">
+<tr>
+	<td colspan="3" bgcolor="777777"></td>
+</tr>
 
+<tr>
+	<td colspan="3"><font size="5"><%=dto.getDogkortype()%></font></td>
+</tr>
+
+<tr>
+	<td colspan="3" bgcolor="777777"></td>
+</tr>
+<tr>
+	<td width="150">성별 :<%=dto.getGender()%></td>
+</tr>
+<tr>
+	<td colspan="3" bgcolor="777777"></td>
+</tr>
+
+<tr>
+	<td colspan="3" height="200" valign="top"><pre> 아지아지강아지</pre></td>
+</tr>
+
+<tr>
+	<td colspan="3" bgcolor="777777"></td>
+</tr>
+</table>
+
+<input type="button" value="목록" onclick="location.href='boardList.do?pg=<%=pg%>'">
+<%-- <%
+	LoginDTO log=(LoginDTO)session.getAttribute("logOK");
+	if(log.getId().equals(dto.getId()))
+	{
+%> --%>
+		<input type="button" value="글수정"
+		   onclick="location.href='boardModify.do?seq=<%=petid%>&pg=<%=pg%>'">
+		<input type="button" value="글삭제" onclick="del()">
+				   
+<%-- <%
+	}
+%> --%>
+<input type="button" value="답글"
+       onclick="location.href='boardReplyForm.do?pseq=<%=petid%>&pg=<%=pg%>'">
+<%-- 		<input type="button" value="글삭제"
+		   onclick="location.href='boardDelete.do?seq=<%=seq%>&pg=<%=pg%>'"> --%>
+
+<br><br><br>
 			<!-- Footer -->
 				<section id="footer">
             <div class="container">
@@ -130,6 +183,4 @@ int petid=(Integer)request.getAttribute("petid");
 			<script src="assets/js/main.js"></script>
 
 	</body>
-</html>
-</body>
 </html>

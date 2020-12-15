@@ -55,7 +55,8 @@
 <table border="1" >
 	<tr>
 		<td>사진</td>
-		<td><img name="pic" src="/bbs/uploadImage/<%=dto.getPic()%>" alt="" /></td>		
+		<td><img name="pic" src="/bbs/uploadImage/<%=dto.getPic()%>" alt="" /><br>
+		<input type="file" name="imagepath" id="imagepath" size="40"></td>		
 	</tr>
 	<tr>
 		<td>종(한글)</td>
@@ -66,29 +67,29 @@
 		<td><input type="text" name="engname" size="50"  value="<%=dto.getDogengtype()%>"></td>	
 	</tr>
 	<tr>
-		<td>동물</td>
-		<td><input type="text" name="classify1" size="50"  value="<%=dto.getClassify1()%>(강아지 : 1, 고양이 : 2)" readonly></td>
+		<td>동물(강아지 : 1, 고양이 : 2)</td>
+		<td><input type="text" name="classify1" size="50"  value="<%=dto.getClassify1()%>" readonly></td>
 	</tr>	
 	<tr>
-		<td>분양방법</td>
-		<td><input type="text" name="classify2" size="50"  value="<%=dto.getClassify2()%>(업체분양 : A1 , 개인분양 : A2, 유기분양 :A3)"></td>
+		<td>분양방법(업체분양 : A1 , 개인분양 : A2, 유기분양 :A3)</td>
+		<td><input type="text" name="classify2" size="50"  value="<%=dto.getClassify2()%>"></td>
 	</tr>
 	<tr>
-		<td>나이</td>
-		<td><input type="text" name="age" size="50" value="'<%=dto.getAge()%>' 살"></td>
+		<td>나이(살)</td>
+		<td><input type="text" name="age" size="50" value="<%=dto.getAge()%>"></td>
 	</tr>	
 	<tr>
-		<td>성별</td>
-		<td><input type="text" name="gender" size="50" value="<%=dto.getGender()%>(수컷 M, 암컷 F)"></td>
+		<td>성별(수컷 M, 암컷 F)</td>
+		<td><input type="text" name="gender" size="50" value="<%=dto.getGender()%>"></td>
 	</tr>
 	<tr>
-		<td>가격</td>
+		<td>가격(원)</td>
 		<td><input type="text" name="price" value="<%=dto.getPrice()%>원" size="50"></td>
 	</tr>
 	
 	<tr>
-		<td>접종여부</td>
-		<td><input type="text" name="jusa" value="<%=dto.getJusa()%>(O,X)" size="50"></td>
+		<td>접종여부(O,X)</td>
+		<td><input type="text" name="jusa" value="<%=dto.getJusa()%>" size="50"></td>
 	</tr>
 	
 	<tr>

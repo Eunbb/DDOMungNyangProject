@@ -24,6 +24,10 @@ nick varchar2(10) NOT NULL,
 birth varchar2(20) DEFAULT 0 NOT NULL       
 );
 
+select * from test1;
+
+insert into test1(id,pw,repw,name,nick,birth) values('admin','1111','1111','한동욱','다람쥐','1993-12-20');
+
 commit
 
 

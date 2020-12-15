@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<title>이미지 업로드</title></head>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+   <h3>이미지 업로드</h3>
+   <hr/>
+   <form name="imageBoardWriteForm" method="post" enctype="multipart/form-data"  >
+   <table cellpadding="3">
+      <tr>
+         <td><b>분류</b></td>
+         <td><input type="checkbox" class="pet" id="classify1" name= "classify1" onclick="NoMultiChk(this)" value="1">강아지
+         <input type="checkbox" class="pet" id="classify1" name="classify1" onclick="NoMultiChk(this)" value="2">고양이</td>
+      
+      
+      </tr>
+      
+      <tr>
+         <td><b>분양 방식</b></td>
+         <td><select id="classify2" name="classify2">
+         <option>
+         <option id="company" name="company" value="A1">업체분양
+         <option id="people" name="people" value="A2">개인분양
+         <option id= "abandoded" name="abandonded" value="A3">유기분양</select></td>
+      </tr>
+      
+      
+      <tr>
+         <td><b>종류(한글)</b></td>
+         <td><input type="text" name="kortype" id="kortype"></td>
+      </tr>
+      
+      <tr>
+         <td><b>종류(영문)</b></td>
+         <td><input type="text" name="engtype" id="engtype"></td>
+      </tr>
+      
+      <tr>
+         <td><b>성별</b></td>
+         <td><input type="checkbox" class="sex" onclick="NoMultiChk2(this)" name="sex" id="sex" value="M">남자
+            <input type="checkbox" class="sex" onclick="NoMultiChk2(this)" name="sex" id="sex" value="F">여자         
+         </td>
+      </tr>
+      <tr>
+         <td><b>나이</b></td>
+         <td>
+         <input type="text" name="age" id="age">세
+         </td>
+      </tr>
+      <tr>
+         <td><b>판매금액</b></td>
+         <td>
+         <input type="text" name="price" id="price">원
+         </td>
+      </tr>
+      
+      <tr>
+         <td><b>접종여부</b></td>
+         <td><select id="jusaType" name="jusaType">
+         <option >
+         <option id="jusaok" name="jusaok" value="O">O
+         <option id="jusano" name="jusano" value="X">X
+         </select></td>
+      </tr>
+      
+      <tr>
+         <td><b>사진</b></td>
+         <td><input type="file" name="imagepath" id="imagepath" size="40"></td>
+      </tr>
+      <tr>
+         <td colspan="2" align="center">
+         <input type="submit" value="등록" onclick="checkImageBoardWrite()">
+         <input type="reset" value="취소">
+         <input type="button" value="목록" onclick="location.href='/bbs/Iblist.do?pg=1'">
+         
+         </td>
+      </tr>
+   </table>
+   </form>
+   <hr/>
+    <script type="text/javascript">
+   
+      function NoMultiChk(chk){
+          var obj = document.getElementsByName("classify1");
+          for(var i=0; i < obj.length; i++){
+              if(obj[i] != chk){
+                  obj[i].checked = false;
+              }
+          }
+      }
+      function NoMultiChk2(chk){
+          var obj = document.getElementsByName("sex");
+          for(var i=0; i < obj.length; i++){
+              if(obj[i] != chk){
+                  obj[i].checked = false;
+              }
+          }
+      }
+      
+      function checkImageBoardWrite() {
+         if($('input.pet').is(":checked")==false){
+            alert("분류코드를 선택하세요");
+         }else if(document.imageBoardWriteForm.classify2.value=="") {
+            alert("분양 방식을 선택하세요");
+         }else if(document.imageBoardWriteForm.kortype.value=="") {
+            alert("종류(한글)를 입력하세요");
+         }else if(document.imageBoardWriteForm.engtype.value=="") {
+            alert("종류(영문)를 입력하세요");
+         }else if($('input.sex').is(":checked")==false) {
+            alert("성별를 선택하세요");
+         }else if(document.imageBoardWriteForm.age.value=="") {
+            alert("나이를 입력하세요");
+         }else if(document.imageBoardWriteForm.price.value=="") {
+            alert("금액을 입력하세요");
+         }else if(document.imageBoardWriteForm.jusaType.value==""){
+            alert("접종여부를 선택하세요");
+         }else if(document.imageBoardWriteForm.imagepath.value=="") {
+            alert("사진 이미지를 첨부하세요");
+         }else {
+            document.imageBoardWriteForm.submit();
+                imageBoardWriteForm.action="/bbs/imgBoardWrite.do"
+         }
+      }
+
+
+      
+      </script>
+</body>
+</html>
+
+

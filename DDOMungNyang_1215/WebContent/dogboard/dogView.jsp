@@ -74,7 +74,7 @@ function del() {
 </tr>
 
 <tr>
-	<td colspan="3" height="200" valign="top"><img src="/bbs/uploadImage/<%=dto.getPic()%>" alt="" /></td>
+	<td colspan="3" height="200" valign="top"><img src="/bbs/storage/<%=dto.getPic()%>" alt="" /></td>
 </tr>
 
 <tr>

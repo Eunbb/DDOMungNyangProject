@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.board.dao.BoardDAO;
+import com.ib.dao.ImageBoardDao;
 import com.ib.dto.IbDTO;
 import com.ib.dto.Ibpaging;
 
@@ -28,7 +29,7 @@ public class IbListService implements CommandAction{
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
 		
-		BoardDAO dao = BoardDAO.getInstance();
+		ImageBoardDao dao = ImageBoardDao.getInstance();
 		List<IbDTO> list = dao.getImageList(map);
 		
 		//페이지처리

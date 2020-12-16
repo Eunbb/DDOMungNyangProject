@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.board.dao.BoardDAO;
+import com.ib.dao.ImageBoardDao;
 import com.ib.dto.IbDTO;
 
 import controller.CommandAction;
@@ -18,9 +19,9 @@ public class IbViewService implements CommandAction{
 		int pg = Integer.parseInt(request.getParameter("pg"));   //되돌아갈 페이지
 		
 		//select DB
-		BoardDAO boardDao=new BoardDAO();
+		ImageBoardDao dao=new ImageBoardDao();
 		
-		IbDTO dto=boardDao.getDog(petid);  //글번호에 해당하는 데이터 가져오기
+		IbDTO dto=dao.getDog(petid);  //글번호에 해당하는 데이터 가져오기
 		request.setAttribute("dto", dto);
 		request.setAttribute("pg", pg);
 		request.setAttribute("petid", petid);

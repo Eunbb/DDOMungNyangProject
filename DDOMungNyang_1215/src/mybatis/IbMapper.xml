@@ -38,7 +38,7 @@
 	<update id="dogUpdate" parameterType="IbDTO">
 		<![CDATA[
 			UPDATE PET 
-			SET DOGKORTYPE=#{dogkortype},DOGENGTYPE=#{dogengtype},AGE=#{age},GENDER=#{gender},PRICE=#{price}
+			SET DOGKORTYPE=#{dogkortype},DOGENGTYPE=#{dogengtype},AGE=#{age},GENDER=#{gender},PRICE=#{price}, JUSA=#{jusa},PIC=#{pic}
 			WHERE petid=#{petid}
 		]]>
 	</update>

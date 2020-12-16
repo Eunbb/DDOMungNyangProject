@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.board.dao.BoardDAO;
+import com.ib.dao.ImageBoardDao;
 import com.ib.dto.IbDTO;
 
 import controller.CommandAction;
@@ -18,8 +19,8 @@ public class IbModifyService implements CommandAction{
 	    int pg = Integer.parseInt(request.getParameter("pg"));
 
 	    //select DB
-	    BoardDAO boardDao=new BoardDAO();	    
-	    IbDTO dto=boardDao.getDog(petid);	//데이터받아오기
+	    ImageBoardDao dao = new ImageBoardDao();	    
+	    IbDTO dto=dao.getDog(petid);	//데이터받아오기
 	    
 	    request.setAttribute("dto", dto);
 	    request.setAttribute("pg", pg);

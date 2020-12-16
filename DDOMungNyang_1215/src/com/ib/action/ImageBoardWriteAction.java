@@ -16,18 +16,22 @@ public class ImageBoardWriteAction implements CommandAction {
 		System.out.println("IW 들어옴");
 		
 		//실제 저장 경로
-		String uploadDir =this.getClass().getResource("").getPath();
-		uploadDir = uploadDir.substring(1,uploadDir.indexOf(".metadata"))+"DDOMungNyangProject/DDOMungNyang_1215/WebContent/uploadImage\";";
-
-		System.out.println("절대경로 : " + uploadDir + "<br/>"); 
+//		String uploadDir =this.getClass().getResource("").getPath();
+//		uploadDir = uploadDir.substring(1,uploadDir.indexOf(".metadata"))+"DDOMungNyangProject/DDOMungNyang_1215/WebContent/uploadImage";
+//
+//		System.out.println("절대경로 : " + uploadDir + "<br/>"); 
 		
 		
 //		String realFolder=request.getServletContext().getRealPath("/storage");
 		//System.out.println("저장 폴더:" + realFolder);
 		
+		String realFolder=request.getSession().getServletContext().getRealPath("/storage");
+		//System.out.println("저장 폴더:" + realFolder);
+		
+		
 		//파일업로드
 		MultipartRequest multi=new MultipartRequest(
-                request, uploadDir, 1024 * 1024 * 100, "UTF-8",new DefaultFileRenamePolicy());
+                request, realFolder, 100* 1024 * 1024 , "UTF-8",new DefaultFileRenamePolicy());
 		
 		
 		

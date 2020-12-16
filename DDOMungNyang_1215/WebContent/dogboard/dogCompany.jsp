@@ -29,6 +29,7 @@
 	<div id="page-wrapper">
 		<%
 			LoginDTO entity = (LoginDTO) session.getAttribute("logOK");
+		    IbDTO dto=(IbDTO)request.getAttribute("dto");
 		%>
 		<!-- Header -->
 		<section id="header">
@@ -80,7 +81,7 @@
 									<div class="col-4 col-6-medium col-12-small">
 										<section class="box">
 											<a href="#" class="image featured" onclick="dogView('${ibDTO.petid}','<%=pg%>')"><img
-												src="uploadImage/${ibDTO.pic}" alt="" /></a>
+												src="/bbs/storage/${ibDTO.pic}" alt="" /></a>
 											<header>
 												<h3>${ibDTO.dogkortype}${ibDTO.dogengtype}</h3>
 												<form style="margin-top: 10px">

@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.board.dao.BoardDAO;
+import com.ib.dao.ImageBoardDao;
 
 import controller.CommandAction;
 
@@ -16,7 +17,7 @@ public class IbDeleteService implements CommandAction{
 	    int pg = Integer.parseInt(request.getParameter("pg"));
 	    
 	    //delete DB
-	    BoardDAO dao = new BoardDAO();
+	    ImageBoardDao dao = new ImageBoardDao();
 	    dao.dogDelete(petid);
 	    
 	    

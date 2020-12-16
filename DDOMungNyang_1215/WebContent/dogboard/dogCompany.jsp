@@ -110,7 +110,7 @@
 							<%
 								} else {
 							%>
-							<button id="hi" onclick="">글등록</button>
+							<button id="hi" onclick="location.href='/bbs/login/login.jsp'">글등록</button>
 
 							<%
 								}

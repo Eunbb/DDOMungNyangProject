@@ -17,7 +17,7 @@ public class ImageBoardWriteAction implements CommandAction {
 		
 		//실제 저장 경로
 		String uploadDir =this.getClass().getResource("").getPath();
-		uploadDir = uploadDir.substring(1,uploadDir.indexOf(".metadata"))+"DDOMungNyang_1215/WebContent/uploadImage";
+		uploadDir = uploadDir.substring(1,uploadDir.indexOf(".metadata"))+"DDOMungNyangProject/DDOMungNyang_1215/WebContent/uploadImage\";";
 
 		System.out.println("절대경로 : " + uploadDir + "<br/>"); 
 		

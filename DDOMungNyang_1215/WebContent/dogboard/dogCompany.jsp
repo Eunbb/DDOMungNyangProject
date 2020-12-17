@@ -17,11 +17,22 @@
 <link rel="stylesheet" href="assets/css/dog.css" />
 <link rel="stylesheet" href="assets/css/checkbox.css" />
 <link rel="stylesheet" href="assets/css/styleImageBoard.css">
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
 	function dogView(petid,pg){
 		location.href="/bbs/dogView.do?petid="+petid+"&pg="+pg;	
 	}
-
+    function heartbtnFunction(petid){
+    	var petid = petid;
+        $.ajax({
+           type:'POST',
+           url:'./CheckIdServlet',
+           data: {petid : petid},
+           success:function(result){
+              alert('하트 추가');
+           }
+        })
+     }
 </script>
 
 </head>
@@ -84,15 +95,30 @@
 												src="/bbs/storage/${ibDTO.pic}" alt="" /></a>
 											<header>
 												<h3>${ibDTO.dogkortype}${ibDTO.dogengtype}</h3>
+												<%
+													if (entity != null) {
+												%>
+												<form id="heart">
+													<button type="button" style="color: red; cursor: pointer;" onclick="heartbtnFunction(${ibDTO.petid})">❤</button>
+													<input type="text" id="heartcount"
+														style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
+														value="${ibDTO.heart}" readonly/><input
+														type="hidden" petid="<%=pg%>" id="pg">
+												</form>
+												<%
+													} else {
+												%>
 												<form style="margin-top: 10px">
 													<input type="checkbox" style="margin-top: 210px"
-														onclick="javascript:this.form.amount5.value++;"
-														id="heart6" /> <label for="heart6">❤</label> <input
-														type="text" name="amount5"
+														onclick="location.href='/bbs/login/login.jsp'" id="heart6" />
+													<label for="heart6">❤</label> <input type="text"
+														name="amount5"
 														style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
-														value="1" disabled />
-
+														value="${ibDTO.heart}" disabled />
 												</form>
+												<%
+													}
+												%>
 											</header>
 										</section>
 

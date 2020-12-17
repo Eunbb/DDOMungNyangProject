@@ -11,14 +11,17 @@ public class IbDTO {
 	private String price;
 	private String jusa;
 	private String pic; // 경로 
-
+	private int heart;
+	
 	public IbDTO() {
 		super();
 
 	}
 
+	
+
 	public IbDTO(int petid, String classify1, String classify2, String dogkortype, String dogengtype, String gender,
-			String age, String price, String jusa, String pic) {
+			String age, String price, String jusa, String pic, int heart) {
 		super();
 		this.petid = petid;
 		this.classify1 = classify1;
@@ -30,7 +33,10 @@ public class IbDTO {
 		this.price = price;
 		this.jusa = jusa;
 		this.pic = pic;
+		this.heart = heart;
 	}
+
+
 
 	public int getPetid() {
 		return petid;
@@ -112,4 +118,12 @@ public class IbDTO {
 		this.pic = pic;
 	}
 
+	public int getHeart() {
+		return heart;
+	}
+
+	public void setHeart(int heart) {
+		this.heart = heart;
+	}
+	
 }

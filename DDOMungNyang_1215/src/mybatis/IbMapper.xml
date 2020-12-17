@@ -7,7 +7,7 @@
 	        resultType="com.ib.dto.IbDTO">
 	    <![CDATA[
 		SELECT PETID,CLASSIFY1, CLASSIFY1,DOGKORTYPE, DOGENGTYPE,
-		       GENDER, AGE,PRICE,JUSA, PIC
+		       GENDER, AGE,PRICE,JUSA, PIC, HEART
 		FROM (SELECT ROWNUM RN, AA.*
 		      FROM (SELECT * FROM PET ORDER BY PETID DESC) AA)
 		WHERE RN >= #{startNum} AND RN <= #{endNum}
@@ -39,6 +39,14 @@
 		<![CDATA[
 			UPDATE PET 
 			SET DOGKORTYPE=#{dogkortype},DOGENGTYPE=#{dogengtype},AGE=#{age},GENDER=#{gender},PRICE=#{price}, JUSA=#{jusa},PIC=#{pic}
+			WHERE petid=#{petid}
+		]]>
+	</update>
+	
+	<update id="heartUpdate" parameterType="java.lang.Integer">
+		<![CDATA[
+			UPDATE PET 
+			SET HEART=HEART+1
 			WHERE petid=#{petid}
 		]]>
 	</update>

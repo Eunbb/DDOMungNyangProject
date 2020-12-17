@@ -265,6 +265,23 @@ public class BoardDAO {
 		}
 	}
 	
+	//하트 업데이트------------------------------------------
+	public int updateHeart(int petid) {
+		SqlSession session=factory.openSession();
+		int n=0;
+		try{
+			n=session.update("mybatis.IbMapper.heartUpdate",petid);
+			if(n > 0)
+				session.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+			session.rollback();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+	
 
 }
 

@@ -17,4 +17,12 @@
     <servlet-name>ControllerAction</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  <servlet>
+      <servlet-name>CheckIdServlet</servlet-name>
+      <servlet-class>com.login.service.CheckIdServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>CheckIdServlet</servlet-name>
+      <url-pattern>/CheckIdServlet</url-pattern>
+   </servlet-mapping>
 </web-app>

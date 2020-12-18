@@ -25,4 +25,12 @@
       <servlet-name>CheckIdServlet</servlet-name>
       <url-pattern>/CheckIdServlet</url-pattern>
    </servlet-mapping>
+    <servlet>
+      <servlet-name>CheckSadServlet</servlet-name>
+      <servlet-class>com.login.service.CheckSadServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>CheckSadServlet</servlet-name>
+      <url-pattern>/CheckSadServlet</url-pattern>
+   </servlet-mapping>
 </web-app>

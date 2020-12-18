@@ -18,7 +18,7 @@
 		<![CDATA[
 		INSERT INTO PET 
 		VALUES(SEQ_PETID.NEXTVAL,#{classify1},#{classify2},#{dogkortype},#{dogengtype},
-		#{gender},#{age},#{price},#{jusa},#{pic})
+		#{gender},#{age},#{price},#{jusa},#{pic},#{heart})
 				
 		]]>
 	</insert>

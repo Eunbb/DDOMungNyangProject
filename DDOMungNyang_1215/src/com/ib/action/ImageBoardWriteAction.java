@@ -55,6 +55,7 @@ public class ImageBoardWriteAction implements CommandAction {
 		String pic=multi.getFilesystemName("imagepath"); //  사진
 		
 		System.out.println("pic " + pic);
+		int heart=0; //  인기도
 		
 		//데이터 저장
 		IbDTO dto=new IbDTO();
@@ -69,6 +70,7 @@ public class ImageBoardWriteAction implements CommandAction {
 		dto.setPrice(price);
 		dto.setJusa(jusa);
 		dto.setPic(pic);
+		dto.setHeart(heart);
 		
 		//DB-insert
 //		ImageBoardDao dao=ImageBoardDao.getInstance();

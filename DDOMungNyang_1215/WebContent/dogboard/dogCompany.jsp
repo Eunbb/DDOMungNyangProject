@@ -24,15 +24,21 @@
 	}
     function heartbtnFunction(petid){
     	var petid = petid;
+    	var heart = $('input[name='+petid+']').val();
         $.ajax({
            type:'POST',
            url:'./CheckIdServlet',
-           data: {petid : petid},
-           success:function(result){
-              alert('하트 추가');
-           }
-        })
-     }
+           data: {petid : petid, heart : heart},
+           async: false,
+           success:function (jsonObj) {
+         	  var obj = JSON.parse(jsonObj);
+         	  $('input[name='+obj.petid+']').attr('value',obj.heart);
+           },
+           error : function(data,textStatus) {
+               console.log('error!!')
+        }
+     })
+    }
 </script>
 
 </head>
@@ -100,10 +106,8 @@
 												%>
 												<form id="heart">
 													<button type="button" style="color: red; cursor: pointer;" onclick="heartbtnFunction(${ibDTO.petid})">❤</button>
-													<input type="text" id="heartcount"
-														style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
-														value="${ibDTO.heart}" readonly/><input
-														type="hidden" petid="<%=pg%>" id="pg">
+													<input type="text" name="${ibDTO.petid}" value="${ibDTO.heart}"
+														style="width: 70px; height: 20px; font-size: 20px; text-align: center;" readonly/>
 												</form>
 												<%
 													} else {
@@ -112,7 +116,6 @@
 													<input type="checkbox" style="margin-top: 210px"
 														onclick="location.href='/bbs/login/login.jsp'" id="heart6" />
 													<label for="heart6">❤</label> <input type="text"
-														name="amount5"
 														style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
 														value="${ibDTO.heart}" disabled />
 												</form>

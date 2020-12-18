@@ -9,7 +9,9 @@ gender varchar2(100),          -------수컷이면  M, 암컷이면 F
 age varchar2(100),     -------나이(개월수) 
 price varchar2(100),      -------가격 
 jusa varchar2(100),     --------접종여부(O,X)
-pic varchar2(100))     
+pic varchar2(100),
+heart int
+)     
 
 
 create sequence seq_petid increment by 1 start with 1 nocycle nocache;

@@ -18,7 +18,12 @@ public class IbDTO {
 
 	}
 
-	
+	public IbDTO(int petid, int heart) {
+		super();
+		this.petid = petid;
+		this.heart = heart;
+	}
+
 
 	public IbDTO(int petid, String classify1, String classify2, String dogkortype, String dogengtype, String gender,
 			String age, String price, String jusa, String pic, int heart) {

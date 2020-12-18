@@ -43,10 +43,10 @@
 		]]>
 	</update>
 	
-	<update id="heartUpdate" parameterType="java.lang.Integer">
+	<update id="heartUpdate" parameterType="IbDTO">
 		<![CDATA[
 			UPDATE PET 
-			SET HEART=HEART+1
+			SET HEART=#{heart}
 			WHERE petid=#{petid}
 		]]>
 	</update>

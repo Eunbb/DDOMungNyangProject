@@ -266,11 +266,11 @@ public class BoardDAO {
 	}
 	
 	//하트 업데이트------------------------------------------
-	public int updateHeart(int petid) {
+	public int updateHeart(IbDTO dto) {
 		SqlSession session=factory.openSession();
 		int n=0;
 		try{
-			n=session.update("mybatis.IbMapper.heartUpdate",petid);
+			n=session.update("mybatis.IbMapper.heartUpdate",dto);
 			if(n > 0)
 				session.commit();
 		}catch(Exception e) {

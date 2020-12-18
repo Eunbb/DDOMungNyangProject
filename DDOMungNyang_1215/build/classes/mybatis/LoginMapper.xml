@@ -24,4 +24,12 @@
 		]]>
 	
 	</select>
+	
+	<update id="loginmodify" parameterType="LoginDTO">
+		<![CDATA[
+			UPDATE BOARD 
+			SET id=#{id}, pw=#{pw}, repw=#{repw}, nick=#{nick}, birth=#{birth}
+			WHERE name=#{name}
+		]]>
+	</update>
 </mapper>

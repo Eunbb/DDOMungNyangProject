@@ -17,6 +17,9 @@
 function homeBtn(){
 	location.href = "index.jsp";
 }
+function loginModify(){
+	location.href = "/bbs/myProModify.do";
+}
 </script>
 <head>
 <title>Dopetrope by HTML5 UP</title>
@@ -33,14 +36,13 @@ function homeBtn(){
 
 			<!-- Logo -->
 			<h1>
-				<a href="/bbs/index.jsp">내       정  보</a>
+				<a href="/bbs/index.jsp">내   정   보   수   정   하   기</a>
 			</h1>
 
 		</section>
 
 		<!-- profile -->
-		<form name="profileForm" method="post" enctype="multipart/form-data"
-			action="/bbs/">
+		<form name="profileForm" method="post" enctype="multipart/form-data">
 			<h3>글수정</h3>
 			<table border="1">
 				<tr>
@@ -52,6 +54,11 @@ function homeBtn(){
 					<td>비밀번호</td>
 					<td><input type="text" name="pw" size="50"
 						value="<%=dto.getPw()%>"></td>
+				</tr>
+				<tr>
+					<td>비밀번호확인</td>
+					<td><input type="text" name="repw" size="50"
+						value="<%=dto.getRepw()%>"></td>
 				</tr>
 				<tr>
 					<td>이름</td>
@@ -70,7 +77,7 @@ function homeBtn(){
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="button"
-						value="수정하기" onclick="checkdogModify()">
+						value="수정하기" onclick="loginModify()">
 						<input type="button"
 						value="HOME" onclick="homeBtn()">
 				</tr>

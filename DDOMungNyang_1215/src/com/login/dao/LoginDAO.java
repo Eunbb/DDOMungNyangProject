@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import com.board.dto.BoardDTO;
 import com.ib.dto.IbDTO;
 import com.login.dto.LoginDTO;
 
@@ -45,15 +46,12 @@ public class LoginDAO {
 		SqlSession session = factory.openSession();
 		int n = 0;
 		try {
-			System.out.println("signUp 들어옴");
 			n = session.insert("mybatis.LoginMapper.signUp", dto);
-			System.out.println(n + "DAO");
 			if (n > 0) {
 				session.commit();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("ㅋㅋ 에러ㄸㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ");
 			session.rollback();
 		} finally {
 			session.close();
@@ -61,6 +59,20 @@ public class LoginDAO {
 		return n;
 	}
 
-
+	//회원정보 수정하기-----------------------------------------------------------------------
+	public void getLoginModify(LoginDTO dto) {
+		SqlSession session=factory.openSession();
+		int n=0;
+		try{
+			n=session.update("mybatis.LoginMapper.loginmodify",dto);
+			if(n > 0)
+				session.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+			session.rollback();
+		}finally {
+			session.close();
+		}
+	}
 
 }

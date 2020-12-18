@@ -2,26 +2,13 @@ select * from tab;
 select * from test1;
 drop table test1;
 
---primary key : unique + not null
-create table users(
-id varchar2(10) primary key,
-pwd varchar2(10) not null,
-name varchar2(20) not null,
-point number(7,2));  
-
-insert into users(id,pwd,name,point) values('admin','1111','어드민',35.34);
-insert into users(id,pwd,name,point) values('abcd','1111','테스트',65.78);
-commit
-
-select * from test1 where id = 'admin@daum.com'
-
 create table test1(
-id varchar2(30) primary key,       
-pw varchar2(20) NOT NULL,            
-repw varchar2(20) NOT NULL,            
-name varchar2(10) NOT NULL,           
-nick varchar2(10) NOT NULL,            
-birth varchar2(20) DEFAULT 0 NOT NULL       
+id varchar2(30) primary key,    			----아이디   
+pw varchar2(20) NOT NULL,            		----비밀번호
+repw varchar2(20) NOT NULL,            		----비밀번호확인
+name varchar2(10) NOT NULL,           		----이름
+nick varchar2(10) NOT NULL,            		----닉네임
+birth varchar2(20) DEFAULT 0 NOT NULL       ----생일
 );
 
 select * from test1;

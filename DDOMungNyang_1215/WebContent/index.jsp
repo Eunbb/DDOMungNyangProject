@@ -7,6 +7,11 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<script>
+function myProfile(){
+   document.MyProfile.submit();
+}
+</script>
 	<head>
 		<title>DDO:MUNGNYANG</title>
 		<meta charset="utf-8" />
@@ -29,7 +34,9 @@
    }else{
 %>
 				<button id="logout_btn" onclick="location.href='/bbs/logout.do'">로그아웃</button>
-				<button id="profile_btn">내정보</button><br>
+				<form name="MyProfile" method="post" action="/bbs/myPro.do?id=<%= entity.getId() %>">
+					<button id="profile_btn" onclick="myProfile()">내정보</button><br>
+				</form>
 				<%= entity.getNick() %>님 반가워요^^
 <%                         
    }
@@ -141,13 +148,14 @@
                  <section id="main">
                <div class="container">
                 <header class="major">
-                            <h2>인기순위</h2>
+                            <h2>실시간 인기펫 순위</h2>
                              </header>
 							<div class="row">
 								<div class="col-4 col-12-medium">
 									<section class="first">
-									
-										<i class="icon solid featured fa-cog"></i>
+										
+										<button type="button" style="color: red; cursor: pointer;" onclick="petranking()">❤</button>
+										
 										<header>
 											<h2>인기순위 1위</h2>
 										</header>

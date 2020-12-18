@@ -16,10 +16,11 @@
 	]]>
 	</select>
 	
-	<select id="overlap" parameterType="java.lang.String" resultType="String">
+	<select id="getLoginData" parameterType="java.lang.String" resultType="LoginDTO">
 		<![CDATA[
-			select * from test1 where id =#{id} 
-		
+			SELECT *
+			FROM TEST1
+			WHERE ID =#{id} 
 		]]>
 	
 	</select>

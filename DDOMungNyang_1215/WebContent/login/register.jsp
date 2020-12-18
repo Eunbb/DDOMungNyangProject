@@ -20,10 +20,6 @@
 			alert('이메일 인증을 해주세요');
 		}
 	}
-	function overlap() {
-		signup.action = "/bbs/overlap.do"
-
-	}
 </script>
 <script>
 	$(document).ready(function() {

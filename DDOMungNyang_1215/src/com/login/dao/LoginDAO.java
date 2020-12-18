@@ -32,6 +32,15 @@ public class LoginDAO {
 		return entity;
 	}
 
+	//id로 데이터검색해서 가져오기
+	public LoginDTO getLoginData(String id) {
+		SqlSession session = factory.openSession();
+		LoginDTO entity = session.selectOne("mybatis.LoginMapper.getLoginData", id);
+		session.close();
+		return entity;
+	}
+
+	
 	public int signUp(LoginDTO dto) {
 		SqlSession session = factory.openSession();
 		int n = 0;
@@ -52,12 +61,6 @@ public class LoginDAO {
 		return n;
 	}
 
-	public LoginDTO overlap(String id) {
-		SqlSession session = factory.openSession();
-		System.out.println("DAO : " + id);
-		LoginDTO entity = session.selectOne("mybatis.LoginMapper.overlap", id);
-		return entity;
-	}
 
 
 }

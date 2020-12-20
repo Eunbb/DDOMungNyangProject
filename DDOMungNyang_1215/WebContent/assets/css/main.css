@@ -84,10 +84,7 @@ input, select, textarea {
 		box-sizing: inherit;
 	}
 
-	body {
-		background: #252122;
-		background-image: url("images/bg02.png");
-	}
+
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
 			-moz-animation: none !important;
@@ -103,7 +100,7 @@ input, select, textarea {
 	body, input, textarea, select {
 		font-family: 'Jua', sans-serif;
 		font-weight: 300;
-		color: #5d5d5d;
+		color: #000000;
 		font-size: 14pt;
 		line-height: 1.75em;
 	}
@@ -1623,6 +1620,7 @@ input, select, textarea {
 		border: 0;
 		border-radius: 5px;
 		background: transparent;
+		font-family: 'Jua', sans-serif;
 		color: #f44336 !important;
 		font-weight: 700;
 		outline: 0;
@@ -1640,7 +1638,8 @@ input, select, textarea {
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background: #f44336;
+			background: transparent;
+			color: #808080 !important;
 		}
 
 		input[type="button"]:active,
@@ -2067,7 +2066,7 @@ input, select, textarea {
 	#login_btn {
 	font-family: 'Jua', sans-serif;
 		border-radius:10px;
-		margin-right:5	px;
+		margin-right:5px;
 				}
 	#login_btn:hover{background-color:transparent !important;
 	                 color: rgba(96, 87, 87, 0.55) !important;
@@ -2079,6 +2078,8 @@ input, select, textarea {
 	#register_btn:hover{background-color:transparent !important;
 	                    color: rgba(96, 87, 87, 0.55) !important;
 	                    display: inline-block;}
+	                    
+	
 
 	
 /* Header */

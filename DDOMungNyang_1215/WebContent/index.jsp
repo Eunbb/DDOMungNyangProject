@@ -207,9 +207,7 @@ function myProfile(){
                   <div class="col-4 col-12-medium">
                      <div class="col-4 col-12-medium">
                         <section>
-                           <header>
-                              <h2>또먹냥~?</h2>
-                           </header>
+                          
                            <ul class="social">
                               <li><a class="fab fa-facebook-f " href="https://www.facebook.com"><span
                                     class="label"></span></a></li>

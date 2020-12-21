@@ -37,7 +37,7 @@ function myProfile(){
 				<form name="MyProfile" method="post" action="/bbs/myPro.do?id=<%= entity.getId() %>">
 					<button id="profile_btn" onclick="myProfile()">내정보</button><br>
 				</form>
-				<%= entity.getNick() %>님 반가워요^^
+				<%= entity.getNick() %>님 <img src="images/mypage.png" width="15" height="15" style=margin-right:20px;>
 <%                         
    }
 %>

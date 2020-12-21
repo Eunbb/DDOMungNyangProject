@@ -21,7 +21,7 @@
 }
 </script>
    <head>
-      <title>Dopetrope by HTML5 UP</title>
+      <title>글수정</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="assets/css/main.css" />
@@ -33,75 +33,91 @@
             <section id="header">
 
                <!-- Logo -->
-                  <h1><a href="/bbs/index.jsp">Q & A</a></h1>
+                  <h1><a href="/bbs/index.jsp">DDO:MUNGNYANG</a></h1>
 
                <!-- Nav -->
-                  <nav id="nav">
-                     <ul>
-                        <li><a href="index.jsp">Home</a></li>
-                        <li><a href="dog.html">강아지분양</a></li>
-                        <li><a href="cat.html">고양이 분양</a></li>
-                        <li><a href="abandoned.html">유기동물 분양</a></li>
-                        <li><a href="service.html">서비스</a></li>
-                        <li><a href="/bbs/boardList.do?pg=1">Q&A</a></li>
-                     </ul>
-                  </nav>
+                 <nav id="nav">
+							<ul>
+								<li><a href="/bbs/index.jsp">Home</a></li>
+								<li><a>강아지분양</a>
+								<ul>
+										<li><a href="/bbs/Iblist.do?pg=1">업체 분양</a></li>
+										<li><a href="/bbs/dogPeople.jsp">개인 분양 </a></li>
+										<li><a href="abandoned.html">유기 분양</a></li>
+									</ul> 
+								</li>
+								<li><a>고양이 분양</a>
+								<ul>
+										<li><a href="#">업체 분양</a></li>
+										<li><a href="#">개인 분양 </a></li>
+										<li><a href="#">유기 분양</a></li>
+								
+								</ul>
+								</li>
+								<li><a href="#">심리테스트</a></li>
+								<li><a href="service.html">서비스</a></li>
+								<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li>
+							</ul>
+						</nav>
 
             </section>
-
-<!-- boardView -->
 <form name="dogModifyForm" method="post"  enctype="multipart/form-data"
                    action="/bbs/dogUpdate.do?petid=<%=petid%>&pg=<%=pg%>">
-<h3>글수정</h3>
-<table border="1" >
-   <tr>
-      <td>사진</td>
-      <td><img name="imagepath" id="imagepath" class="pic" src="/bbs/storage/<%=dto.getPic()%>" alt="" /><br>
+<!-- boardView -->
+<section id="board">
+<section id="board2">
+
+
+   <h2 style="margin-top:20pt; margin-left:20pt;">관리자 수정</h2>
       
-      <input type="file" name="pic" id="pic" size="40"></td>      
-   </tr>
-   <tr>
-      <td>종(한글)</td>
-      <td><input type="text" name="dogkortype" size="50"  value="<%=dto.getDogkortype()%>"></td>      
-   </tr>
-      <tr>
-      <td>종(영어)</td>
-      <td><input type="text" name="dogengtype" size="50"  value="<%=dto.getDogengtype()%>"></td>   
-   </tr>
-   <tr>
-      <td>동물(강아지 : 1, 고양이 : 2)</td>
-      <td><input type="text" name="classify1" size="50"  value="<%=dto.getClassify1()%>" readonly></td>
-   </tr>   
-   <tr>
-      <td>분양방법(업체분양 : A1 , 개인분양 : A2, 유기분양 :A3)</td>
-      <td><input type="text" name="classify2" size="50"  value="<%=dto.getClassify2()%>"></td>
-   </tr>
-   <tr>
-      <td>나이(살)</td>
-      <td><input type="text" name="age" size="50" value="<%=dto.getAge()%>"></td>
-   </tr>   
-   <tr>
-      <td>성별(수컷 M, 암컷 F)</td>
-      <td><input type="text" name="gender" size="50" value="<%=dto.getGender()%>"></td>
-   </tr>
-   <tr>
-      <td>가격(원)</td>
-      <td><input type="text" name="price" value="<%=dto.getPrice()%>원" size="50"></td>
-   </tr>
+      <div><img style="display:block;margin:0 auto;margin-top:20pt;" name="imagepath" id="imagepath" class="pic" src="/bbs/storage/<%=dto.getPic()%>" alt="" /><br>
+      
+      <div style="text-align:center;" ><input type="file" style="color:#f44336;"name="pic" id="pic" size="40"></div>      
+   	</div>
    
-   <tr>
-      <td>접종여부(O,X)</td>
-      <td><input type="text" name="jusa" value="<%=dto.getJusa()%>" size="50"></td>
-   </tr>
+   <div>
+      
+      <div style="color:#f44336; margin-left:20pt">종류(한글)<input type="text" style="width:200pt;" name="dogkortype" value="<%=dto.getDogkortype()%>"></div>      
+   </div>
+      <div>
+     
+      <div style="color:#f44336; margin-left:20pt">종류(영어)<input type="text" style="width:200pt;"name="dogengtype" size="50"  value="<%=dto.getDogengtype()%>"></div>   
+   </div>
+   <div>
+     
+      <div style="color:#f44336; margin-left:20pt">동물(강아지 : 1, 고양이 : 2)<input type="text" style="width:200pt;" name="classify1" size="50"  value="<%=dto.getClassify1()%>" readonly></div>
+   </div>   
+   <div>
+      
+      <div style="color:#f44336; margin-left:20pt">분양방법(업체분양 : A1 , 개인분양 : A2, 유기분양 :A3)<input type="text" style="width:200pt;" name="classify2" size="50"  value="<%=dto.getClassify2()%>"></div>
+   </div>
+   <div>
+      
+      <div style="color:#f44336; margin-left:20pt">나이(세)<input type="text" style="width:200pt;" name="age" size="50" value="<%=dto.getAge()%>"></div>
+   </div>   
+   <div>
+      <div style="color:#f44336; margin-left:20pt">성별(수컷 M, 암컷 F)<input type="text" style="width:200pt;" name="gender" size="50" value="<%=dto.getGender()%>"></div>
+   </div>
+   <div>
+    
+      <div style="color:#f44336; margin-left:20pt">가격(원)<input type="text" style="width:200pt;" name="price" value="<%=dto.getPrice()%>원" size="50"></div>
+   </div>
    
-   <tr>
-      <td colspan="2" align="center">
+   <div>
+      
+      <div style="color:#f44336; margin-left:20pt">접종여부(O,X)<input type="text" style="width:200pt;" name="jusa" value="<%=dto.getJusa()%>" size="50"></div>
+   </div>
+   
+   
+      <section id="btn">
       <input type="button" value="수정완료" onclick="checkdogModify()">
       <input type="button" value="목록" onclick="location.href='/bbs/Iblist.do?pg=<%=pg%>'">
-      </td>
+      </section>
+      </section>
+      </section>
       
-   </tr>
-</table>
+  
+
 </form>
 
 <br><br><br>
@@ -112,7 +128,7 @@
                   <div class="col-8 col-12-medium">
                      <section id="footer">
                         <header>
-                           <h2>Blandit nisl adipiscing</h2>
+                           <h2>또멍냥 분양사이트 정보</h2>
                         </header>
                         <ul class="dates">
                            <li><span class="date">연중무휴</span>

@@ -14,7 +14,7 @@ birth varchar2(20) DEFAULT 0 NOT NULL       ----생일
 select * from test1;
 
 insert into test1(id,pw,repw,name,nick,birth) values('admin','1111','1111','한동욱','다람쥐','1993-12-20');
-
+insert into test1(id,pw,repw,name,nick,birth) values('ddomungyang@gmail.com','1111','1111','또멍냥','또멍냥','1993-12-20');
 commit
 
 

@@ -2302,6 +2302,28 @@ input, select, textarea {
 		background: #f7f7f7 url("images/bg02.png");
 		padding: 4em 0 4em 0;
 	}
+	#board{
+		
+		position: relative;
+		padding-top:20pt;
+		background: white;
+		
+	}
+	
+	#board2{
+		margin-left:50pt;
+		margin-right:50pt;
+		background:white;
+		border:10px solid #f44336;
+		border-radius:5px;
+		
+	}
+	#btn{
+		margin-top:20pt;
+		margin-bottom:20pt;
+		text-align:center;
+		
+	}
 
 		#main:before {
 			content: '';

@@ -15,8 +15,8 @@ import com.board.dao.BoardDAO;
 import com.ib.dto.IbDTO;
 
 
-@WebServlet(name = "CheckSadServlet", urlPatterns = { "/CheckSadServlet" })
-public class CheckSadServlet extends HttpServlet {
+@WebServlet(name = "PlusHeartServlet", urlPatterns = { "/PlusHeartServlet" })
+public class PlusHeartServlet extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,21 +29,21 @@ public class CheckSadServlet extends HttpServlet {
       int heart = Integer.parseInt(request.getParameter("heart"));
       
       //값 확인
-      System.out.println("SADCheck 들어옴");
+      System.out.println("Check 들어옴");
       System.out.println("petid  : " + petid);
       System.out.println("heart  : " + heart);
       
       //heart+1
-      heart = heart-1;
+      heart = heart+1;
       IbDTO dto = new IbDTO(Integer.parseInt(petid), heart);
       
       BoardDAO dao = new BoardDAO();
       int n = dao.updateHeart(dto);
-      if(n>0) {         //업데이트 성공했을 경우
-         dto = dao.getDog(dto.getPetid());
-         System.out.println("하트값 : "+dto.getHeart());
+      if(n>0) {			//업데이트 성공했을 경우
+    	  dto = dao.getDog(dto.getPetid());
+    	  System.out.println("하트값 : "+dto.getHeart());
       }else {
-         System.out.println("하트업데이트 오류");
+    	  System.out.println("하트업데이트 오류");
       }
 
       JSONObject obj = new JSONObject();

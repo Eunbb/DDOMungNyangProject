@@ -19,21 +19,21 @@
   </servlet-mapping>
   
   <servlet>
-      <servlet-name>CheckIdServlet</servlet-name>
-      <servlet-class>com.login.service.CheckIdServlet</servlet-class>
+      <servlet-name>PlusHeartServlet</servlet-name>
+      <servlet-class>com.login.service.PlusHeartServlet</servlet-class>
    </servlet>
    <servlet-mapping>
-      <servlet-name>CheckIdServlet</servlet-name>
-      <url-pattern>/CheckIdServlet</url-pattern>
+      <servlet-name>PlusHeartServlet</servlet-name>
+      <url-pattern>/PlusHeartServlet</url-pattern>
    </servlet-mapping>
    
     <servlet>
-      <servlet-name>CheckSadServlet</servlet-name>
-      <servlet-class>com.login.service.CheckSadServlet</servlet-class>
+      <servlet-name>MinusHeartServlet</servlet-name>
+      <servlet-class>com.login.service.MinusHeartServlet</servlet-class>
    </servlet>
    <servlet-mapping>
-      <servlet-name>CheckSadServlet</servlet-name>
-      <url-pattern>/CheckSadServlet</url-pattern>
+      <servlet-name>MinusHeartServlet</servlet-name>
+      <url-pattern>/MinusHeartServlet</url-pattern>
    </servlet-mapping>
    
    <servlet>

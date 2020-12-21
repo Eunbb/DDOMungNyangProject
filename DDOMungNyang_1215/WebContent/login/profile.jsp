@@ -13,13 +13,74 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
-function homeBtn(){
-	location.href = "index.jsp";
-}
-function loginModify(){
-	location.href = "/bbs/myProModify.do";
-}
+	$(document).ready(function() {
+		//jQuery
+		$("#repw").keyup(function() {
+			pw = $("#pw").val();
+			repw = $("#repw").val();
+
+			if (pw == repw) {
+				$("#pwdchk").text("비밀번호가 일치합니다.").css({
+					'font-weight' : 'bold',
+					'color' : 'green'
+				});
+			} else {
+				$("#pwdchk").text("비밀번호가 일치하지않습니다").css({
+					'font-weight' : 'bold',
+					'color' : 'red'
+				});
+			}
+		})
+		
+		$("#pwmodifybtn").click(function() {
+			var id = $("[name=id]").val();
+			var popupX = (document.body.offsetWidth / 2) - (500 / 2);
+			var popupY= (window.screen.height / 2) - (500 / 2);
+			window.open('/bbs/login/pwVerify.jsp?&id='+id+'', '비밀번호 확인', 'width=500, height=500, left='+ popupX + ', top='+ popupY + ', scrollbars = no');
+		})
+		
+		$("#namemodifybtn").click(function() {
+			$("[name=name]").attr("readonly",false);
+			$("[name=name]").focus();
+			$("[name=name]").css({'background-color' : '#d1d1d1'});
+		})
+		
+		$("#nickmodifybtn").click(function() {
+			$("[name=nick]").attr("readonly",false);
+			$("[name=nick]").focus();
+			$("[name=nick]").css({'background-color' : '#d1d1d1'});
+		})
+		
+		$("#birthmodifybtn").click(function() {
+			$("[name=birth]").attr("readonly",false);
+			$("[name=birth]").focus();
+			$("[name=birth]").css({'background-color' : '#d1d1d1'});
+		})
+	});
+	function verification(){
+			$("[name=pw]").attr("readonly",false);
+			$("[name=repw]").attr("readonly",false);
+			$("[name=pw]").css({'background-color' : '#d1d1d1'});
+			$("[name=pw]").focus();
+			$("[name=repw]").click(function() {
+				$("[name=repw]").css({'background-color' : '#d1d1d1'});
+			})
+	}
+	
+	function homeBtn() {
+		location.href = "index.jsp";
+	}
+	function loginModify() {
+		pw = $("[name=pw]").val();
+		repw = $("[name=repw]").val();
+		if(pw == repw){
+			document.profileForm.submit();
+		} else{
+			alert('비밀번호가 서로 일치하지 않습니다.');
+		}
+	}
 </script>
 <head>
 <title>Dopetrope by HTML5 UP</title>
@@ -36,57 +97,52 @@ function loginModify(){
 
 			<!-- Logo -->
 			<h1>
-				<a href="/bbs/index.jsp">내   정   보   수   정   하   기</a>
+				<a href="/bbs/index.jsp">내 정 보</a>
 			</h1>
 
 		</section>
 
 		<!-- profile -->
-		<form name="profileForm" method="post" enctype="multipart/form-data">
-			<h3>글수정</h3>
+		<form name="profileForm" method="post" action="/bbs/myProModify.do">
 			<table border="1">
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="id" size="50"
-						value="<%=dto.getId()%>"><br>
+					<td colspan="2"><input type="text" name="id" size="50"
+						value="<%=dto.getId()%>" readonly></td>
 				</tr>
 				<tr>
-					<td>비밀번호</td>
-					<td><input type="text" name="pw" size="50"
-						value="<%=dto.getPw()%>"></td>
-				</tr>
-				<tr>
-					<td>비밀번호확인</td>
-					<td><input type="text" name="repw" size="50"
-						value="<%=dto.getRepw()%>"></td>
+					<td>비밀번호<br><br><br>비밀번호확인</td>
+					<td><input type="password" name="pw" size="50" id="pw" placeholder="비밀번호를 입력해주세요" value="<%=dto.getPw()%>" readonly>	<br>
+						<input type="password" name="repw" size="50" id="repw" placeholder="비밀번호를 다시한번 입력해주세요"	value="<%=dto.getRepw()%>" readonly>
+						<p style="color: red;" id="pwdchk">${pwdchk}</p></td>
+					<td><button type="button" id="pwmodifybtn">수정하기</button></td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="name" size="50"
-						value="<%=dto.getName()%>"></td>
+					<td colspan="2"><input type="text" name="name" size="50"
+						value="<%=dto.getName()%>" readonly></td>
 				</tr>
 				<tr>
 					<td>닉네임</td>
 					<td><input type="text" name="nick" size="50"
-						value="<%=dto.getNick()%>"></td>
+						value="<%=dto.getNick()%>" readonly></td>
+					<td><button type="button" id="nickmodifybtn">수정하기</button></td>
 				</tr>
 				<tr>
 					<td>생일</td>
 					<td><input type="text" name="birth" size="50"
-						value="<%=dto.getBirth()%>"></td>
+						value="<%=dto.getBirth()%>" readonly></td>
+					<td><button type="button" id="birthmodifybtn">수정하기</button></td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><input type="button"
-						value="수정하기" onclick="loginModify()">
-						<input type="button"
+					<td colspan="3" align="center"><input type="button"
+						value="저장" onclick="loginModify()"> <input type="button"
 						value="HOME" onclick="homeBtn()">
 				</tr>
 			</table>
 		</form>
 
-		<br>
-		<br>
-		<br>
+		<br> <br> <br>
 		<!-- Footer -->
 		<section id="footer">
 			<div class="container">

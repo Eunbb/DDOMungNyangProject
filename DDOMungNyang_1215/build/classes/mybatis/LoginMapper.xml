@@ -27,9 +27,9 @@
 	
 	<update id="loginmodify" parameterType="LoginDTO">
 		<![CDATA[
-			UPDATE BOARD 
-			SET id=#{id}, pw=#{pw}, repw=#{repw}, nick=#{nick}, birth=#{birth}
-			WHERE name=#{name}
+			UPDATE TEST1
+			SET PW=#{pw},REPW=#{repw},NICK=#{nick},BIRTH=#{birth},NAME=#{name}
+			WHERE id=#{id} 
 		]]>
 	</update>
 </mapper>

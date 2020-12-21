@@ -17,6 +17,7 @@
     <servlet-name>ControllerAction</servlet-name>
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
   <servlet>
       <servlet-name>CheckIdServlet</servlet-name>
       <servlet-class>com.login.service.CheckIdServlet</servlet-class>
@@ -25,6 +26,7 @@
       <servlet-name>CheckIdServlet</servlet-name>
       <url-pattern>/CheckIdServlet</url-pattern>
    </servlet-mapping>
+   
     <servlet>
       <servlet-name>CheckSadServlet</servlet-name>
       <servlet-class>com.login.service.CheckSadServlet</servlet-class>
@@ -32,5 +34,14 @@
    <servlet-mapping>
       <servlet-name>CheckSadServlet</servlet-name>
       <url-pattern>/CheckSadServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+      <servlet-name>CheckpwServlet</servlet-name>
+      <servlet-class>com.login.service.CheckpwServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>CheckpwServlet</servlet-name>
+      <url-pattern>/CheckpwServlet</url-pattern>
    </servlet-mapping>
 </web-app>

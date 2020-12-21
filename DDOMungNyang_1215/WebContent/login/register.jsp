@@ -60,7 +60,7 @@
 <body class="homepage is-preload">
 
 	<%
-		String str = (String) request.getAttribute("id");
+	String str = (String) request.getAttribute("id");
 	String result;
 	if (str == null) {
 		result = "아이디를 입력해주세요";
@@ -70,6 +70,7 @@
 		result = "이미 등록된 아이디 입니다";
 	}
 	%>
+	
 	<div id="page-wrapper">
 		<!-- 로그인/회원가입 버튼 -->
 		<section id="starter">

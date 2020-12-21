@@ -61,10 +61,33 @@
 </head>
 <body class="left-sidebar is-preload">
    <div id="page-wrapper">
-      <%
-         LoginDTO entity = (LoginDTO) session.getAttribute("logOK");
-          IbDTO dto=(IbDTO)request.getAttribute("dto");
-      %>
+			<!-- 로그인/회원가입 버튼 -->
+			<section id="starter">
+			<div id="menu">
+			<!-- 로그인/회원가입 버튼 -->
+			
+<%
+   LoginDTO entity = (LoginDTO)session.getAttribute("logOK");
+   IbDTO dto=(IbDTO)request.getAttribute("dto");
+   if(entity == null)
+   {
+%>
+				<button id="login_btn" onclick="location.href='/bbs/login/login.jsp' ">로그인</button>
+				<button id="register_btn" onclick="location.href='/bbs/login/register.jsp' ">회원가입</button>
+<%
+   }else{
+%>
+				<button id="logout_btn" onclick="location.href='/bbs/logout.do'">로그아웃</button>
+				<form name="MyProfile" method="post" action="/bbs/myPro.do?id=<%= entity.getId() %>">
+					<button id="profile_btn" onclick="myProfile()">내정보</button><br>
+				</form>
+				<%= entity.getNick() %>님 반가워요<img src="images/mypage.png" width="15" height="15" style=margin-right:20px;>
+<%                         
+   }
+%>
+			</div>
+			</section>
+			</div>
       <!-- Header -->
       <section id="header">
 
@@ -76,21 +99,20 @@
          <!-- Nav -->
          <nav id="nav">
             <ul>
-               <li><a href="index.jsp">Home</a></li>
-               <li class="current"><a href="#">강아지분양</a>
+               <li><a href="/bbs/index.jsp">Home</a></li>
+               <li class="current"><a>강아지분양</a>
                   <ul>
-                     <li><a href="dog.html">업체 분양</a></li>
-                     <li><a href="/bbs/dogPeople.jsp">개인 분양 </a></li>
-                     <li><a href="abandoned.html">유기 분양</a></li>
+                    <li><a href="/bbs/Iblist1.do?pg=1">업체 분양</a></li>
+                    <li><a href="/bbs/Iblist2.do?pg=1">개인 분양 </a></li>
+				    <li><a href="/bbs/Iblist3.do?pg=1">유기 분양</a></li>
                   </ul></li>
 
-               <li><a href="cat.html">고양이 분양</a></li>
+               <li><a href="/bbs/catboard/cat.html">고양이 분양</a></li>
                <ul>
-                  <li><a href=#>업체 분양</a></li>
-                  <li><a href=#>개인 분양 </a></li>
-                  <li><a href=#>유기 분양</a></li>
+                  <li><a href="/bbs/Iblist4.do?pg=1">업체 분양</a></li>
+                  <li><a href="/bbs/Iblist5.do?pg=1">개인 분양 </a></li>
+                  <li><a href="/bbs/Iblist6.do?pg=1">유기 분양</a></li>
                </ul>
-               <li><a href="abandoned.html">유기동물 분양</a></li>
                <li><a href="service.html">서비스</a></li>
                <li><a href="qna.html">Q&A</a></li>
             </ul>
@@ -107,14 +129,14 @@
                   <!-- Portfolio    -->
                   <section>
                      <header class="major">
-                        <h2>강아지 유기분양</h2>
+                        <h2>강아지 개인분양</h2>
                      </header>
                      <div class="row">
                         <c:forEach var="ibDTO" items="${list}">
                            <!-- 추가한 부분 -->
                            <div class="col-4 col-6-medium col-12-small">
                               <section class="box">
-                                 <a href="#" class="image featured" onclick="dogView('${ibDTO.petid}','<%=pg%>')"><img
+                                <a href="#" class="image featured" onclick="dogView('${ibDTO.petid}','<%=pg%>')"><img
                                     src="/bbs/storage/${ibDTO.pic}" alt="" /></a>
                                  <header>
                                     <h3>${ibDTO.dogkortype}${ibDTO.dogengtype}</h3>
@@ -123,7 +145,7 @@
                                     %>
                                     <form id="heart">
                                        <button type="button" style="color: red; cursor: pointer;" onclick="heartbtnFunction(${ibDTO.petid})">😍</button>
-                                       <button type="button" style="color: red; cursor: pointer;" onclick="heartSadbtnFunction(${ibDTO.petid})"> 🙁</button>
+                                       <button type="button" style="color: red; cursor: pointer;" onclick="heartSadbtnFunction(${ibDTO.petid})">🙁</button>
                                        <input type="text" name="${ibDTO.petid}" value="${ibDTO.heart}"
                                           style="width: 70px; height: 20px; font-size: 20px; text-align: center;" readonly/>
                                     </form>
@@ -153,7 +175,7 @@
                         if (entity != null) {
                      %>
                      <button id="hi"
-                        onclick="location.href='/bbs/dogboard/imageBoardWrite.html'">글등록</button>
+                        onclick="location.href='/bbs/dogboard/imageBoardWrite.jsp'">글등록</button>
                      <%
                         } else {
                      %>
@@ -182,9 +204,6 @@
             <div class="row">
                <div class="col-8 col-12-medium">
                   <section id="footer">
-                     <header>
-                        <h2>Blandit nisl adipiscing</h2>
-                     </header>
                      <ul class="dates">
                         <li><span class="date">연중무휴</span>
 

@@ -220,12 +220,13 @@ section#btn {
 							<ul>
 								<li><a href="/bbs/index.jsp">Home</a></li>
 								<li><a>강아지분양</a>
-								<ul>
-										<li><a href="/bbs/Iblist.do?pg=1">업체 분양</a></li>
-										<li><a href="/bbs/dogPeople.jsp">개인 분양 </a></li>
-										<li><a href="abandoned.html">유기 분양</a></li>
+								    <ul>
+										<li><a href="/bbs/Iblist1.do?pg=1">업체 분양</a></li>
+										<li><a href="/bbs/Iblist2.do?pg=1">개인 분양 </a></li>
+				                        <li><a href="/bbs/Iblist3.do?pg=1">유기 분양</a></li>
 									</ul> 
 								</li>
+								
 								<li><a>고양이 분양</a>
 								<ul>
 										<li><a href="#">업체 분양</a></li>
@@ -271,7 +272,7 @@ section#btn {
 	
 	<div style="text-align:center; font-size:2.0em;">분양가 : <span style= color:#3f729b><%=dto.getPrice() %></span>원</div>
    <img id="instaticon" src="/bbs/images/like.png">
-   <p style="margin-bottom:0em; font-size:1.5em;" class="like">좋아요 29개</p>
+   <p style="margin-bottom:0em; font-size:1.5em;" class="like">좋아요 <%=dto.getHeart()%>개</p>
    <div class="comment">
    <p style="margin-bottom:0em; font-size:1.5em;"><%=dto.getDogkortype()%> <span style="color: #3f729b;"> #<%=dto.getAge()%>살  #<%=dto.getGender()%>구요 #<%=dto.getJusa()%></span></p>
    <p style="margin-bottom:0em; margin-top:1em; font-size:1.5em">건우&nbsp;&nbsp;<span style=color:#3d3c3c>퍼가요~♥</span></p>
@@ -285,38 +286,32 @@ section#btn {
    <p style="font-size:10px; color: slategray; margin-top:1em; font-size:1em">13시간 전 </p>
    
    </div>
-<%-- 	<div style=text-align:center;margin-bottom:10pt;><font size="8"><%=dto.getDogkortype()%>(<%=dto.getDogengtype() %>)</font></div> --%>
-<%-- 	<div style=text-align:center;><img src="/bbs/storage/<%=dto.getPic()%>" alt="" /></div> --%>
-<%-- 	<div style=text-align:center;>성별 :<%=dto.getGender()%></div> --%>
-<%-- 	<div style=text-align:center;>나이 : <%=dto.getAge() %></div> --%>
-<%-- 	<div style=text-align:center;>접종여부 : <%=dto.getJusa() %></div> --%>
-	
-<%-- 	<div style=text-align:center;>분양가 : <%=dto.getPrice() %> 원</div> --%>
+
 </div>
 <br><br><br>
 <section id="btn">
  <!--  또멍냥(관리자계정) 으로 로그인했을떄만 뜨게함(건우 수정부분5) -->
  <%
-	if(entity == null)
-	 {
-%>      <input type="button" value="목록" onclick="location.href='/bbs/Iblist.do?pg=1'">
-        <input type="button" value="찜하기" onclick="location.href='#'">
+	if(entity == null) {
+%>      
+      <input type="button" value="목록" onclick="location.href='/bbs/Iblist1.do?pg=1'">
 <% 
-     }else if(entity.getId().equals("ddomungyang@gmail.com")) {
+     }else if(session.getAttribute("id") !=null) {
+         if(session.getAttribute("id").equals(entity.getId())) {
 %>
-        <input type="button" value="목록" onclick="location.href='/bbs/Iblist.do?pg=1'">
+        <input type="button" value="목록" onclick="location.href='/bbs/Iblist1.do?pg=1'">
 		<input type="button" value="글수정" onclick="location.href='dogModify.do?petid=<%=petid%>&pg=<%=pg%>'">
 		<input type="button" value="글삭제" onclick="del()"> 
 <%
-    }else {
+    }
+     }else {
 %>
-        <input type="button" value="목록" onclick="location.href='/bbs/Iblist.do?pg=1'">
+        <input type="button" value="목록" onclick="location.href='/bbs/Iblist1.do?pg=1'">
         <input type="button" value="찜하기" onclick="location.href='#'">
 <%
     }
 %>        
 		</section>		   
-
 </div>
 <br>
 			

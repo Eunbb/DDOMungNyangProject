@@ -85,8 +85,8 @@
 							<div class="inputWrap">
 								<!-- div시작 -->
 								<div class="col-sm-3">
-									<input type="email" id="id" placeholder=<%=id%> name="id"
-										class="form-control">
+									<input type="email" id="id" value=<%=id%> name="id"
+										class="form-control" readonly>
 								</div>
 								<div class="adress_button">
 									<p style="color: red;">인증완료</p>

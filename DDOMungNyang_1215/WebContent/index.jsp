@@ -37,7 +37,7 @@ function myProfile(){
 				<form name="MyProfile" method="post" action="/bbs/myPro.do?id=<%= entity.getId() %>">
 					<button id="profile_btn" onclick="myProfile()">내정보</button><br>
 				</form>
-				<%= entity.getNick() %>님 <img src="images/mypage.png" width="15" height="15" style=margin-right:20px;>
+				<%= entity.getNick() %>님 반가워요<img src="images/mypage.png" width="15" height="15" style=margin-right:20px;>
 <%                         
    }
 %>
@@ -63,17 +63,7 @@ function myProfile(){
 										<li><a href="/bbs/Iblist3.do?pg=1">유기 분양</a></li>
 									</ul> 
 								</li>
-											<!-- <ul>
-												<li><a href="#">Magna phasellus</a></li>
-												<li><a href="#">Etiam dolore nisl</a></li>
-												<li><a href="#">Veroeros feugiat</a></li>
-												<li><a href="#">Nisl sed aliquam</a></li>
-												<li><a href="#">Dolore adipiscing</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Veroeros feugiat</a></li> -->
-									
-								
+											
 								<li><a>고양이 분양</a>
 								<ul>
 										<li><a href="/bbs/Iblist4.do?pg=1">업체 분양</a></li>

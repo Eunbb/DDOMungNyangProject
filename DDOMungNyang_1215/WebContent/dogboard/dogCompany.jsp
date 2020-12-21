@@ -56,15 +56,42 @@
         }
      })
     }
+    
+    function notGwanrija() {
+    	alert("관리자계정으로 로그인하세요")
+    }
 </script>
 
 </head>
 <body class="left-sidebar is-preload">
    <div id="page-wrapper">
-      <%
-         LoginDTO entity = (LoginDTO) session.getAttribute("logOK");
-          IbDTO dto=(IbDTO)request.getAttribute("dto");
-      %>
+			<!-- 로그인/회원가입 버튼 -->
+			<section id="starter">
+			<div id="menu">
+			<!-- 로그인/회원가입 버튼 -->
+			
+<%
+   LoginDTO entity = (LoginDTO)session.getAttribute("logOK");
+   IbDTO dto=(IbDTO)request.getAttribute("dto");
+   if(entity == null)
+   {
+%>
+				<button id="login_btn" onclick="location.href='/bbs/login/login.jsp' ">로그인</button>
+				<button id="register_btn" onclick="location.href='/bbs/login/register.jsp' ">회원가입</button>
+<%
+   }else{
+%>
+				<button id="logout_btn" onclick="location.href='/bbs/logout.do'">로그아웃</button>
+				<form name="MyProfile" method="post" action="/bbs/myPro.do?id=<%= entity.getId() %>">
+					<button id="profile_btn" onclick="myProfile()">내정보</button><br>
+				</form>
+				<%= entity.getNick() %>님 반가워요<img src="images/mypage.png" width="15" height="15" style=margin-right:20px;>
+<%                         
+   }
+%>
+			</div>
+			</section>
+			</div>
       <!-- Header -->
       <section id="header">
 
@@ -77,20 +104,19 @@
          <nav id="nav">
             <ul>
                <li><a href="index.jsp">Home</a></li>
-               <li class="current"><a href="#">강아지분양</a>
+               <li class="current"><a>강아지분양</a>
                   <ul>
-                     <li><a href="dog.html">업체 분양</a></li>
-                     <li><a href="/bbs/dogPeople.jsp">개인 분양 </a></li>
-                     <li><a href="abandoned.html">유기 분양</a></li>
+                    <li><a href="#">업체 분양</a></li>
+					<li><a href="/bbs/Iblist2.do?pg=1">개인 분양 </a></li>
+				    <li><a href="/bbs/Iblist3.do?pg=1">유기 분양</a></li>
                   </ul></li>
 
-               <li><a href="cat.html">고양이 분양</a></li>
+               <li><a href="/bbs/catboard/cat.html">고양이 분양</a></li>
                <ul>
-                  <li><a href=#>업체 분양</a></li>
-                  <li><a href=#>개인 분양 </a></li>
-                  <li><a href=#>유기 분양</a></li>
+                  <li><a href="/bbs/Iblist4.do?pg=1">업체 분양</a></li>
+                  <li><a href="/bbs/Iblist5.do?pg=1">개인 분양 </a></li>
+                  <li><a href="/bbs/Iblist6.do?pg=1">유기 분양</a></li>
                </ul>
-               <li><a href="abandoned.html">유기동물 분양</a></li>
                <li><a href="service.html">서비스</a></li>
                <li><a href="qna.html">Q&A</a></li>
             </ul>
@@ -123,8 +149,8 @@
                                     %>
                                     <form id="heart">
                                        <button type="button" style="color: red; cursor: pointer;" onclick="heartbtnFunction(${ibDTO.petid})">😍</button>
-                                       <button type="button" style="color: red; cursor: pointer;" onclick="heartSadbtnFunction(${ibDTO.petid})"> 🙁</button>
-                                       <input type="text" name="${ibDTO.petid}" value="${ibDTO.heart}"
+                                     <button type="button" style="color: red; cursor: pointer;" onclick="heartSadbtnFunction(${ibDTO.petid})"> 🙁</button>
+                                     <input type="text" name="${ibDTO.petid}" value="${ibDTO.heart}"
                                           style="width: 70px; height: 20px; font-size: 20px; text-align: center;" readonly/>
                                     </form>
                                     <%
@@ -150,15 +176,14 @@
                   </section>
                   <div class=doglist_bottom_search_form>
                      <%
-                        if (entity != null) {
+                        if (entity.getId().equals("ddomungyang@gmail.com")) {
                      %>
                      <button id="hi"
-                        onclick="location.href='/bbs/dogboard/imageBoardWrite.html'">글등록</button>
+                        onclick="location.href='/bbs/dogboard/imageBoardWrite.jsp'">글등록</button>
                      <%
                         } else {
-                     %>
-                     <button id="hi" onclick="location.href='/bbs/login/login.jsp'">글등록</button>
-
+                     %>                                             
+                     <button id="hi" onclick="notGwanrija()">글등록</button> 
                      <%
                         }
                      %>
@@ -182,9 +207,7 @@
             <div class="row">
                <div class="col-8 col-12-medium">
                   <section id="footer">
-                     <header>
-                        <h2>Blandit nisl adipiscing</h2>
-                     </header>
+                  
                      <ul class="dates">
                         <li><span class="date">연중무휴</span>
 
@@ -205,17 +228,15 @@
                            <h2>또먹냥~?</h2>
                         </header>
                         <ul class="social">
-                           <li><a class="icon brands fa-facebook-f" href="#"><span
-                                 class="label">Facebook</span></a></li>
-                           <li><a class="icon brands fa-twitter" href="#"><span
-                                 class="label">Twitter</span></a></li>
-                           <li><a class="icon brands fa-dribbble" href="#"><span
-                                 class="label">Dribbble</span></a></li>
-                           <li><a class="icon brands fa-tumblr" href="#"><span
-                                 class="label">Tumblr</span></a></li>
-                           <li><a class="icon brands fa-linkedin-in" href="#"><span
-                                 class="label">LinkedIn</span></a></li>
-                        </ul>
+                              <li><a class="fab fa-facebook-f " href="https://www.facebook.com"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-twitter " href="#"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-instagram" href="#"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-youtube" href="#"><span
+                                    class="label"></span></a></li>
+                           </ul>
                         <ul class="contact">
                            <li>
                               <h3>찾아오시는길</h3>

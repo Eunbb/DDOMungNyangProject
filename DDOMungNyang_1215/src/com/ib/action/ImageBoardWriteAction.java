@@ -2,6 +2,8 @@ package com.ib.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import com.ib.dao.ImageBoardDao;
 import com.ib.dto.IbDTO;
 import com.oreilly.servlet.MultipartRequest;
@@ -79,12 +81,14 @@ public class ImageBoardWriteAction implements CommandAction {
 		System.out.println("다오에서 온 n : " + n);
 		
 		if(n>0) {
-			System.out.println("ok");
-			return "dogboard/imageBoardWriteOk.html";}
+	        System.out.println("ok");
+	        HttpSession session=request.getSession();
+	        session.setAttribute("bwaOK", dto);
+	        return "dogboard/imageBoardWriteOk.jsp";}
 			
 		else {
 			System.out.println("fail");
-			return "dogboard/imageBoardWrite.html";
+			return "dogboard/imageBoardWrite.jsp";
 		}
 		}
 }

@@ -176,11 +176,13 @@
                   </section>
                   <div class=doglist_bottom_search_form>
                      <%
+                     if (entity != null) {
                         if (entity.getId().equals("ddomungyang@gmail.com")) {
                      %>
                      <button id="hi"
                         onclick="location.href='/bbs/dogboard/imageBoardWrite.jsp'">글등록</button>
                      <%
+                        }
                         } else {
                      %>                                             
                      <button id="hi" onclick="notGwanrija()">글등록</button> 

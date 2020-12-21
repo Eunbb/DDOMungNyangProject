@@ -7,7 +7,7 @@ td {
 
 a:LINK {color: black; text-decoration: none;}
 a:ACTIVE {color: black; text-decoration: none;}
-a:VISITED {color: black; text-decoration: none;}
+a:VISITED {text-decoration: none;}
 a:HOVER {color: black; text-decoration: underline;}
 
 /* 순서를 지켜라-우선순위가 맨밑에서부터이다  */

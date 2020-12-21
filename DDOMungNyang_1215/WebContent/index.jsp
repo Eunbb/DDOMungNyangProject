@@ -74,7 +74,7 @@ function myProfile(){
 								<li><a href="#">심리테스트</a></li>
 								<li><a href="service.html">서비스</a></li>
 								<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li>
-							</ul>
+							</ul> 
 						</nav>
 
 					<!-- Banner -->
@@ -176,11 +176,12 @@ function myProfile(){
 
          <!-- Footer -->
            <section id="footer">
+          <%if(entity != null) { %> 
             <div class="container">
                <div class="row">
                   <div class="col-8 col-12-medium">
                      <section id="footer">
-                       
+                       <%} %>
                         <ul class="dates">
                            <li><span class="date">연중무휴</span>
                               

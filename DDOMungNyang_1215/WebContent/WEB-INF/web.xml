@@ -44,4 +44,13 @@
       <servlet-name>CheckpwServlet</servlet-name>
       <url-pattern>/CheckpwServlet</url-pattern>
    </servlet-mapping>
+   
+   <servlet>
+      <servlet-name>CheckEmailServlet</servlet-name>
+      <servlet-class>com.login.service.CheckEmailServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>CheckEmailServlet</servlet-name>
+      <url-pattern>/CheckEmailServlet</url-pattern>
+   </servlet-mapping>
 </web-app>

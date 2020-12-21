@@ -14,14 +14,16 @@
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script language=javascript>
 	function btn_click(str) {
-		if (str == "sendMail") {
+		if (str==""){
+			alert('아이디를 입력해주세요');
+		} else	if (str == "sendMail") {
+			
 			signup.action = "/bbs/email/sendMail.jsp"
 		} else if (str == "emailcheck") {
 			alert('이메일 인증을 해주세요');
 		}
 	}
-</script>
-<script>
+
 	$(document).ready(function() {
 
 		//jQuery
@@ -48,6 +50,26 @@
 				});
 			}
 		})
+
+		$("#emailchk_button").click(function() {
+			var id = $("[name=id]").val();
+			$.ajax({
+				type : 'POST',
+				url : '../CheckEmailServlet',
+				data : {id : id},
+				success : function(jsonObj) {
+					var obj = JSON.parse(jsonObj);
+					if(obj.id == 1){
+						alert('이미 있는 아이디입니다.');
+					} else{
+						alert('사용할 수 있는 아이디입니다.');
+					}
+				},
+				error : function(data, textStatus) {
+					alert('ajax 연결오류');
+				}
+			});
+		})
 	});
 </script>
 
@@ -60,7 +82,7 @@
 <body class="homepage is-preload">
 
 	<%
-	String str = (String) request.getAttribute("id");
+		String str = (String) request.getAttribute("id");
 	String result;
 	if (str == null) {
 		result = "아이디를 입력해주세요";
@@ -70,7 +92,7 @@
 		result = "이미 등록된 아이디 입니다";
 	}
 	%>
-	
+
 	<div id="page-wrapper">
 		<!-- 로그인/회원가입 버튼 -->
 		<section id="starter">
@@ -101,7 +123,7 @@
 										class="form-control">
 								</div>
 								<div class="adress_button">
-									<input type="submit" id="emailchk_button" onclick="overlap()"
+									<input type="button" id="emailchk_button"
 										style="font-size: 0.8em; margin: 0" value="중복확인" class="btn">
 								</div>
 
@@ -110,8 +132,6 @@
 										onclick='btn_click("sendMail");' value="이메일 인증"
 										style="font-size: 0.8em; margin: 0" class="btn">
 								</div>
-								<%=result%>
-								<!-- div 끝 -->
 							</div>
 
 							<div class="join_row">

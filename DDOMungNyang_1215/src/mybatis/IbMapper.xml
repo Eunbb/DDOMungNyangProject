@@ -3,17 +3,76 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mybatis.IbMapper">
+	
+	<!-- 강아지 업체분양 -->
 	<select id="getImageList" parameterType="hashmap"  
 	        resultType="com.ib.dto.IbDTO">
 	    <![CDATA[
-		SELECT PETID,CLASSIFY1, CLASSIFY1,DOGKORTYPE, DOGENGTYPE,
-		       GENDER, AGE,PRICE,JUSA, PIC, HEART
+		SELECT PETID,CLASSIFY1, CLASSIFY2,DOGKORTYPE, DOGENGTYPE, GENDER, AGE,PRICE,JUSA, PIC, HEART
 		FROM (SELECT ROWNUM RN, AA.*
-		      FROM (SELECT * FROM PET ORDER BY PETID DESC) AA)
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=1 AND CLASSIFY2='A1' ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum}
+	    ]]>
+	</select>
+	
+	<!-- 강아지 개인분양 -->
+	<select id="getImageList2" parameterType="hashmap"  
+	        resultType="com.ib.dto.IbDTO">
+	    <![CDATA[
+		SELECT PETID,CLASSIFY1, CLASSIFY2,DOGKORTYPE, DOGENGTYPE, GENDER, AGE,PRICE,JUSA, PIC, HEART
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=1 AND CLASSIFY2='A2' ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum}
+	    ]]>
+	</select>
+	
+	<!-- 강아지 유기분양 -->
+	<select id="getImageList3" parameterType="hashmap"  
+	        resultType="com.ib.dto.IbDTO">
+	    <![CDATA[
+		SELECT PETID,CLASSIFY1, CLASSIFY2,DOGKORTYPE, DOGENGTYPE, GENDER, AGE,PRICE,JUSA, PIC, HEART
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=1 AND CLASSIFY2='A3' ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum}
+	    ]]>
+	</select>
+
+	<!-- 고양이 업체분양 -->
+	<select id="getImageList4" parameterType="hashmap"  
+	        resultType="com.ib.dto.IbDTO">
+	    <![CDATA[
+		SELECT PETID,CLASSIFY1, CLASSIFY2,DOGKORTYPE, DOGENGTYPE, GENDER, AGE,PRICE,JUSA, PIC, HEART
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=2 AND CLASSIFY2='A1' ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum}
+	    ]]>
+	</select>
+
+	<!-- 고양이 개인분양 -->
+	<select id="getImageList5" parameterType="hashmap"  
+	        resultType="com.ib.dto.IbDTO">
+	    <![CDATA[
+		SELECT PETID,CLASSIFY1, CLASSIFY2,DOGKORTYPE, DOGENGTYPE, GENDER, AGE,PRICE,JUSA, PIC, HEART
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=2 AND CLASSIFY2='A2' ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum}
+	    ]]>
+	</select>
+	
+	<!-- 고양이 유기분양 -->
+	<select id="getImageList6" parameterType="hashmap"  
+	        resultType="com.ib.dto.IbDTO">
+	    <![CDATA[
+		SELECT PETID,CLASSIFY1, CLASSIFY2,DOGKORTYPE, DOGENGTYPE, GENDER, AGE,PRICE,JUSA, PIC, HEART
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=2 AND CLASSIFY2='A3' ORDER BY PETID DESC) AA)
 		WHERE RN >= #{startNum} AND RN <= #{endNum}
 	    ]]>
 	</select>
 	 
+	 <!--  FROM (SELECT * FROM PET 
+WHERE  classify1=#{classify1}AND classify2=#{classify2}
+ORDER BY PETID DESC )  -->
 	<insert id="imageBoardInsert" parameterType="com.ib.dto.IbDTO">
 		<![CDATA[
 		INSERT INTO PET 

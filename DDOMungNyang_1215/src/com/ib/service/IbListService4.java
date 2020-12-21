@@ -14,12 +14,12 @@ import com.ib.dto.Ibpaging;
 
 import controller.CommandAction;
 
-public class IbListService implements CommandAction{
+public class IbListService4 implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		int pg = Integer.parseInt(request.getParameter("pg"));
-
+		
 		//select DB
 		int pageSize=6; 
 		int endNum= pg*pageSize;
@@ -30,7 +30,7 @@ public class IbListService implements CommandAction{
 		map.put("endNum", endNum);
 		
 		ImageBoardDao dao = ImageBoardDao.getInstance();
-		List<IbDTO> list = dao.getImageList(map);
+		List<IbDTO> list = dao.getImageList4(map);
 		
 		//페이지처리
 		Ibpaging ibpaging = new Ibpaging(pg,2,pageSize);
@@ -40,7 +40,7 @@ public class IbListService implements CommandAction{
 		request.setAttribute("list", list);
 		request.setAttribute("pg", pg);
 		request.setAttribute("ibpaging", ibpaging);
-		return "dogboard/dogCompany.jsp";
+		return "catboard/catCompany.jsp";
 	}
 
 }

@@ -107,7 +107,7 @@
                   <!-- Portfolio    -->
                   <section>
                      <header class="major">
-                        <h2>강아지 개인분양</h2>
+                        <h2>고양이 개인분양</h2>
                      </header>
                      <div class="row">
                         <c:forEach var="ibDTO" items="${list}">

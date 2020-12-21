@@ -16,6 +16,10 @@ heart int						  -------인기도
 
 create sequence seq_petid increment by 1 start with 1 nocycle nocache;
 insert into pet(petid,classify1,classify2,dogkortype,dogengtype,gender,age,price,jusa,pic) values(SEQ_PETID.NEXTVAL,'1','A1','시바견','shibainu', 'M', '1', '300000', '0','sibal.jpg');
+insert into pet(petid,classify1,classify2,dogkortype,dogengtype,gender,age,price,jusa,pic) values(SEQ_PETID.NEXTVAL,'1','A2','시바견','shibainu', 'M', '1', '300000', '0','sibal.jpg');
+
+
+SELECT * FROM PET WHERE  CLASSIFY1=1  ORDER BY PETID DESC
 
 select * from pet;
 drop table pet;

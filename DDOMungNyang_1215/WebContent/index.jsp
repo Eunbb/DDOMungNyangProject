@@ -58,9 +58,9 @@ function myProfile(){
 								<li>
 									<a >강아지분양</a>
 									 <ul>
-										<li><a href="/bbs/Iblist.do?pg=1">업체 분양</a></li>
-										<li><a href="/bbs/dogPeople.jsp">개인 분양 </a></li>
-										<li><a href="abandoned.html">유기 분양</a></li>
+										<li><a href="/bbs/Iblist1.do?pg=1">업체 분양</a></li>
+										<li><a href="/bbs/Iblist2.do?pg=1">개인 분양 </a></li>
+										<li><a href="/bbs/Iblist3.do?pg=1">유기 분양</a></li>
 									</ul> 
 								</li>
 											<!-- <ul>
@@ -76,9 +76,9 @@ function myProfile(){
 								
 								<li><a>고양이 분양</a>
 								<ul>
-										<li><a href="#">업체 분양</a></li>
-										<li><a href="#">개인 분양 </a></li>
-										<li><a href="#">유기 분양</a></li>
+										<li><a href="/bbs/Iblist4.do?pg=1">업체 분양</a></li>
+										<li><a href="/bbs/Iblist5.do?pg=1">개인 분양 </a></li>
+										<li><a href="/bbs/Iblist6.do?pg=1">유기 분양</a></li>
 										</ul> 
 										</li>
 								<li><a href="#">심리테스트</a></li>

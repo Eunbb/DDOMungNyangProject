@@ -56,7 +56,7 @@ public class ImageBoardDao {
 		}
 		return n;
 	}
-	
+
 	// BoardDAO에서 가져온거
 	// ---------------------------------------------------------
 	public int getTotalArticle() { // 총 게시물의 갯수
@@ -67,10 +67,50 @@ public class ImageBoardDao {
 	}
 
 	// ------------------------------------------------------------------------글
-	// 등록했을때 불러오기
+	// 강아지 업체분양
 	public List<IbDTO> getImageList(Map<String, Object> map) {
 		SqlSession session = factory.openSession();
 		List<IbDTO> list = session.selectList("mybatis.IbMapper.getImageList", map);
+		session.close();
+		return list;
+	}
+
+	// 강아지 개인분양
+	public List<IbDTO> getImageList2(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		List<IbDTO> list = session.selectList("mybatis.IbMapper.getImageList2", map);
+		session.close();
+		return list;
+	}
+
+	// 강아지 유기분양
+	public List<IbDTO> getImageList3(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		List<IbDTO> list = session.selectList("mybatis.IbMapper.getImageList3", map);
+		session.close();
+		return list;
+	}
+
+	// 고양이업체분양
+	public List<IbDTO> getImageList4(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		List<IbDTO> list = session.selectList("mybatis.IbMapper.getImageList4", map);
+		session.close();
+		return list;
+	}
+
+	// 고양이 개인분양
+	public List<IbDTO> getImageList5(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		List<IbDTO> list = session.selectList("mybatis.IbMapper.getImageList5", map);
+		session.close();
+		return list;
+	}
+
+	// 고양이 유기분양
+	public List<IbDTO> getImageList6(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		List<IbDTO> list = session.selectList("mybatis.IbMapper.getImageList6", map);
 		session.close();
 		return list;
 	}
@@ -116,31 +156,31 @@ public class ImageBoardDao {
 			session.close();
 		}
 	}
-	
-	// 여기서 부터는 가져온거 imageBoard에서 
-	//--------------------------------------------------------
-		public List<ImageBoardEntity> getImagePath(List<Integer> list) {
-			SqlSession session=factory.openSession();
-			List<ImageBoardEntity> imgPathList
-			          =session.selectList("mybatis.ImageBoardMapper.getImagePath", list);
+
+	// 여기서 부터는 가져온거 imageBoard에서
+	// --------------------------------------------------------
+	public List<ImageBoardEntity> getImagePath(List<Integer> list) {
+		SqlSession session = factory.openSession();
+		List<ImageBoardEntity> imgPathList = session.selectList("mybatis.ImageBoardMapper.getImagePath", list);
+		session.close();
+		return imgPathList;
+	}
+
+	// --------------------------------------------------------
+	public int imageBoardDelete(List<Integer> list) {
+		int n = 0;
+		SqlSession session = factory.openSession();
+
+		try {
+			n = session.delete("mybatis.ImageBoardMapper.imageBoardDelete", list);
+			if (n > 0)
+				session.commit();
+		} catch (Exception e) {
+			session.rollback();
+		} finally {
 			session.close();
-			return imgPathList;
 		}
-	//--------------------------------------------------------	
-		public int imageBoardDelete(List<Integer> list) {
-			int n=0;
-			SqlSession session=factory.openSession();
-			
-			try {
-				n=session.delete("mybatis.ImageBoardMapper.imageBoardDelete",list);
-				if(n > 0)
-					session.commit();
-			}catch(Exception e) {
-				session.rollback();
-			}finally{
-				session.close();
-			}
-			return n;
-		}
+		return n;
+	}
 
 }

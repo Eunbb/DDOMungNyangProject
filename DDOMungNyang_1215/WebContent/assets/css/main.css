@@ -2163,7 +2163,7 @@ input, select, textarea {
 	}
 
 		.dropotron a, .dropotron span {
-			color: #aaa;
+			color: white;
 			text-decoration: none;
 			-moz-transition: color .25s ease-in-out;
 			-webkit-transition: color .25s ease-in-out;
@@ -2344,9 +2344,10 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		position: relative;
+/* 		position: relative; */
 		background-color:#000000;
-		color: #858484;
+		
+		color: white;
 		
 	}
 
@@ -2367,7 +2368,7 @@ input, select, textarea {
 		}
 
 		#footer h2, #footer h3, #footer h4, #footer h5, #footer h6, #footer strong, #footer b {
-			color: #fff;
+			color: #FA8072;
 		}
 
 			#footer h2 a, #footer h3 a, #footer h4 a, #footer h5 a, #footer h6 a, #footer strong a, #footer b a {

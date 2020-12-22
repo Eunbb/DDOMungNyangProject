@@ -18,6 +18,7 @@ function myProfile(){
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/styleImageBoard.css">
 	</head>
 	<!--  <body class="homepage is-preload"> -->
 		<div id="page-wrapper">
@@ -50,7 +51,7 @@ function myProfile(){
 				<section id="header">
 					
 					<!-- Logo -->
-						<h1><a href="/bbs/index.jsp">DDO:MUNGNYANG</a></h1>
+						<h1><a href="/bbs/index.jsp" style="color:black">DDO:MUNGNYANG</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
@@ -72,9 +73,9 @@ function myProfile(){
 										<li><a href="/bbs/Iblist6.do?pg=1">유기 분양</a></li>
 										</ul> 
 										</li>
-								<li><a href="#">심리테스트</a></li>
-								<li><a href="service.html">서비스</a></li>
-								<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li>
+								<li><a href="#">심리테스트</a></li>      <!--  수정해야됨1 -->
+								<li><a href="service.html">서비스</a></li>  <!-- 수정해야됨2 -->
+								<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li> 
 							</ul>
 						</nav>
 
@@ -138,7 +139,7 @@ function myProfile(){
                  <section id="main">
                <div class="container">
                 <header class="major">
-                            <h2>실시간 인기펫 순위</h2>
+                            <h2 style="color: #FA8072; font-size: 2em">또멍냥's Pick</h2>
                              </header>
 							<div class="row">
 								<div class="col-4 col-12-medium">
@@ -180,7 +181,9 @@ function myProfile(){
                <div class="row">
                   <div class="col-8 col-12-medium">
                      <section id="footer">
-                       
+                      <header>
+                      <h2 style="text-align:left; color:white; font-size:2.3em; margin-bottom:2.2em ">DDO:MungNyang</h2>
+                       </header>
                         <ul class="dates">
                            <li><span class="date">연중무휴</span>
                               

@@ -1525,8 +1525,8 @@ input, select, textarea {
 
 /* Section/Article */
 
-	section, article {
-		margin-bottom: 2.5em;
+	 section, article {
+/* 		margin-bottom: 2.5em; */
 	}
 
 		section > :last-child, section:last-child, article > :last-child, article:last-child {
@@ -2088,7 +2088,7 @@ input, select, textarea {
 		position: relative;
 		background: #ffffff;
 		border-bottom: solid 1px #ccc;
-		padding: 5em 0 4em 0;
+/* 		padding: 5em 0 0 0; */
 		text-align: center;
 		
 		
@@ -2344,9 +2344,8 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-/* 		position: relative; */
-		background-color:#000000;
-		
+		position: relative;
+		background-color:#000000;		
 		color: white;
 		
 	}

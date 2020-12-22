@@ -136,7 +136,7 @@ function myProfile(){
                   </div>
                </div>
             </section>
-                 <section id="main">
+                 <section id="main" style="margin-bottom:7em">
                <div class="container">
                 <header class="major">
                             <h2 style="color: #FA8072; font-size: 2em">또멍냥's Pick</h2>

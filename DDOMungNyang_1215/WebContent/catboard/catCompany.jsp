@@ -191,7 +191,7 @@
                   <div class="col-8 col-12-medium">
                      <section id="footer">
                       <header>
-                      <h2 style="text-align:left; color:white; font-size:2.3em; margin-bottom:2.2em ">DDO:MungNyang</h2>
+                      <h2 style="text-align:left; color:white; font-size:2.3em; margin-bottom:2em ">DDO:MungNyang</h2>
                        </header>
                         <ul class="dates">
                            <li><span class="date">연중무휴</span>

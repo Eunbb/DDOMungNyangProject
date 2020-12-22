@@ -30,8 +30,8 @@ function myProfile(){
    if(entity == null)
    {
 %>
-				<button id="login_btn" onclick="location.href='/bbs/login/login.jsp' ">로그인</button>
-				<button id="register_btn" onclick="location.href='/bbs/login/register.jsp' ">회원가입</button>
+				<button id="login_btn" onclick="location.href='/bbs/login/login.jsp'">로그인</button>
+				<button id="register_btn" onclick="location.href='/bbs/login/register.jsp'">회원가입</button>
 <%
    }else{
 %>

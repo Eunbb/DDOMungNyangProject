@@ -20,7 +20,6 @@ public class BoardUpdateService implements CommandAction{
 		dto.setSeq(Integer.parseInt(request.getParameter("seq")));
 		dto.setSubject(request.getParameter("subject"));
 		dto.setContent(request.getParameter("content"));
-		dto.setEmail(request.getParameter("email"));
 
 		//update DB
 		BoardDAO dao=new BoardDAO(); 

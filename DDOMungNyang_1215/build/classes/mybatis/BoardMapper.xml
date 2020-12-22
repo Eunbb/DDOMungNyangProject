@@ -6,14 +6,14 @@
 	<insert id="boardInsert" parameterType="BoardDTO">
 		<![CDATA[
 			INSERT INTO BOARD 
-			VALUES(SEQ_BOARD.NEXTVAL,#{id},#{name},#{email},#{subject},#{content},
+			VALUES(SEQ_BOARD.NEXTVAL,#{id},#{name},#{subject},#{content},
 			SEQ_BOARD.CURRVAL,0,0,0,0,0,SYSDATE)
 		]]>
 	</insert>
 	
 	<select id="getBoardList" parameterType="hashmap" resultType="BoardDTO">
 		<![CDATA[
-			SELECT SEQ,ID,NAME,EMAIL,SUBJECT,CONTENT,
+			SELECT SEQ,ID,NAME,SUBJECT,CONTENT,
 			       REF,LEV,STEP,PSEQ,REPLY,HIT,TO_CHAR(LOGTIME,'YYYY.MM.DD')AS LOGTIME 
 			FROM (SELECT ROWNUM RN, AA.* 
 			      FROM (SELECT * FROM BOARD ORDER BY REF DESC,STEP ASC)AA)
@@ -42,7 +42,7 @@
 	<update id="boardUpdate" parameterType="BoardDTO">
 		<![CDATA[
 			UPDATE BOARD 
-			SET SUBJECT=#{subject},CONTENT=#{content},EMAIL=#{email} 
+			SET SUBJECT=#{subject},CONTENT=#{content},ID=#{id} 
 			WHERE SEQ=#{seq}
 		]]>
 	</update>
@@ -56,7 +56,7 @@
 	<insert id="boardReplyInsert" parameterType="BoardDTO">
       <![CDATA[
          INSERT INTO BOARD 
-         VALUES(SEQ_BOARD.NEXTVAL,#{id},#{name},#{email},#{subject},#{content},
+         VALUES(SEQ_BOARD.NEXTVAL,#{id},#{name},#{subject},#{content},
          #{ref},#{lev},#{step},#{seq},0,0,SYSDATE)
       ]]>
    </insert>

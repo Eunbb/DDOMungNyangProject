@@ -107,9 +107,7 @@ function del() {
                <div class="row">
                   <div class="col-8 col-12-medium">
                      <section id="footer">
-                        <header>
-                           <h2>Blandit nisl adipiscing</h2>
-                        </header>
+                        
                         <ul class="dates">
                            <li><span class="date">연중무휴</span>
                               
@@ -130,17 +128,15 @@ function del() {
                               <h2>또먹냥~?</h2>
                            </header>
                            <ul class="social">
-                              <li><a class="icon brands fa-facebook-f" href="#"><span
-                                    class="label">Facebook</span></a></li>
-                              <li><a class="icon brands fa-twitter" href="#"><span
-                                    class="label">Twitter</span></a></li>
-                              <li><a class="icon brands fa-dribbble" href="#"><span
-                                    class="label">Dribbble</span></a></li>
-                              <li><a class="icon brands fa-tumblr" href="#"><span
-                                    class="label">Tumblr</span></a></li>
-                              <li><a class="icon brands fa-linkedin-in" href="#"><span
-                                    class="label">LinkedIn</span></a></li>
-                           </ul>
+									<li><a class="fab fa-facebook-f" href="#"><span
+											class="label"></span></a></li>
+									<li><a class="fab fa-twitter" href="#"><span
+											class="label"></span></a></li>
+									<li><a class="fab fa-instagram" href="#"><span
+											class="label"></span></a></li>
+									<li><a class="fab fa-youtube" href="#"><span
+											class="label"></span></a></li>
+								</ul>
                            <ul class="contact">
                               <li>
                                  <h3>찾아오시는길</h3>
@@ -156,7 +152,7 @@ function del() {
                               </li>
                               <li>
                                  <h3>Phone</h3>
-                                 <p>(800) 000-0000</p>
+                                 <p>(02) 123-4567</p>
                               </li>
                               
                            </ul>

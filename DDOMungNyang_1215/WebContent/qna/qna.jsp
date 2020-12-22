@@ -7,8 +7,8 @@
 
 <script>				
 function btn_write() {
- 	var entity ='<%=(LoginDTO) session.getAttribute("logOK")%>
-	';
+ 	var entity ='<%=(LoginDTO) session.getAttribute("logOK")%>';
+
 		if (entity == "null") {
 			alert('로그인이 필요합니다');
 		} else {

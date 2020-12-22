@@ -1,3 +1,4 @@
+<!-- 12/21 수정부분 -->
 <%@ page import="com.login.dto.LoginDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -74,7 +75,7 @@ function myProfile(){
 								<li><a href="#">심리테스트</a></li>
 								<li><a href="service.html">서비스</a></li>
 								<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li>
-							</ul> 
+							</ul>
 						</nav>
 
 					<!-- Banner -->
@@ -101,13 +102,12 @@ function myProfile(){
                                        <a href="#" class="image featured"><img src="images/event.jpg" alt="" /></a>
                                        <header>
                                           <h3>또멍냥의 겨울맞이 이벤트</h3>
-                                          <p>2020년 연말을 또멍냥과 함께</p>
+                                          <p style="color:#F44336; font-family:'Jua', sans-serif; font-size: 1.3em">또멍냥 유튜브 구독시 간직 5종세트 무료증정</p>
                                        </header>
-                                       <p>또멍냥에서 반려동물 입양하시는 모든분들께 반려견의 건강을 위한 덴티껌과 반려묘의 피부를 위한 간식 5종세트를 무료로드리고 있습니다. 연말연시 반려동물과 따뜻하게 보내시라고 추첨을 통하여 "코타츠"를 드립니다~ 많은참여 부탁드려요</p>
+                                       <p><span style="color:#F44336">또멍냥 유튜브 구독</span>시 반려동물 입양하시는 모든분들께 반려견의 건강을 위한 덴티껌과 반려묘의 피부를 위한 간식 5종세트를 무료로드리고 있습니다.<br>많은참여 부탁드려요<img src="images/mypage.png" width="30" height="30" ></p>
                                        <footer>
                                           <ul class="actions">
-                                             <li><a href="#" class="button icon solid fa-file-alt">Continue Reading</a></li>
-                                             <li><a href="#" class="button alt icon solid fa-comment">33 comments</a></li>
+                                             <li><a href="https://www.youtube.com/channel/UCSmmLUH4x14hzJNpLshJIGA" class="fab fa-youtube fa-2x" ><span style="color:#000000; font-family:'Jua', sans-serif">구독하러가기</span></a></li>
                                           </ul>
                                        </footer>
                                     </section>
@@ -117,13 +117,13 @@ function myProfile(){
                                        <a href="#" class="image featured"><img src="images/reward.jpg" alt="" /></a>
                                        <header>
                                           <h3>반려동물분양사이트 선호도 1위</h3>
-                                          <p>"또멍냥" 올해도 반려동물분양사이트 선호도 1위를 차지</p>
+                                          <p style="color:#F44336; font-family:'Jua', sans-serif; font-size: 1.3em">"또멍냥" 올해도 반려동물분양사이트 선호도 1위를 차지</p>
                                        </header>
-                                       <p>제 200회 글로벌 분양 대상 또멍냥이 반려동물 분양사이트 부분 선호도1위를 차지했습니다. 5년연속 선호도 1위를 달성하여 반려동물분양사이트 부문 1위를 놓치지않으며 고객님들의 열화와 같은 성원에 늘 감사드립니다. 앞으로도 반려동물의 행복과 건강을 위해 노력하는 또멍냥이 되도록 노력하겠습니다.   </p>
+                                       <p>제 200회 글로벌 분양 대상 또멍냥이 반려동물 분양사이트 부분 선호도1위를 차지했습니다.5년연속 선호도 1위를 달성하여 반려동물분양사이트<br> 부문 1위를 놓치지않으며 고객님들의 열화와 같은 성원에<br> 늘 감사드립니다. 앞으로도 반려동물의 행복과 건강을 위해<br> 노력하는 또멍냥이 되도록 노력하겠습니다.   </p>
                                        <footer>
                                           <ul class="actions">
-                                             <li><a href="#" class="button icon solid fa-file-alt">Continue Reading</a></li>
-                                             <li><a href="#" class="button alt icon solid fa-comment">33 comments</a></li>
+                                             <li><a href="#" class="button icon solid fa-file-alt">3조 또멍냥</a></li>
+                                             <li><a href="#" class="button alt icon solid fa-comment">화이팅★</a></li>
                                           </ul>
                                        </footer>
                                     </section>
@@ -176,12 +176,11 @@ function myProfile(){
 
          <!-- Footer -->
            <section id="footer">
-          <%if(entity != null) { %> 
             <div class="container">
                <div class="row">
                   <div class="col-8 col-12-medium">
                      <section id="footer">
-                       <%} %>
+                       
                         <ul class="dates">
                            <li><span class="date">연중무휴</span>
                               
@@ -202,11 +201,11 @@ function myProfile(){
                            <ul class="social">
                               <li><a class="fab fa-facebook-f " href="https://www.facebook.com"><span
                                     class="label"></span></a></li>
-                              <li><a class="fab fa-twitter " href="#"><span
+                              <li><a class="fab fa-twitter " href="https://www.twitter.com"><span
                                     class="label"></span></a></li>
-                              <li><a class="fab fa-instagram" href="#"><span
+                              <li><a class="fab fa-instagram" href="https://www.instagram.com"><span
                                     class="label"></span></a></li>
-                              <li><a class="fab fa-youtube" href="#"><span
+                              <li><a class="fab fa-youtube" href="https://www.youtube.com"><span
                                     class="label"></span></a></li>
                            </ul>
                            <ul class="contact">
@@ -219,12 +218,12 @@ function myProfile(){
                               <li>
                                  <h3>Mail</h3>
                                  <p>
-                                    <a href="#">ezen3jo@gmail.com</a>
+                                    <a href="https://www.google.com/intl/ko/gmail/about/#">ezen3jo@gmail.com</a>
                                  </p>
                               </li>
                               <li>
                                  <h3>Phone</h3>
-                                 <p>(800) 000-0000</p>
+                                 <p>(02) 123-4567</p>
                               </li>
                               
                            </ul>

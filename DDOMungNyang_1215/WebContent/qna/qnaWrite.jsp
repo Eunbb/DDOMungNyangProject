@@ -1,9 +1,14 @@
+
+<!-- 12/22 수정jsp -->
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.login.dto.LoginDTO" %>
 <%@page import="com.board.dto.BoardPaging"%>
 <%@page import="com.board.dto.BoardDTO"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE HTML>
+<%
+    LoginDTO entity = (LoginDTO)session.getAttribute("logOK");
+%>
 <!--
 	Dopetrope by HTML5 UP
 	html5up.net | @ajlkn
@@ -62,16 +67,12 @@ function checkBoardWrite(){
 <table border="1" >
 	<tr>
 		<td>아이디</td>
-		<td><input type="text" name="id" size="50"  value="id" readonly></td>
+		<td><input type="text" name="id" size="50"  value="<%=entity.getId()%>" readonly></td>
 	</tr>
 	<tr>
-		<td>이름</td>
-		<td><input type="text" name="name" size="50" value="name" readonly></td>
+		<td>닉네임</td>
+		<td><input type="text" name="name" size="50" value="<%=entity.getNick()%>" readonly></td>
 	</tr>	
-	<tr>
-		<td>이메일</td>
-		<td><input type="text" name="email" size="50"></td>
-	</tr>
 	<tr>
 		<td>제 목</td>
 		<td><input type="text" name="subject" size="50"></td>
@@ -84,14 +85,12 @@ function checkBoardWrite(){
 	<tr>
 		<td colspan="2" align="center">
 		<input type="button" value="글쓰기" onclick="checkBoardWrite()">
-		<input type="reset" value="다시작성">
+		<input type="reset" value="다시작성"><br><br><br><br>
 		</td>
 	</tr>
 </table>
 </form>
-<%-- <%
-	} //end if
-%> --%>
+
 
 <!-- Footer -->
 				<section id="footer">
@@ -99,9 +98,6 @@ function checkBoardWrite(){
                <div class="row">
                   <div class="col-8 col-12-medium">
                      <section id="footer">
-                        <header>
-                           <h2>Blandit nisl adipiscing</h2>
-                        </header>
                         <ul class="dates">
                            <li><span class="date">연중무휴</span>
                               
@@ -118,20 +114,16 @@ function checkBoardWrite(){
                   <div class="col-4 col-12-medium">
                      <div class="col-4 col-12-medium">
                         <section>
-                           <header>
-                              <h2>또먹냥~?</h2>
-                           </header>
+                           
                            <ul class="social">
-                              <li><a class="icon brands fa-facebook-f" href="#"><span
-                                    class="label">Facebook</span></a></li>
-                              <li><a class="icon brands fa-twitter" href="#"><span
-                                    class="label">Twitter</span></a></li>
-                              <li><a class="icon brands fa-dribbble" href="#"><span
-                                    class="label">Dribbble</span></a></li>
-                              <li><a class="icon brands fa-tumblr" href="#"><span
-                                    class="label">Tumblr</span></a></li>
-                              <li><a class="icon brands fa-linkedin-in" href="#"><span
-                                    class="label">LinkedIn</span></a></li>
+                              <li><a class="fab fa-facebook-f " href="https://www.facebook.com"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-twitter " href="https://www.twitter.com"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-instagram" href="https://www.instagram.com"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-youtube" href="https://www.youtube.com"><span
+                                    class="label"></span></a></li>
                            </ul>
                            <ul class="contact">
                               <li>

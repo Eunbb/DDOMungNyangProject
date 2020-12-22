@@ -13,7 +13,6 @@ public class BoardInsertService implements CommandAction{
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		request.setCharacterEncoding("UTF-8");
-		String email=request.getParameter("email");
 		String subject=request.getParameter("subject");
 		String content=request.getParameter("content");
 		String id=request.getParameter("id");
@@ -23,7 +22,6 @@ public class BoardInsertService implements CommandAction{
 		BoardDTO dto=new BoardDTO();
 		dto.setId(id);
 		dto.setName(name);
-		dto.setEmail(email);
 		dto.setSubject(subject);
 		dto.setContent(content);
 		

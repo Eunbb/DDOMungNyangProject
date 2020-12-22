@@ -21,7 +21,6 @@ public class BoardReplyService implements CommandAction{
 	      //데이터 저장
 	      String id=request.getParameter("id");
 	      String name=request.getParameter("name");
-	      String email=request.getParameter("email");
 	      String subject=request.getParameter("subject");
 	      String content=request.getParameter("content");
 		
@@ -29,7 +28,6 @@ public class BoardReplyService implements CommandAction{
 	      BoardDTO dto=new BoardDTO();
 	      dto.setId(id);
 	      dto.setName(name);
-	      dto.setEmail(email);
 	      dto.setSubject(subject);
 	      dto.setContent(content);
 	      dto.setPseq(pseq);//원글번호

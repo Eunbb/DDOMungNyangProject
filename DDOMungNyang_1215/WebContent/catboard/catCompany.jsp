@@ -79,14 +79,13 @@
 			<nav id="nav">
 				<ul>
 					<li><a href="index.jsp">Home</a></li>
-					<li><a href="/bbs/Iblist1.do?pg=1">강아지분양</a>
+					<li><a href="/bbs/Iblist1.do?pg=1">강아지 분양</a>
 						<ul>
 							<li><a href="/bbs/Iblist1.do?pg=1">업체 분양</a></li>
 							<li><a href="/bbs/Iblist2.do?pg=1">개인 분양 </a></li>
 							<li><a href="/bbs/Iblist3.do?pg=1">유기 분양</a></li>
 						</ul></li>
-
-					<li><a href="/bbs/Iblist4.do?pg=1">고양이 분양</a>
+					<li class="current"><a>고양이 분양</a>
 						<ul>
 							<li><a href="/bbs/Iblist4.do?pg=1" style="color:#FA8072">업체 분양</a></li>
 							<li><a href="/bbs/Iblist5.do?pg=1">개인 분양 </a></li>
@@ -110,7 +109,7 @@
 						<!-- Portfolio    -->
 						<section>
 							<header class="major">
-								<h2>고양이 업체분양</h2>
+								<h2>업체분양</h2>
 							</header>
 							<div class="row">
 								<c:forEach var="ibDTO" items="${list}">

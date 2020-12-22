@@ -100,7 +100,7 @@
          <nav id="nav">
             <ul>
                <li><a href="/bbs/index.jsp">Home</a></li>
-               <li><a href="/bbs/Iblist1.do?pg=1">강아지분양</a>
+               <li class="current"><a>강아지 분양</a>
                   <ul>
                     <li><a href="/bbs/Iblist1.do?pg=1">업체 분양</a></li>
                     <li><a href="/bbs/Iblist2.do?pg=1" style="color:#FA8072">개인 분양 </a></li>
@@ -133,7 +133,7 @@
                   <!-- Portfolio    -->
                   <section>
                      <header class="major">
-                        <h2>강아지 개인분양</h2>
+                        <h2>개인분양</h2>
                      </header>
                      <div class="row">
                         <c:forEach var="ibDTO" items="${list}">

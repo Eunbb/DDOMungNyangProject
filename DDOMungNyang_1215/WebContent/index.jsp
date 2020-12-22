@@ -51,7 +51,8 @@ function myProfile(){
 				<section id="header">
 					
 					<!-- Logo -->
-						<h1><a href="/bbs/index.jsp" style="color:black">DDO:MUNGNYANG</a></h1>
+					<a href="/bbs/index.jsp"><img src="/bbs/images/logo.png" width="100" height="100"></a>
+						<h1 style="display:inline"><a href="/bbs/index.jsp" style="color:black">DDO:MUNGNYANG</a></h1>
 
 					<!-- Nav -->
 						<nav id="nav">
@@ -122,10 +123,7 @@ function myProfile(){
                                        </header>
                                        <p>제 200회 글로벌 분양 대상 또멍냥이 반려동물 분양사이트 부분 선호도1위를 차지했습니다.5년연속 선호도 1위를 달성하여 반려동물분양사이트<br> 부문 1위를 놓치지않으며 고객님들의 열화와 같은 성원에<br> 늘 감사드립니다. 앞으로도 반려동물의 행복과 건강을 위해<br> 노력하는 또멍냥이 되도록 노력하겠습니다.   </p>
                                        <footer>
-                                          <ul class="actions">
-                                             <li><a href="#" class="button icon solid fa-file-alt">3조 또멍냥</a></li>
-                                             <li><a href="#" class="button alt icon solid fa-comment">화이팅★</a></li>
-                                          </ul>
+                                       <img src="/bbs/images/kitten.png" width="70"height="70">
                                        </footer>
                                     </section>
                                  </div>

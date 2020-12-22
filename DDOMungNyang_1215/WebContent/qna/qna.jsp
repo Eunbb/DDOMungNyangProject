@@ -91,6 +91,28 @@ font {
 </head>
 <body class="right-sidebar is-preload">
 	<div id="page-wrapper">
+	<section id="starter">
+			<div id="menu">
+<%
+   LoginDTO entity = (LoginDTO)session.getAttribute("logOK");
+   if(entity == null)
+   {
+%>
+				<button id="login_btn" onclick="location.href='/bbs/login/login.jsp'">로그인</button>
+				<button id="register_btn" onclick="location.href='/bbs/login/register.jsp'">회원가입</button>
+<%
+   }else{
+%>
+				<button id="logout_btn" onclick="location.href='/bbs/logout.do'">로그아웃</button>
+				<form name="MyProfile" method="post" action="/bbs/myPro.do?id=<%= entity.getId() %>">
+					<button id="profile_btn" onclick="myProfile()">내정보</button><br>
+				</form>
+				<%= entity.getNick() %>님 반가워요<img src="images/mypage.png" width="15" height="15" style=margin-right:20px;>
+<%                         
+   }
+%>
+				</div>
+			 </section>
 
 		<!-- Header -->
 		<section id="header">
@@ -138,7 +160,7 @@ font {
 		<form class="form-horizontal" method="post" name="writeUp">
 			<div class="write">
 				<input type="submit" id="register_btn" onclick="btn_write()"
-					style="font-size: 1.5em; margin: 0" value="글등록하기★" class="btn">
+					style="font-size: 1.5em; margin-top: 40px" value="글등록하기★" class="btn" >
 			</div>
 			<table class="QnA-table">
 				<tr>
@@ -175,7 +197,7 @@ font {
 						class="subjectA"><%=ob.getSubject()%></a>
 
 					</td>
-					<td class="td1" align="center"><%=ob.getId()%></td>
+					<td class="td1" align="center"><%=entity.getNick()%></td>
 					<td class="td1" align="center"><%=ob.getHit()%></td>
 					<td class="td1" align="center"><%=ob.getLogtime()%></td>
 				</tr>
@@ -189,12 +211,10 @@ font {
 				<tr>
 					<td colspan="5" bgcolor="#ffffff"></td>
 				</tr>
-				<tr>
-					<td colspan="5" align="center" bgcolor="#ffffff"><%=paging.getPagingHTML()%>
-					</td>
-				</tr>
+				
 			</table>
-			<br>
+			<p style="margin-bottom: 300px"></p>
+			<p colspan="5" align="center" bgcolor="#ffffff" style=" margin-bottom: 100px"><%=paging.getPagingHTML()%></p>
 		</form>
 
 
@@ -223,61 +243,58 @@ font {
 					<div class="col-4 col-12-medium">
 						<div class="col-4 col-12-medium">
 							<section>
-								<header>
-									<h2>또먹냥~?</h2>
-								</header>
-								<ul class="social">
-									<li><a class="fab fa-facebook-f" href="#"><span
-											class="label"></span></a></li>
-									<li><a class="fab fa-twitter" href="#"><span
-											class="label"></span></a></li>
-									<li><a class="fab fa-instagram" href="#"><span
-											class="label"></span></a></li>
-									<li><a class="fab fa-youtube" href="#"><span
-											class="label"></span></a></li>
-								</ul>
-								<ul class="contact">
-									<li>
-										<h3>찾아오시는길</h3>
-										<p>
-											서울특별시 서초구 서초동 1303-37<br /> 서초W타워 13층
-										</p>
-									</li>
-									<li>
-										<h3>Mail</h3>
-										<p>
-											<a href="#">ezen3jo@gmail.com</a>
-										</p>
-									</li>
-									<li>
-										<h3>Phone</h3>
-										<p>(800) 000-0000</p>
-									</li>
+								
+						   <ul class="social">
+                              <li><a class="fab fa-facebook-f " href="https://www.facebook.com"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-twitter " href="https://www.twitter.com"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-instagram" href="https://www.instagram.com"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-youtube" href="https://www.youtube.com"><span
+                                    class="label"></span></a></li>
+                           </ul>
+                           <ul class="contact">
+                              <li>
+                                 <h3>찾아오시는길</h3>
+                                 <p>
+                                    서울특별시 서초구 서초동 1303-37<br /> 서초W타워 13층
+                                 </p>
+                              </li>
+                              <li>
+                                 <h3>Mail</h3>
+                                 <p>
+                                    <a href="https://www.google.com/intl/ko/gmail/about/#">ezen3jo@gmail.com</a>
+                                 </p>
+                              </li>
+                              <li>
+                                 <h3>Phone</h3>
+                                 <p>(02) 123-4567</p>
+                              </li>
+                              
+                           </ul>
+                        </section>
+                     </div>
+                     <div class="col-4 col-6-medium col-12-small"></div>
+                     <div class="col-4 col-6-medium col-12-small"></div>
+                     <div class="col-4 col-12-medium">
+                        <section></section>
+                     </div>
 
-								</ul>
-							</section>
-						</div>
-						<div class="col-4 col-6-medium col-12-small"></div>
-						<div class="col-4 col-6-medium col-12-small"></div>
-						<div class="col-4 col-12-medium">
-							<section></section>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</section>
+                  </div>
+               </div>
+         </section>
 
 
-	</div>
+      </div>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.dropotron.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+      <!-- Scripts -->
+         <script src="assets/js/jquery.min.js"></script>
+         <script src="assets/js/jquery.dropotron.min.js"></script>
+         <script src="assets/js/browser.min.js"></script>
+         <script src="assets/js/breakpoints.min.js"></script>
+         <script src="assets/js/util.js"></script>
+         <script src="assets/js/main.js"></script>
 
-</body>
+   </body>
 </html>

@@ -1,8 +1,10 @@
+<%@page import="com.login.dto.LoginDTO"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.board.dto.BoardPaging"%>
 <%@page import="com.board.dto.BoardDTO"%>
 <%@page import="java.util.List"%>
 <%
+    LoginDTO entity = (LoginDTO)session.getAttribute("logOK");
 	BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 	int seq=(Integer)request.getAttribute("seq");
 	int pg=(Integer)request.getAttribute("pg");
@@ -74,11 +76,11 @@ function checkBoardModify(){
 <table border="1" >
 	<tr>
 		<td>아이디</td>
-		<td><input type="text" name="id" size="50"  value="<%-- <%=log.getId()%> --%>id" readonly></td>
+		<td><input type="text" name="id" size="50"  value="<%=entity.getId()%>" readonly></td>
 	</tr>
 	<tr>
-		<td>이름</td>
-		<td><input type="text" name="name" size="50" value="<%-- <%=log.getName()%> --%>Name" readonly></td>
+		<td>닉네임</td>
+		<td><input type="text" name="name" size="50" value="<%=entity.getNick()%>" readonly></td>
 	</tr>	
 	
 	<tr>
@@ -103,14 +105,14 @@ function checkBoardModify(){
 
 <br><br><br>
 			<!-- Footer -->
-				<section id="footer">
+			<section id="footer">
             <div class="container">
                <div class="row">
                   <div class="col-8 col-12-medium">
                      <section id="footer">
-                        <header>
-                           <h2>Blandit nisl adipiscing</h2>
-                        </header>
+                      <header>
+                      <h2 style="text-align:left; color:white; font-size:2.3em; margin-bottom:2.2em ">DDO:MungNyang</h2>
+                       </header>
                         <ul class="dates">
                            <li><span class="date">연중무휴</span>
                               
@@ -127,20 +129,16 @@ function checkBoardModify(){
                   <div class="col-4 col-12-medium">
                      <div class="col-4 col-12-medium">
                         <section>
-                           <header>
-                              <h2>또먹냥~?</h2>
-                           </header>
+                          
                            <ul class="social">
-                              <li><a class="icon brands fa-facebook-f" href="#"><span
-                                    class="label">Facebook</span></a></li>
-                              <li><a class="icon brands fa-twitter" href="#"><span
-                                    class="label">Twitter</span></a></li>
-                              <li><a class="icon brands fa-dribbble" href="#"><span
-                                    class="label">Dribbble</span></a></li>
-                              <li><a class="icon brands fa-tumblr" href="#"><span
-                                    class="label">Tumblr</span></a></li>
-                              <li><a class="icon brands fa-linkedin-in" href="#"><span
-                                    class="label">LinkedIn</span></a></li>
+                              <li><a class="fab fa-facebook-f " href="https://www.facebook.com"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-twitter " href="https://www.twitter.com"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-instagram" href="https://www.instagram.com"><span
+                                    class="label"></span></a></li>
+                              <li><a class="fab fa-youtube" href="https://www.youtube.com"><span
+                                    class="label"></span></a></li>
                            </ul>
                            <ul class="contact">
                               <li>
@@ -152,12 +150,12 @@ function checkBoardModify(){
                               <li>
                                  <h3>Mail</h3>
                                  <p>
-                                    <a href="#">ezen3jo@gmail.com</a>
+                                    <a href="https://www.google.com/intl/ko/gmail/about/#">ezen3jo@gmail.com</a>
                                  </p>
                               </li>
                               <li>
                                  <h3>Phone</h3>
-                                 <p>(800) 000-0000</p>
+                                 <p>(02) 123-4567</p>
                               </li>
                               
                            </ul>
@@ -171,19 +169,18 @@ function checkBoardModify(){
 
                   </div>
                </div>
-               </div>
          </section>
 
 
-		</div>
+      </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+      <!-- Scripts -->
+         <script src="assets/js/jquery.min.js"></script>
+         <script src="assets/js/jquery.dropotron.min.js"></script>
+         <script src="assets/js/browser.min.js"></script>
+         <script src="assets/js/breakpoints.min.js"></script>
+         <script src="assets/js/util.js"></script>
+         <script src="assets/js/main.js"></script>
 
-	</body>
+   </body>
 </html>

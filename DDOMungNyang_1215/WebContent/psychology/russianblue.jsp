@@ -55,7 +55,7 @@
 	<h1 style="font-size:50pt;display:inline;color:#f44336;vertical-align:60%">당신에게 딱 맞는 반려동물은??</h1>
 	</div>
 	<div style="margin-top:20px;margin-left:32%">
-	<img src = "/bbs/images/psy/russianblue.jpg"><br></div>
+	<img src = "/bbs/images/psy/russianblue.jpg" style="width:600px; height: 400px; object-fit: cover;"><br></div>
 	<div style="margin-left:30%;margin-top:30px">
 	<div style="font-size:50pt;margin-top:20px">
 	러시안블루 고양이  !!!</div>

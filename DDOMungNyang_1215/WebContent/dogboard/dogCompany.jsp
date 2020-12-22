@@ -187,7 +187,7 @@
 							<!--  여기 까지 -->
 						</div>
 					</section>
-					<div class=doglist_bottom_search_form>
+					<div class=doglist_bottom_search_form >
 						<%
 							if (entity != null) {
 								if (entity.getId().equals("ddomungyang@gmail.com")) {

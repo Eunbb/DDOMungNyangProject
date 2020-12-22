@@ -1607,6 +1607,11 @@ input, select, textarea {
 		}
 
 /* Button */
+    #hi {
+    margin-top: 4em;
+     color: #FA8072 !important;
+    }
+   
 
 	input[type="button"],
 	input[type="submit"],
@@ -1624,7 +1629,7 @@ input, select, textarea {
 		color: #f44336 !important;
 		font-weight: 700;
 		outline: 0;
-		font-size: 1.1em;
+		font-size: 1.3em;
 		padding: 0.65em 1.5em 0.65em 1.5em;
 		text-align: center;
 		-moz-transition: background-color .25s ease-in-out;
@@ -2773,6 +2778,7 @@ input, select, textarea {
 			}
 
 		/* Button */
+ 
 
 			input[type="button"].large,
 			input[type="submit"].large,

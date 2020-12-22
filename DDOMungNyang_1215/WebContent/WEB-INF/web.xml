@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>DDOMungNyang_1215</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>ControllerAction</servlet-name>
+    <servlet-class>controller.ControllerAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControllerAction</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>PlusHeartServlet</servlet-name>
+      <servlet-class>com.login.service.PlusHeartServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>PlusHeartServlet</servlet-name>
+      <url-pattern>/PlusHeartServlet</url-pattern>
+   </servlet-mapping>
+   
+    <servlet>
+      <servlet-name>MinusHeartServlet</servlet-name>
+      <servlet-class>com.login.service.MinusHeartServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>MinusHeartServlet</servlet-name>
+      <url-pattern>/MinusHeartServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+      <servlet-name>CheckpwServlet</servlet-name>
+      <servlet-class>com.login.service.CheckpwServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>CheckpwServlet</servlet-name>
+      <url-pattern>/CheckpwServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+      <servlet-name>CheckEmailServlet</servlet-name>
+      <servlet-class>com.login.service.CheckEmailServlet</servlet-class>
+   </servlet>
+   <servlet-mapping>
+      <servlet-name>CheckEmailServlet</servlet-name>
+      <url-pattern>/CheckEmailServlet</url-pattern>
+   </servlet-mapping>
+</web-app>

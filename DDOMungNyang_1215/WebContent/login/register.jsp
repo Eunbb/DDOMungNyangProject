@@ -13,15 +13,17 @@
 <head>
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script language=javascript>
-	function btn_click(str) {
-		if (str==""){
-			alert('아이디를 입력해주세요');
-		} else	if (str == "sendMail") {
-			
-			signup.action = "/bbs/email/sendMail.jsp"
-		} else if (str == "emailcheck") {
-			alert('이메일 인증을 해주세요');
-		}
+	function chkEmail(str) {
+	    let email = str;
+	    let regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	
+	    if (!(regExp.test(str))) {
+	        $('span#email-helper').text('올바른 이메일 형식이 아닙니다.');
+	
+	        return false;
+	    }
+	
+	    return true;
 	}
 
 	$(document).ready(function() {
@@ -50,25 +52,39 @@
 				});
 			}
 		})
-
+		
+		$("#register_btn").click(function() {
+			alert('이메일 인증을해주세요');
+		})
+		
 		$("#emailchk_button").click(function() {
 			var id = $("[name=id]").val();
-			$.ajax({
-				type : 'POST',
-				url : '../CheckEmailServlet',
-				data : {id : id},
-				success : function(jsonObj) {
-					var obj = JSON.parse(jsonObj);
-					if(obj.id == 1){
-						alert('이미 있는 아이디입니다.');
-					} else{
-						alert('사용할 수 있는 아이디입니다.');
-					}
-				},
-				error : function(data, textStatus) {
-					alert('ajax 연결오류');
-				}
-			});
+			if(id==""){
+				alert('아이디를 입력해주세요');
+			} else{
+				if(!chkEmail(id)){
+					alert('이메일 형식으로 입력해주세요')
+				} else {
+					$.ajax({
+						type : 'POST',
+						url : '../CheckEmailServlet',
+						data : {id : id},
+						success : function(jsonObj) {
+							var obj = JSON.parse(jsonObj);
+							if(obj.id == 1){
+								alert('이미 있는 아이디입니다.');
+							} else{
+								var popupX = (document.body.offsetWidth / 2) - (500 / 2);
+								var popupY= (window.screen.height / 2) - (500 / 2);
+								window.open('/bbs/login/emailVerify.jsp?&id='+id+'', '아이디 확인', 'width=500, height=500, left='+ popupX + ', top='+ popupY + ', scrollbars = no');
+							}
+						},
+						error : function(data, textStatus) {
+							alert('ajax 연결오류');
+						}
+					});		
+				}	
+			}
 		})
 	});
 </script>
@@ -125,12 +141,6 @@
 								<div class="adress_button">
 									<input type="button" id="emailchk_button"
 										style="font-size: 0.8em; margin: 0" value="중복확인" class="btn">
-								</div>
-
-								<div class="adress_button">
-									<input type="submit" id="adress_button"
-										onclick='btn_click("sendMail");' value="이메일 인증"
-										style="font-size: 0.8em; margin: 0" class="btn">
 								</div>
 							</div>
 
@@ -226,10 +236,8 @@
 						<div class="row_group">
 							<div class="join_row">
 								<div class="col-sm-12  text-center">
-									<input type="hidden" name="ip" value="${GetIpAddress.getIp()}">
-									<input type="submit" value="가입하기"
-										style="font-size: 0.8em; margin: 20px" class="btn btn-success"
-										onclick='btn_click("emailcheck");'>
+									<input type="button" value="가입하기" id="register_btn"
+										style="font-size: 0.8em; margin: 20px" class="btn btn-success">
 								</div>
 							</div>
 						</div>

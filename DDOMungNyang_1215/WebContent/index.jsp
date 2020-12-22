@@ -58,7 +58,7 @@ function myProfile(){
 							<ul>
 								<li><a href="/bbs/index.jsp">ABOUT US</a></li>
 								<li>
-									<a >강아지분양</a>
+									<a href="/bbs/Iblist1.do?pg=1">강아지 분양</a>
 									 <ul>
 										<li><a href="/bbs/Iblist1.do?pg=1">업체 분양</a></li>
 										<li><a href="/bbs/Iblist2.do?pg=1">개인 분양 </a></li>
@@ -66,7 +66,7 @@ function myProfile(){
 									</ul> 
 								</li>
 											
-								<li><a>고양이 분양</a>
+								<li><a href="/bbs/Iblist4.do?pg=1">고양이 분양</a>
 								<ul>
 										<li><a href="/bbs/Iblist4.do?pg=1">업체 분양</a></li>
 										<li><a href="/bbs/Iblist5.do?pg=1">개인 분양 </a></li>
@@ -74,7 +74,7 @@ function myProfile(){
 										</ul> 
 										</li>
 								<li><a href="/bbs/psychology/PsychologyTest.html">심리테스트</a></li>
-								<li><a href="service.html">서비스</a></li>  <!-- 수정해야됨2 -->
+								<li><a href="/bbs/service/service.jsp">서비스</a></li>  <!-- 수정해야됨2 -->
 								<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li> 
 							</ul>
 						</nav>

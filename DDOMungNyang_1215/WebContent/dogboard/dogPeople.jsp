@@ -97,30 +97,28 @@
          </h1>
 
          <!-- Nav -->
-         <nav id="nav">
-            <ul>
-               <li><a href="/bbs/index.jsp">Home</a></li>
-               <li class="current"><a>강아지 분양</a>
-                  <ul>
-                    <li><a href="/bbs/Iblist1.do?pg=1">업체 분양</a></li>
-                    <li><a href="/bbs/Iblist2.do?pg=1" style="color:#FA8072">개인 분양 </a></li>
-				    <li><a href="/bbs/Iblist3.do?pg=1">유기 분양</a></li>
-                  </ul>
-                </li>
+        <nav id="nav">
+				<ul>
+					<li><a href="/bbs/index.jsp">ABOUT US</a></li>
+					<li class="current"><a href="/bbs/Iblist1.do?pg=1">강아지 분양</a>
+						<ul>
+							<li><a href="/bbs/Iblist1.do?pg=1" >업체 분양</a></li>
+							<li><a href="/bbs/Iblist2.do?pg=1" style="color:#FA8072">개인 분양 </a></li>
+							<li><a href="/bbs/Iblist3.do?pg=1">유기 분양</a></li>
+						</ul></li>
 
-               <li><a href="/bbs/Iblist4.do?pg=1">고양이 분양</a>
-               <ul>
-                  <li><a href="/bbs/Iblist4.do?pg=1">업체 분양</a></li>
-                  <li><a href="/bbs/Iblist5.do?pg=1">개인 분양 </a></li>
-                  <li><a href="/bbs/Iblist6.do?pg=1">유기 분양</a></li>
-               </ul>
-     			</li>
-     			<li><a href="abandoned.html">심리테스트</a></li>
-               <li><a href="service.html">서비스</a></li>
-               <li><a href="/bbs/boardList.do?pg=1">Q&A</a></li>
-            </ul>
-            
-         </nav>
+					<li><a href="/bbs/Iblist4.do?pg=1">고양이 분양</a>
+						<ul>
+							<li><a href="/bbs/Iblist4.do?pg=1">업체 분양</a></li>
+							<li><a href="/bbs/Iblist5.do?pg=1">개인 분양 </a></li>
+							<li><a href="/bbs/Iblist6.do?pg=1">유기 분양</a></li>
+						</ul></li>
+					<li><a href="/bbs/psychology/PsychologyTest.html">심리테스트</a></li>
+					<li><a href="/bbs/service/service.jsp">서비스</a></li>
+					<!-- 수정해야됨2 -->
+					<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li>
+				</ul>
+			</nav>
 
       </section>
 

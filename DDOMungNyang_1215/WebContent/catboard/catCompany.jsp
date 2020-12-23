@@ -24,12 +24,12 @@
    function dogView(petid,pg){
       location.href="/bbs/dogView.do?petid="+petid+"&pg="+pg;   
    }
-    function heartbtnFunction(petid){
+   function heartbtnFunction(petid){
        var petid = petid;
        var heart = $('input[name='+petid+']').val();
         $.ajax({
            type:'POST',
-           url:'./CheckIdServlet',
+           url:'./PlusHeartServlet',
            data: {petid : petid, heart : heart},
            async: false,
            success:function (jsonObj) {
@@ -46,7 +46,7 @@
        var heart = $('input[name='+petid+']').val();
         $.ajax({
            type:'POST',
-           url:'./CheckSadServlet',
+           url:'./MinusHeartServlet',
            data: {petid : petid, heart : heart},
            async: false,
            success:function (jsonObj) {

@@ -167,7 +167,7 @@
 					<!-- 또멍냥 인기 Top3    -->
 					<section>
 						<header class="major">
-							<h2>인기 Top3</h2>
+							<h2><span style="color: #FA8072; font-size: 2em">인기 Top3</span></h2>
 						</header>
 						<div class="row">
 							<c:forEach var="ibDTO" items="${toplist}">
@@ -218,7 +218,7 @@
 
 					<!-- 업체분양    -->
 					<section>
-						<header class="major">
+						<header class="major" style="margin-top:4em">
 							<h2>업체분양</h2>
 						</header>
 						
@@ -301,7 +301,7 @@
 							if (entity != null && entity.getId().equals("ddomungyang@gmail.com")) {
 						%>
 						<button id="hi"
-							onclick="location.href='/bbs/dogboard/imageBoardWrite.jsp'" style="text-align:right;">글등록</button>
+							onclick="location.href='/bbs/dogboard/imageBoardWrite.jsp'" style="float:right;">글등록</button>
 						<%
 							}
 						else {

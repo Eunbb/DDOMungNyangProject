@@ -14,6 +14,20 @@ function myProfile(){
 }
 </script>
 	<head>
+<style>
+#img1 {
+   display:inline;
+   width: 50%;
+   float: left;
+}
+
+#img2 {
+   display:inline;
+   width: 40%;
+}
+
+</style>	
+	
 		<title>DDO:MUNGNYANG</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -57,7 +71,7 @@ function myProfile(){
 					<!-- Nav -->
 						<nav id="nav">
 							<ul>
-								<li><a href="/bbs/about.jsp">ABOUT US</a></li>
+								<li><a href="#">ABOUT US</a></li>
 								<li>
 									<a href="/bbs/Iblist1.do?pg=1">강아지 분양</a>
 									 <ul>
@@ -80,14 +94,7 @@ function myProfile(){
 							</ul>
 						</nav>
 
-					<!-- Banner -->
-						<section id="banner">
-							<header>
-								
-								
-							</header>
-						</section>
-
+					
          <!-- Main -->
             <section id="main">
                <div class="container">
@@ -98,81 +105,23 @@ function myProfile(){
                               <header class="major">
                                  <h2>또멍냥</h2>
                               </header>
-                              <div class="row">
-                                 <div class="col-6 col-12-small">
-                                    <section class="box">
-                                       <a href="#" class="image featured"><img src="images/event.jpg" alt="" /></a>
-                                       <header>
-                                          <h3>또멍냥의 겨울맞이 이벤트</h3>
-                                          <p style="color:#F44336; font-family:'Jua', sans-serif; font-size: 1.3em">또멍냥 유튜브 구독시 간직 5종세트 무료증정</p>
-                                       </header>
-                                       <p><span style="color:#F44336">또멍냥 유튜브 구독</span>시 반려동물 입양하시는 모든분들께 반려견의 건강을 위한 덴티껌과 반려묘의 피부를 위한 간식 5종세트를 무료로드리고 있습니다.<br>많은참여 부탁드려요<img src="images/mypage.png" width="30" height="30" ></p>
-                                       <footer>
-                                          <ul class="actions">
-                                             <li><a href="https://www.youtube.com/channel/UCSmmLUH4x14hzJNpLshJIGA" class="fab fa-youtube fa-2x" ><span style="color:#000000; font-family:'Jua', sans-serif">구독하러가기</span></a></li>
-                                          </ul>
-                                       </footer>
-                                    </section>
-                                 </div>
-                                 <div class="col-6 col-12-small">
-                                    <section class="box">
-                                       <a href="#" class="image featured"><img src="images/reward.jpg" alt="" /></a>
-                                       <header>
-                                          <h3>반려동물분양사이트 선호도 1위</h3>
-                                          <p style="color:#F44336; font-family:'Jua', sans-serif; font-size: 1.3em">"또멍냥" 올해도 반려동물분양사이트 선호도 1위를 차지</p>
-                                       </header>
-                                       <p>제 200회 글로벌 분양 대상 또멍냥이 반려동물 분양사이트 부분 선호도1위를 차지했습니다.5년연속 선호도 1위를 달성하여 반려동물분양사이트<br> 부문 1위를 놓치지않으며 고객님들의 열화와 같은 성원에<br> 늘 감사드립니다. 앞으로도 반려동물의 행복과 건강을 위해<br> 노력하는 또멍냥이 되도록 노력하겠습니다.   </p>
-                                       <footer>
-                                       <img src="/bbs/images/kitten.png" width="70"height="70">
-                                       </footer>
-                                    </section>
-                                 </div>
+                              <div class="row" style="margin-top:100px">
+                                    <img src="images/about3.jpg" id = "img1" width= "50" height="300" style="object-fit:cover; " alt="" > 
+                                    <p style="display:inline; text-align:center; font-size:2em; margin-top:80px">새로운 인연을<br>또멍냥에서 시작하세요!</p>
+                                    <p style="font-size:1.3em; margin-top:200px; display:inline;" >나에게 딱 맞는 반려동물을 결정할 수 있는 <span style="color:#FA8072">심리테스트</span>도입
+                                    <br>전국의 가장 아름다운 반려동물 선발대회 <span style="color:#FA8072"> Miss.dog 1등</span> 반려동물 다수 보유<br>지금 또멍냥에서 만나보세요</p>
+                                    <img src="images/about2.jpg" id = "img2" width= "40" height="300" style="object-fit:cover; margin-top:120px;" alt="" > 
+                                    
+                                    
+                                    
+                                    <img src="images/about1.png" style="margin-top:100px; margin-bottom: 100px" alt="" > 
                               </div>
                            </section>
-
                      </div>
                   </div>
                </div>
             </section>
-                 <section id="main" style="margin-bottom:7em">
-               <div class="container">
-                <header class="major">
-                            <h2 style="color: #FA8072; font-size: 2em">또멍냥's Pick</h2>
-                             </header>
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<section class="first">
-										
-										<button type="button" style="color: red; cursor: pointer;" onclick="petranking()">❤</button>
-										
-										<header>
-											<h2>인기순위 1위</h2>
-										</header>
-										<p>귀여운 갱얼쥐1</p>
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="middle">
-										<i class="icon solid featured alt fa-bolt"></i>
-										<header>
-											<h2>인기순위 2위</h2>
-										</header>
-										<p>앙칼진 냥이</p>
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="last">
-										<i class="icon solid featured alt2 fa-star"></i>
-										<header>
-											<h2>인기순위3위</h2>
-										</header>
-										<p>멍냥</p>
-									</section>
-								</div>
-							</div>
-					</div>
-					</section>
-
+                
          <!-- Footer -->
            <section id="footer">
             <div class="container">

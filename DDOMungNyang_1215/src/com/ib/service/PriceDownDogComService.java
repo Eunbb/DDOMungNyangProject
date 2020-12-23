@@ -37,7 +37,7 @@ public class PriceDownDogComService implements CommandAction{
 		
 		//페이지처리
 		Ibpaging ibpaging = new Ibpaging(pg,2,pageSize);
-		ibpaging.makePagingHTML();
+		ibpaging.makePagingHTML4(map);
 		
 		//request객체에 등록
 		request.setAttribute("list", list);

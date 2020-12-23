@@ -3,14 +3,55 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mybatis.IbMapper">
-	
-	<!-- 총 페이지수 -->
+	<!--                 페이지                    -->
+	<!-- 강아지 업체분양 메인 총 페이지수 -->
 	<select id="getTotalArticle" resultType="java.lang.Integer">
 		<![CDATA[
 			SELECT COUNT(*) FROM PET
 		]]>
 	</select>
+
+	<!-- 강아지 업체분양(+성별) 메인 총 페이지수 -->
+	<select id="getTotalArticle2" parameterType="hashmap" resultType="java.lang.Integer">
+		<![CDATA[
+		SELECT COUNT(PETID)
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=1 AND CLASSIFY2='A1' AND GENDER= #{petgender} ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum}
+		]]>
+	</select>
+
+	<!-- 강아지 업체분양(+ 이름검색) 페이지수 -->
+	<select id="getTotalArticle3" parameterType="hashmap"  resultType="java.lang.Integer">
+	    <![CDATA[
+		SELECT COUNT(PETID)
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=1 AND CLASSIFY2='A1' ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum} AND DOGKORTYPE LIKE '%' || #{dogname} || '%'
+	    ]]>
+	</select>
 	
+	<!-- 강아지 업체분양(+ 낮은가격부터) 페이지수 -->
+	<select id="getTotalArticle4" parameterType="hashmap"  resultType="java.lang.Integer">
+	    <![CDATA[
+		SELECT COUNT(PETID)
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=1 AND CLASSIFY2='A1' ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum} ORDER BY PRICE DESC
+	    ]]>
+	</select>
+	
+	<!-- 강아지 업체분양(+ 높은가격부터) 페이지수 -->
+	<select id="getTotalArticle5" parameterType="hashmap"  resultType="java.lang.Integer">
+	    <![CDATA[
+		SELECT COUNT(PETID)
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=1 AND CLASSIFY2='A1' ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum} ORDER BY PRICE
+	    ]]>
+	</select>
+
+	<!--                 리스트                    -->	
 	<!-- 강아지 업체분양 -->
 	<select id="getImageList" parameterType="hashmap"  
 	        resultType="com.ib.dto.IbDTO">

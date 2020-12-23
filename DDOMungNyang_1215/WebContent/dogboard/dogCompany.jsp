@@ -7,7 +7,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	int pg = (Integer) request.getAttribute("pg");
-Ibpaging paging = (Ibpaging) request.getAttribute("ibpaging");
+	Ibpaging paging = (Ibpaging) request.getAttribute("ibpaging");
 %>
 <!DOCTYPE html>
 <html>
@@ -60,19 +60,19 @@ Ibpaging paging = (Ibpaging) request.getAttribute("ibpaging");
     }
     
     function notGwanrija() {
-       alert("업체분양 페이지의 글 쓰기는 관리자만 가능합니다.")
+       alert("업체분양 페이지 강아지등록은 관리자만 가능합니다.")
     }
     
     $(document).ready(function() {
     	$("#petgender").change(function(){
     		var petgender = $("#petgender option:selected").val();
-    		location.href="/bbs/genderdogcompany.do?petgender="+petgender; 
+    		location.href="/bbs/genderdogcompany.do?petgender="+petgender;
           })
           
     	$("#petprice").change(function(){
     		var petprice = $("#petprice option:selected").val();
     		if(petprice =="가격(높은 순)"){
-    			location.href="/bbs/priceupdogcompany.do";	
+    			location.href="/bbs/priceupdogcompany.do";
     		} else if(petprice =="가격(낮은 순)"){
     			location.href="/bbs/pricedowndogcompany.do";	
     		}

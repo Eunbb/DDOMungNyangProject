@@ -36,7 +36,6 @@ public class GenDogComService implements CommandAction{
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);
 		map.put("petgender", petgender);
-
 		
 		ImageBoardDao dao = ImageBoardDao.getInstance();
 		List<IbDTO> list = dao.getDongGenderList(map);
@@ -46,7 +45,7 @@ public class GenDogComService implements CommandAction{
 		
 		//페이지처리
 		Ibpaging ibpaging = new Ibpaging(pg,2,pageSize);
-		ibpaging.makePagingHTML();
+		ibpaging.makePagingHTML2(map);
 		System.out.println("Page : " + ibpaging.getPagingHTML());
 		
 		//request객체에 등록

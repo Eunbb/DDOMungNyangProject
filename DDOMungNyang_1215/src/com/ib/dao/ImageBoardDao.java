@@ -56,18 +56,48 @@ public class ImageBoardDao {
 		}
 		return n;
 	}
-
-	// BoardDAO에서 가져온거
-	// ---------------------------------------------------------
+	//---------------------------페이지--------------------------
+	// 강아지 메인페이지 총 게시물의 수
 	public int getTotalArticle() { // 총 게시물의 갯수
 		SqlSession session = factory.openSession();
 		int n = session.selectOne("mybatis.IbMapper.getTotalArticle");
 		session.close();
 		return n;
 	}
-
-	// ------------------------------------------------------------------------글
-	// 강아지 업체분양
+	
+	// 강아지 메인페이지(+성별) 총 게시물의 수
+	public int getTotalArticle2(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		int n = session.selectOne("mybatis.IbMapper.getTotalArticle2", map);
+		session.close();
+		return n;
+	}
+	
+	// 강아지 메인페이지(+이름) 총 게시물의 수
+	public int getTotalArticle3(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		int n = session.selectOne("mybatis.IbMapper.getTotalArticle3", map);
+		session.close();
+		return n;
+	}
+	
+	// 강아지 메인페이지(+낮은가격) 총 게시물의 수
+	public int getTotalArticle4(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		int n = session.selectOne("mybatis.IbMapper.getTotalArticle4", map);
+		session.close();
+		return n;
+	}
+	
+	// 강아지 메인페이지(+높은) 총 게시물의 수
+	public int getTotalArticle5(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		int n = session.selectOne("mybatis.IbMapper.getTotalArticle5", map);
+		session.close();
+		return n;
+	}	
+	// -------------------------------강아지 업체분양List---------------------------------------
+	// 강아지 업체분양(메인)
 	public List<IbDTO> getImageList(Map<String, Object> map) {
 		SqlSession session = factory.openSession();
 		List<IbDTO> list = session.selectList("mybatis.IbMapper.getImageList", map);
@@ -114,7 +144,8 @@ public class ImageBoardDao {
 		session.close();
 		return list;
 	}	
-	
+
+	// -------------------------------강아지 개인분양List---------------------------------------	
 	// 강아지 개인분양
 	public List<IbDTO> getImageList2(Map<String, Object> map) {
 		SqlSession session = factory.openSession();

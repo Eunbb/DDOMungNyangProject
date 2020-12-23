@@ -1,3 +1,4 @@
+<%@page import="com.board.dto.BoardDTO"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.login.dto.LoginDTO" %>
 <%@page import="java.util.List"%>
@@ -62,6 +63,7 @@ function checkBoardReply(){
 <!-- ReplyForm -->
 <%
 	LoginDTO entity=(LoginDTO)session.getAttribute("logOK");
+    BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 	int pseq=(Integer)request.getAttribute("pseq");
 	int pg=(Integer)request.getAttribute("pg");
 %>
@@ -72,11 +74,11 @@ function checkBoardReply(){
 <table border="1" >
 	<tr>
 		<td>아이디</td>
-		<td><input type="text" name="id" size="50"  value="<%=entity.getId()%>" readonly></td>
+		<td><input type="text" name="id" size="50"  value="<%=dto.getId()%>" readonly></td>
 	</tr>
 	<tr>
-		<td>닉네임</td>
-		<td><input type="text" name="name" size="50" value="<%=entity.getNick()%>" readonly></td>
+		<td>이름</td>
+		<td><input type="text" name="name" size="50" value="<%=dto.getName()%>" readonly></td>
 	</tr>	
 	<tr>
 		<td>제 목</td>

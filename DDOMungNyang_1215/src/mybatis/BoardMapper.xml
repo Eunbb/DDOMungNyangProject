@@ -42,7 +42,7 @@
 	<update id="boardUpdate" parameterType="BoardDTO">
 		<![CDATA[
 			UPDATE BOARD 
-			SET SUBJECT=#{subject},CONTENT=#{content},ID=#{id} 
+			SET SUBJECT=#{subject},CONTENT=#{content} 
 			WHERE SEQ=#{seq}
 		]]>
 	</update>

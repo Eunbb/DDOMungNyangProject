@@ -76,7 +76,7 @@ function checkBoardModify(){
 <table border="1" >
 	<tr>
 		<td>아이디</td>
-		<td><input type="text" name="id" size="50"  value="<%=entity.getId()%>" readonly></td>
+		<td><input type="text" name="id" size="50"  value="<%=dto.getId()%>" readonly></td>
 	</tr>
 	<tr>
 		<td>닉네임</td>

@@ -32,6 +32,50 @@
 		WHERE RN <= 3 ORDER BY HEART DESC
 	    ]]>
 	</select>
+
+	<!-- 강아지 업체분양 + 성별 -->
+	<select id="getDongGenderList" parameterType="hashmap"  
+	        resultType="com.ib.dto.IbDTO">
+	    <![CDATA[
+		SELECT PETID,CLASSIFY1, CLASSIFY2,DOGKORTYPE, DOGENGTYPE, GENDER, AGE,PRICE,JUSA, PIC, HEART
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=1 AND CLASSIFY2='A1' AND GENDER= #{petgender} ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum}
+	    ]]>
+	</select>
+	
+	<!-- 강아지 업체분양 + 가격높은것부터 -->
+	<select id="getDongPriceUpList" parameterType="hashmap"  
+	        resultType="com.ib.dto.IbDTO">
+	    <![CDATA[
+		SELECT PETID,CLASSIFY1, CLASSIFY2,DOGKORTYPE, DOGENGTYPE, GENDER, AGE,PRICE,JUSA, PIC, HEART
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=1 AND CLASSIFY2='A1' ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum} ORDER BY PRICE
+	    ]]>
+	</select>
+	
+	<!-- 강아지 업체분양 + 가격낮은것부터 -->
+	<select id="getDongPriceDownList" parameterType="hashmap"  
+	        resultType="com.ib.dto.IbDTO">
+	    <![CDATA[
+		SELECT PETID,CLASSIFY1, CLASSIFY2,DOGKORTYPE, DOGENGTYPE, GENDER, AGE,PRICE,JUSA, PIC, HEART
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=1 AND CLASSIFY2='A1' ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum} ORDER BY PRICE DESC
+	    ]]>
+	</select>
+
+	<!-- 강아지 업체분양 + 이름검색 -->
+	<select id="getDongNameList" parameterType="hashmap"  
+	        resultType="com.ib.dto.IbDTO">
+	    <![CDATA[
+		SELECT PETID,CLASSIFY1, CLASSIFY2,DOGKORTYPE, DOGENGTYPE, GENDER, AGE,PRICE,JUSA, PIC, HEART
+		FROM (SELECT ROWNUM RN, AA.*
+		      FROM (SELECT * FROM PET WHERE CLASSIFY1=1 AND CLASSIFY2='A1' ORDER BY PETID DESC) AA)
+		WHERE RN >= #{startNum} AND RN <= #{endNum} AND DOGKORTYPE LIKE '%' || #{dogname} || '%'
+	    ]]>
+	</select>
 	
 	<!-- 강아지 개인분양 -->
 	<select id="getImageList2" parameterType="hashmap"  

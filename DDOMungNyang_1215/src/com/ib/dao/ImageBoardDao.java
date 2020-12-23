@@ -82,6 +82,38 @@ public class ImageBoardDao {
 		session.close();
 		return list;
 	}
+
+	// 강아지 업체분양(+성별)
+	public List<IbDTO> getDongGenderList(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		List<IbDTO> list = session.selectList("mybatis.IbMapper.getDongGenderList", map);
+		session.close();
+		return list;
+	}
+	
+	// 강아지 업체분양(+높은가격)
+	public List<IbDTO> getDongPriceUpList(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		List<IbDTO> list = session.selectList("mybatis.IbMapper.getDongPriceUpList", map);
+		session.close();
+		return list;
+	}
+	
+	// 강아지 업체분양(+낮은가격)
+	public List<IbDTO> getDongPriceDownList(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		List<IbDTO> list = session.selectList("mybatis.IbMapper.getDongPriceDownList", map);
+		session.close();
+		return list;
+	}
+	
+	// 강아지 업체분양(+이름검색)
+	public List<IbDTO> getDongNameList(Map<String, Object> map) {
+		SqlSession session = factory.openSession();
+		List<IbDTO> list = session.selectList("mybatis.IbMapper.getDongNameList", map);
+		session.close();
+		return list;
+	}	
 	
 	// 강아지 개인분양
 	public List<IbDTO> getImageList2(Map<String, Object> map) {

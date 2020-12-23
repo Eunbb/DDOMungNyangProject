@@ -4,6 +4,13 @@
 
 <mapper namespace="mybatis.IbMapper">
 	
+	<!-- 총 페이지수 -->
+	<select id="getTotalArticle" resultType="java.lang.Integer">
+		<![CDATA[
+			SELECT COUNT(*) FROM PET
+		]]>
+	</select>
+	
 	<!-- 강아지 업체분양 -->
 	<select id="getImageList" parameterType="hashmap"  
 	        resultType="com.ib.dto.IbDTO">

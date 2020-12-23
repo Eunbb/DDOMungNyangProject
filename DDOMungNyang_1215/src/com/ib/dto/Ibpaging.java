@@ -1,6 +1,7 @@
 package com.ib.dto;
 
 import com.board.dao.BoardDAO;
+import com.ib.dao.ImageBoardDao;
 
 public class Ibpaging {
 	private int currentPage;  //  현재페이지
@@ -17,7 +18,7 @@ public class Ibpaging {
 	public void makePagingHTML() {
 		pagingHTML = new StringBuffer();//수정이 가능하도록 StringBuffer를 쓰도록하자
 		
-		BoardDAO imageBoardDao = BoardDAO.getInstance();
+		ImageBoardDao imageBoardDao = ImageBoardDao.getInstance();
 		int totalA = imageBoardDao.getTotalArticle();     // 총글수 가져오기
 		int totalP = (totalA + pageSize -1) / pageSize;   // 총페이지수
 		//또는 int totalP=(int)Math.ceil((double)totalA/pageSize);
@@ -31,20 +32,20 @@ public class Ibpaging {
 		}
 		
 		if(startPage>pageBlock){			
-			pagingHTML.append("<a href='/bbs/Iblist.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
+			pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
 		}		
 		
 		for(int i=startPage;i<=endPage;i++){
 			if(currentPage==i){
-				pagingHTML.append("<a href='/bbs/Iblist.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
+				pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
 			
 			}else{
-				pagingHTML.append("<a href='/bbs/Iblist.do?pg="+i+"'>["+i+"]</a>");
+				pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+i+"'>["+i+"]</a>");
 			}
 		}
 				
 		if(endPage<totalP){
-			pagingHTML.append("<a href='/bbs/Iblist.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
+			pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
 		}
 	}
 	

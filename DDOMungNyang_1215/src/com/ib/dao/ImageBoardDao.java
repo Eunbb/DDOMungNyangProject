@@ -61,7 +61,7 @@ public class ImageBoardDao {
 	// ---------------------------------------------------------
 	public int getTotalArticle() { // 총 게시물의 갯수
 		SqlSession session = factory.openSession();
-		int n = session.selectOne("mybatis.ImageBoardMapper.getTotalArticle");
+		int n = session.selectOne("mybatis.IbMapper.getTotalArticle");
 		session.close();
 		return n;
 	}

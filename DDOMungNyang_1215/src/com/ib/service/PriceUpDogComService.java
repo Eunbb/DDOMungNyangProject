@@ -37,7 +37,7 @@ public class PriceUpDogComService implements CommandAction{
 		
 		//페이지처리
 		Ibpaging ibpaging = new Ibpaging(pg,2,pageSize);
-		ibpaging.makePagingHTML5(map);
+		ibpaging.makePagingHTML5();
 		
 		//request객체에 등록
 		request.setAttribute("list", list);

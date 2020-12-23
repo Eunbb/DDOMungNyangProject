@@ -71,20 +71,20 @@ public class Ibpaging {
 		}
 		
 		if(startPage>pageBlock){			
-			pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
+			pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
 		}		
 		
 		for(int i=startPage;i<=endPage;i++){
 			if(currentPage==i){
-				pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
+				pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
 			
 			}else{
-				pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+i+"'>["+i+"]</a>");
+				pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+i+"'>["+i+"]</a>");
 			}
 		}
 				
 		if(endPage<totalP){
-			pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
+			pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
 		}
 	}
 	
@@ -107,29 +107,28 @@ public class Ibpaging {
 			}
 			
 			if(startPage>pageBlock){			
-				pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
+				pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
 			}		
 			
 			for(int i=startPage;i<=endPage;i++){
 				if(currentPage==i){
-					pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
+					pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
 				
 				}else{
-					pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+i+"'>["+i+"]</a>");
+					pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+i+"'>["+i+"]</a>");
 				}
 			}
 					
 			if(endPage<totalP){
-				pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
+				pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
 			}
 		}
 
 		//강아지 업체분양 메인 페이지 + 가격내림차순
-		public void makePagingHTML4(Map<String, Object> map) {
+		public void makePagingHTML4() {
 			pagingHTML = new StringBuffer();//수정이 가능하도록 StringBuffer를 쓰도록하자
 			ImageBoardDao imageBoardDao = ImageBoardDao.getInstance();
-			System.out.println("paging에서 map 받음 : " + map.keySet());
-			int totalA = imageBoardDao.getTotalArticle4(map);     // 총글수 가져오기
+			int totalA = imageBoardDao.getTotalArticle();     // 총글수 가져오기
 			System.out.println("총글수 : " + totalA);
 			int totalP = (totalA + pageSize -1) / pageSize;   // 총페이지수
 			//또는 int totalP=(int)Math.ceil((double)totalA/pageSize);
@@ -143,29 +142,28 @@ public class Ibpaging {
 			}
 			
 			if(startPage>pageBlock){			
-				pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
+				pagingHTML.append("<a href='/bbs/pricedowndogcompany.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
 			}		
 			
 			for(int i=startPage;i<=endPage;i++){
 				if(currentPage==i){
-					pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
+					pagingHTML.append("<a href='/bbs/pricedowndogcompany.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
 				
 				}else{
-					pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+i+"'>["+i+"]</a>");
+					pagingHTML.append("<a href='/bbs/pricedowndogcompany.do?pg="+i+"'>["+i+"]</a>");
 				}
 			}
 					
 			if(endPage<totalP){
-				pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
+				pagingHTML.append("<a href='/bbs/pricedowndogcompany.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
 			}
 		}
 
 		//강아지 업체분양 메인 페이지 + 높은가격
-		public void makePagingHTML5(Map<String, Object> map) {
+		public void makePagingHTML5() {
 			pagingHTML = new StringBuffer();//수정이 가능하도록 StringBuffer를 쓰도록하자
 			ImageBoardDao imageBoardDao = ImageBoardDao.getInstance();
-			System.out.println("paging에서 map 받음 : " + map.keySet());
-			int totalA = imageBoardDao.getTotalArticle4(map);     // 총글수 가져오기
+			int totalA = imageBoardDao.getTotalArticle();     // 총글수 가져오기
 			System.out.println("총글수 : " + totalA);
 			int totalP = (totalA + pageSize -1) / pageSize;   // 총페이지수
 			//또는 int totalP=(int)Math.ceil((double)totalA/pageSize);
@@ -179,20 +177,20 @@ public class Ibpaging {
 			}
 			
 			if(startPage>pageBlock){			
-				pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
+				pagingHTML.append("<a href='/bbs/priceupdogcompany.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
 			}		
 			
 			for(int i=startPage;i<=endPage;i++){
 				if(currentPage==i){
-					pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
+					pagingHTML.append("<a href='/bbs/priceupdogcompany.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
 				
 				}else{
-					pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+i+"'>["+i+"]</a>");
+					pagingHTML.append("<a href='/bbs/priceupdogcompany.do?pg="+i+"'>["+i+"]</a>");
 				}
 			}
 					
 			if(endPage<totalP){
-				pagingHTML.append("<a href='/bbs/Iblist1.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
+				pagingHTML.append("<a href='/bbs/priceupdogcompany.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
 			}
 		}		
 	public String getPagingHTML() {

@@ -160,12 +160,12 @@ function myProfile(){
                         </div>
                         <div class="col-4 col-12-medium">
                            <section class="middle">
-                              <img src="assets/css/images/po.jpg"   class="img1">
+                              <img src="assets/css/images/pome.jpg"   class="img1">
                               
                               <header>
-                                 <h2>추천</h2>
+                                 <h2>솜사탕 처럼 달콤한</h2>
                               </header>
-                              <h2>먼치맨</h2>
+                              <h2>포메</h2>
                            </section>
                         </div>
                         <div class="col-4 col-12-medium">

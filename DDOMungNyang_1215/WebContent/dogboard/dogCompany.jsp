@@ -17,7 +17,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="assets/css/main.css" />
-<link rel="stylesheet" href="assets/css/checkbox.css" />
+<!-- <link rel="stylesheet" href="assets/css/selector.css" /> -->
 <link rel="stylesheet" href="assets/css/styleImageBoard.css">
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script>
@@ -212,13 +212,44 @@
 							</c:forEach>
 							<!--  여기 까지 -->
 						</div>
-					</section>
+					</section><br><br>
+
+					
 
 					<!-- 업체분양    -->
 					<section>
 						<header class="major">
 							<h2>업체분양</h2>
 						</header>
+						
+					<!-- 강아지 검색하기 -->
+					<div>
+						<form>
+							<div class="selectform"  style="margin-bottom:4em; text-align:center;">
+										<select data-trigger="" id="petgender" style="width:20em; display:inline">
+											<option placeholder="">성별(전체)</option>
+											<option>수컷</option>
+											<option>암컷</option>
+										</select> 
+								
+										
+										<select data-trigger="" id="petprice" style="width:20em; display:inline">
+											<option placeholder="">가격</option>
+											<option>가격(높은 순)</option>
+											<option>가격(낮은 순)</option>
+										</select>
+								
+									<input id="searchdog" type="text" placeholder="찾으시는 종의 이름을 입력해주세요" 
+									style="width:20em; display:inline"/>
+								
+									<button id="searchdogbtn" type="button" style="display:inline">검색</button>
+							</div>
+						</form>
+					</div>
+
+<!-- --------------------------------------------------------------------->	
+						
+						
 						<div class="row">
 							<c:forEach var="ibDTO" items="${list}">
 								<!-- 추가한 부분 -->
@@ -263,50 +294,23 @@
 							<!--  여기 까지 -->
 						</div>
 					</section>
-					<div>
-						<form>
-							<div class="inner-form">
-								<div class="input-field first-wrap">
-									<div class="input-select">
-										<select data-trigger="" id="petgender">
-											<option placeholder="">성별(전체)</option>
-											<option>수컷</option>
-											<option>암컷</option>
-										</select> <select data-trigger="" id="petprice">
-											<option placeholder="">가격</option>
-											<option>가격(높은 순)</option>
-											<option>가격(낮은 순)</option>
-										</select>
-									</div>
-								</div>
-								<br>
-								<div class="input-field second-wrap">
-									<input id="searchdog" type="text"
-										placeholder="찾으시는 종의 이름을 입력해주세요" />
-								</div>
-								<br>
-								<div class="input-field third-wrap">
-									<button id="searchdogbtn" type="button">검색</button>
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class=doglist_bottom_search_form>
+
+
+<!-- 					<div class=doglist_bottom_search_form> -->
 						<%
-							if (entity != null) {
-							if (entity.getId().equals("ddomungyang@gmail.com")) {
+							if (entity != null && entity.getId().equals("ddomungyang@gmail.com")) {
 						%>
 						<button id="hi"
-							onclick="location.href='/bbs/dogboard/imageBoardWrite.jsp'">글등록</button>
+							onclick="location.href='/bbs/dogboard/imageBoardWrite.jsp'" style="text-align:right;">글등록</button>
 						<%
 							}
-						} else {
+						else {
 						%>
-						<button id="hi" onclick="notGwanrija()">글등록</button>
+						<button id="hi" onclick="notGwanrija()" style="float:right;">글등록</button>
 						<%
 							}
 						%>
-					</div>
+<!-- 					</div> -->
 					<div class="paging-block">
 						<table>
 							<tr>

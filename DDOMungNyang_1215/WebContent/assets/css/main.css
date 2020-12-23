@@ -1596,7 +1596,6 @@ input, select, textarea {
 	.box:hover {   
         transform: translate(0, -5px);         
          }      
-	}
 
 		.box .image.featured {
 			position: relative;

@@ -39,7 +39,8 @@ public class DogNameDogComService implements CommandAction{
 		
 		//페이지처리
 		Ibpaging ibpaging = new Ibpaging(pg,2,pageSize);
-		ibpaging.makePagingHTML3(map);
+		ibpaging.makePagingHTML3(map, dogname);
+		System.out.println(""+ibpaging.getPagingHTML());
 		
 		//request객체에 등록
 		request.setAttribute("list", list);

@@ -45,7 +45,7 @@ public class GenDogComService implements CommandAction{
 		
 		//페이지처리
 		Ibpaging ibpaging = new Ibpaging(pg,2,pageSize);
-		ibpaging.makePagingHTML2(map);
+		ibpaging.makePagingHTML2(map, petgender);
 		System.out.println("Page : " + ibpaging.getPagingHTML());
 		
 		//request객체에 등록

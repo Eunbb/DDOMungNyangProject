@@ -53,7 +53,7 @@ public class Ibpaging {
 		}
 	}
 	//강아지 업체분양 메인 페이지 + 성별	
-	public void makePagingHTML2(Map<String, Object> map) {
+	public void makePagingHTML2(Map<String, Object> map, String petgender) {
 		pagingHTML = new StringBuffer();//수정이 가능하도록 StringBuffer를 쓰도록하자
 		ImageBoardDao imageBoardDao = ImageBoardDao.getInstance();
 		System.out.println("paging에서 map 받음 : " + map.keySet());
@@ -71,25 +71,25 @@ public class Ibpaging {
 		}
 		
 		if(startPage>pageBlock){			
-			pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
+			pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+(startPage-pageBlock)+"&dogname="+petgender+"'>["+"이전]</a>");
 		}		
 		
 		for(int i=startPage;i<=endPage;i++){
 			if(currentPage==i){
-				pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
+				pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+i+"&dogname="+petgender+"'><font color=red>["+ i+ "]</font></a>");
 			
 			}else{
-				pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+i+"'>["+i+"]</a>");
+				pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+i+"&dogname="+petgender+"'>["+i+"]</a>");
 			}
 		}
 				
 		if(endPage<totalP){
-			pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
+			pagingHTML.append("<a href='/bbs/genderdogcompany.do?pg="+(startPage+pageBlock)+"&dogname="+petgender+"'>["+"다음]</a>");
 		}
 	}
 	
 	//강아지 업체분양 메인 페이지 + 이름
-		public void makePagingHTML3(Map<String, Object> map) {
+		public void makePagingHTML3(Map<String, Object> map, String dogname) {
 			pagingHTML = new StringBuffer();//수정이 가능하도록 StringBuffer를 쓰도록하자
 			ImageBoardDao imageBoardDao = ImageBoardDao.getInstance();
 			System.out.println("paging에서 map 받음 : " + map.keySet());
@@ -106,21 +106,22 @@ public class Ibpaging {
 				endPage = totalP;
 			}
 			
-			if(startPage>pageBlock){			
-				pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+(startPage-pageBlock)+"'>["+"이전]</a>");
+			if(startPage>pageBlock){
+				
+				pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+(startPage-pageBlock)+"&dogname="+dogname+"'>["+"이전]</a>");
 			}		
 			
 			for(int i=startPage;i<=endPage;i++){
 				if(currentPage==i){
-					pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+i+"'><font color=red>["+ i+ "]</font></a>");
+					pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+i+"&dogname="+dogname+"'><font color=red>["+ i+ "]</font></a>");
 				
 				}else{
-					pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+i+"'>["+i+"]</a>");
+					pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+i+"&dogname="+dogname+"'>["+i+"]</a>");
 				}
 			}
 					
 			if(endPage<totalP){
-				pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+(startPage+pageBlock)+"'>["+"다음]</a>");
+				pagingHTML.append("<a href='/bbs/dognamedogcompany.do?pg="+(startPage+pageBlock)+"&dogname="+dogname+"'>["+"다음]</a>");
 			}
 		}
 

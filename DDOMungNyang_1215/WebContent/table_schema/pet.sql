@@ -24,4 +24,3 @@ SELECT * FROM PET WHERE  CLASSIFY1=1  ORDER BY PETID DESC
 select * from pet;
 drop table pet;
 drop sequence seq_petid
-

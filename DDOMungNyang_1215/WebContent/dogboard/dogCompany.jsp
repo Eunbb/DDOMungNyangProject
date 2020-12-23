@@ -66,21 +66,21 @@
     $(document).ready(function() {
     	$("#petgender").change(function(){
     		var petgender = $("#petgender option:selected").val();
-    		location.href="/bbs/genderdogcompany.do?petgender="+petgender;
+    		location.href="/bbs/genderdogcompany.do?pg=1&petgender="+petgender;
           })
           
     	$("#petprice").change(function(){
     		var petprice = $("#petprice option:selected").val();
     		if(petprice =="가격(높은 순)"){
-    			location.href="/bbs/priceupdogcompany.do";
+    			location.href="/bbs/priceupdogcompany.do?pg=1";
     		} else if(petprice =="가격(낮은 순)"){
-    			location.href="/bbs/pricedowndogcompany.do";	
+    			location.href="/bbs/pricedowndogcompany.do?pg=1";	
     		}
           })
           
     	$("#searchdogbtn").click(function(){
     		var dogname = $("#searchdog").val();
-    		location.href="/bbs/dognamedogcompany.do?dogname="+dogname; 
+    		location.href="/bbs/dognamedogcompany.do?pg=1&dogname="+dogname; 
           })
     	
     	});

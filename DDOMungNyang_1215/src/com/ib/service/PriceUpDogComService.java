@@ -18,13 +18,11 @@ public class PriceUpDogComService implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		
+		int pg = Integer.parseInt(request.getParameter("pg"));
 		//select DB
-		int pg=1;
 		int pageSize=6; 
 		int endNum= pg*pageSize;
 		int startNum=endNum-(pageSize-1);  //시작번호
-		
 		Map<String,Object> map = new HashMap<>();
 		map.put("startNum", startNum);
 		map.put("endNum", endNum);

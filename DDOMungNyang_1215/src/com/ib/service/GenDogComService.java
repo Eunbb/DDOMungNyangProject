@@ -18,6 +18,7 @@ public class GenDogComService implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
+		int pg = Integer.parseInt(request.getParameter("pg"));
 		String petgender = request.getParameter("petgender");
 		if(petgender.equals("수컷")) { petgender = "M"; }
 		else if(petgender.equals("암컷")) { petgender = "F"; }
@@ -27,7 +28,6 @@ public class GenDogComService implements CommandAction{
 		System.out.println("" + petgender);
 		
 		//select DB
-		int pg=1;
 		int pageSize=6; 
 		int endNum= pg*pageSize;
 		int startNum=endNum-(pageSize-1);  //시작번호

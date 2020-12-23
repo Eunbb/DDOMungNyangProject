@@ -18,9 +18,8 @@ public class PriceDownDogComService implements CommandAction{
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-
+		int pg = Integer.parseInt(request.getParameter("pg"));
 		//select DB
-		int pg=1;
 		int pageSize=6; 
 		int endNum= pg*pageSize;
 		int startNum=endNum-(pageSize-1);  //시작번호
@@ -30,7 +29,7 @@ public class PriceDownDogComService implements CommandAction{
 		map.put("endNum", endNum);
 		
 		ImageBoardDao dao = ImageBoardDao.getInstance();
-		List<IbDTO> list = dao.getDongPriceUpList(map);
+		List<IbDTO> list = dao.getDongPriceDownList(map);
 		
 		//강아지 인기 top3
 		List<IbDTO> toplist = dao.getImageTopList();

@@ -3,9 +3,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
 <!--
-	Dopetrope by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+   Dopetrope by HTML5 UP
+   html5up.net | @ajlkn
+   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 <script>
@@ -13,80 +13,87 @@ function myProfile(){
    document.MyProfile.submit();
 }
 </script>
-	<head>
-		<title>DDO:MUNGNYANG</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/styleImageBoard.css">
-	</head>
-	<!--  <body class="homepage is-preload"> -->
-		<div id="page-wrapper">
-			<!-- 로그인/회원가입 버튼 -->
-			<section id="starter">
-			<div id="menu">
+<style type="text/css">
+.img1 {
+   width: 300px;
+   height: 250px;
+   object-fit: cover;
+}
+</style>
+   <head>
+      <title>DDO:MUNGNYANG</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+      <link rel="stylesheet" href="assets/css/main.css" />
+      <link rel="stylesheet" href="assets/css/styleImageBoard.css">
+   </head>
+   <!--  <body class="homepage is-preload"> -->
+      <div id="page-wrapper">
+         <!-- 로그인/회원가입 버튼 -->
+         <section id="starter">
+         <div id="menu">
 <%
    LoginDTO entity = (LoginDTO)session.getAttribute("logOK");
    if(entity == null)
    {
 %>
-				<button id="login_btn" onclick="location.href='/bbs/login/login.jsp'">로그인</button>
-				<button id="register_btn" onclick="location.href='/bbs/login/register.jsp'">회원가입</button>
+            <button id="login_btn" onclick="location.href='/bbs/login/login.jsp'">로그인</button>
+            <button id="register_btn" onclick="location.href='/bbs/login/register.jsp'">회원가입</button>
 <%
    }else{
 %>
-				<button id="logout_btn" onclick="location.href='/bbs/logout.do'">로그아웃</button>
-				<form name="MyProfile" method="post" action="/bbs/myPro.do?id=<%= entity.getId() %>">
-					<button id="profile_btn" onclick="myProfile()">내정보</button><br>
-				</form>
-				<%= entity.getNick() %>님 반가워요<img src="images/mypage.png" width="15" height="15" style=margin-right:20px;>
+            <button id="logout_btn" onclick="location.href='/bbs/logout.do'">로그아웃</button>
+            <form name="MyProfile" method="post" action="/bbs/myPro.do?id=<%= entity.getId() %>">
+               <button id="profile_btn" onclick="myProfile()">내정보</button><br>
+            </form>
+            <%= entity.getNick() %>님 반가워요<img src="images/mypage.png" width="15" height="15" style=margin-right:20px;>
 <%                         
    }
 %>
-				</div>
-			 </section>
-				
-		
-			<!-- Header -->
-				<section id="header">
-					
-					<!-- Logo -->
-					<a href="/bbs/index.jsp"><img src="/bbs/images/logo.png" width="100" height="100"></a>
-						<h1 style="display:inline"><a href="/bbs/index.jsp" style="color:black">DDO:MUNGNYANG</a></h1>
+            </div>
+          </section>
+            
+      
+         <!-- Header -->
+            <section id="header">
+               
+               <!-- Logo -->
+               <a href="/bbs/index.jsp"><img src="/bbs/images/logo.png" width="100" height="100"></a>
+                  <h1 style="display:inline"><a href="/bbs/index.jsp" style="color:black">DDO:MUNGNYANG</a></h1>
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="/bbs/about.jsp">ABOUT US</a></li>
-								<li>
-									<a href="/bbs/Iblist1.do?pg=1">강아지 분양</a>
-									 <ul>
-										<li><a href="/bbs/Iblist1.do?pg=1">업체 분양</a></li>
-										<li><a href="/bbs/Iblist2.do?pg=1">개인 분양 </a></li>
-										<li><a href="/bbs/Iblist3.do?pg=1">유기 분양</a></li>
-									</ul> 
-								</li>
-											
-								<li><a href="/bbs/Iblist4.do?pg=1">고양이 분양</a>
-								<ul>
-										<li><a href="/bbs/Iblist4.do?pg=1">업체 분양</a></li>
-										<li><a href="/bbs/Iblist5.do?pg=1">개인 분양 </a></li>
-										<li><a href="/bbs/Iblist6.do?pg=1">유기 분양</a></li>
-										</ul> 
-										</li>
-								<li><a href="/bbs/psychology/PsychologyTest.html">심리테스트</a></li>
-								<li><a href="/bbs/service/service.jsp">서비스</a></li>  <!-- 수정해야됨2 -->
-								<li><a href="/bbs/boardList.do?pg=1">Q&A</a></li> 
-							</ul>
-						</nav>
+               <!-- Nav -->
+                  <nav id="nav">
+                     <ul>
+                        <li><a href="/bbs/about.jsp">ABOUT US</a></li>
+                        <li>
+                           <a href="/bbs/Iblist1.do?pg=1">강아지 분양</a>
+                            <ul>
+                              <li><a href="/bbs/Iblist1.do?pg=1">업체 분양</a></li>
+                              <li><a href="/bbs/Iblist2.do?pg=1">개인 분양 </a></li>
+                              <li><a href="/bbs/Iblist3.do?pg=1">유기 분양</a></li>
+                           </ul> 
+                        </li>
+                                 
+                        <li><a href="/bbs/Iblist4.do?pg=1">고양이 분양</a>
+                        <ul>
+                              <li><a href="/bbs/Iblist4.do?pg=1">업체 분양</a></li>
+                              <li><a href="/bbs/Iblist5.do?pg=1">개인 분양 </a></li>
+                              <li><a href="/bbs/Iblist6.do?pg=1">유기 분양</a></li>
+                              </ul> 
+                              </li>
+                        <li><a href="/bbs/psychology/PsychologyTest.html">심리테스트</a></li>
+                        <li><a href="/bbs/service/service.jsp">서비스</a></li>  <!-- 수정해야됨2 -->
+                        <li><a href="/bbs/boardList.do?pg=1">Q&A</a></li> 
+                     </ul>
+                  </nav>
 
-					<!-- Banner -->
-						<section id="banner">
-							<header>
-								
-								
-							</header>
-						</section>
+               <!-- Banner -->
+                  <section id="banner">
+                     <header>
+                        
+                        
+                     </header>
+                  </section>
 
          <!-- Main -->
             <section id="main">
@@ -139,39 +146,40 @@ function myProfile(){
                 <header class="major">
                             <h2 style="color: #FA8072; font-size: 2em">또멍냥's Pick</h2>
                              </header>
-							<div class="row">
-								<div class="col-4 col-12-medium">
-									<section class="first">
-										
-										<button type="button" style="color: red; cursor: pointer;" onclick="petranking()">❤</button>
-										
-										<header>
-											<h2>인기순위 1위</h2>
-										</header>
-										<p>귀여운 갱얼쥐1</p>
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="middle">
-										<i class="icon solid featured alt fa-bolt"></i>
-										<header>
-											<h2>인기순위 2위</h2>
-										</header>
-										<p>앙칼진 냥이</p>
-									</section>
-								</div>
-								<div class="col-4 col-12-medium">
-									<section class="last">
-										<i class="icon solid featured alt2 fa-star"></i>
-										<header>
-											<h2>인기순위3위</h2>
-										</header>
-										<p>멍냥</p>
-									</section>
-								</div>
-							</div>
-					</div>
-					</section>
+                     <div class="row">
+                        <div class="col-4 col-12-medium">
+                           <section class="first">
+                              
+                              <img src="assets/css/images/sibal.jpg"   class="img1">
+                              
+                              <header>
+                                 <h2>인기순위 1위</h2>
+                              </header>
+                              <h2>시바견</h2>
+                           </section>
+                        </div>
+                        <div class="col-4 col-12-medium">
+                           <section class="middle">
+                              <img src="assets/css/images/po.jpg"   class="img1">
+                              
+                              <header>
+                                 <h2>포메</h2>
+                              </header>
+                              <h2>먼치맨</h2>
+                           </section>
+                        </div>
+                        <div class="col-4 col-12-medium">
+                           <section class="last">
+                              <img src="assets/css/images/mun.jpg" class="img1">
+                              <header>
+                                 <h2>인기순위3위</h2>
+                              </header>
+                              <h2>먼치맨</h2>
+                           </section>
+                        </div>
+                     </div>
+               </div>
+               </section>
 
          <!-- Footer -->
            <section id="footer">

@@ -132,7 +132,7 @@
 		<nav id="nav">
 
 			<ul>
-				<li><a href="/bbs/index.jsp">ABOUT US</a></li>
+				<li><a href="/bbs/about.jsp">ABOUT US</a></li>
 				<li class="current"><a href="/bbs/Iblist1.do?pg=1">강아지 분양</a>
 					<ul>
 						<li><a href="/bbs/Iblist1.do?pg=1" style="color: #FA8072">업체

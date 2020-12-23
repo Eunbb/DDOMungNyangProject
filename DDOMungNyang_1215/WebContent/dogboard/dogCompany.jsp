@@ -141,7 +141,57 @@
 			<div class="row">
 				<div class="col-12">
 
-					<!-- Portfolio    -->
+					<!-- 또멍냥 인기 Top3    -->
+					<section>
+						<header class="major">
+							<h2>인기 Top3</h2>
+						</header>
+						<div class="row">
+							<c:forEach var="ibDTO" items="${toplist}">
+								<!-- 추가한 부분 -->
+								<div class="col-4 col-6-medium col-12-small">
+									<section class="box">
+										<a href="#" class="image featured"
+											onclick="dogView('${ibDTO.petid}','<%=pg%>')"><img
+											src="/bbs/storage/${ibDTO.pic}" alt="" /></a>
+										<header>
+											<h3>${ibDTO.dogkortype}${ibDTO.dogengtype}</h3>
+											<%
+												if (entity != null) {
+											%>
+											<form id="heart">
+												<button type="button" style="color: red; cursor: pointer;"
+													onclick="heartbtnFunction(${ibDTO.petid})">😍</button>
+												<button type="button" style="color: red; cursor: pointer;"
+													onclick="heartSadbtnFunction(${ibDTO.petid})">🙁</button>
+												<input type="text" name="${ibDTO.petid}"
+													value="${ibDTO.heart}"
+													style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
+													readonly />
+											</form>
+											<%
+												} else {
+											%>
+											<form style="margin-top: 10px">
+												<input type="checkbox" style="margin-top: 210px"
+													onclick="location.href='/bbs/login/login.jsp'" id="heart6" />
+												<label for="heart6">❤</label> <input type="text"
+													style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
+													value="${ibDTO.heart}" disabled />
+											</form>
+											<%
+												}
+											%>
+										</header>
+									</section>
+
+								</div>
+							</c:forEach>
+							<!--  여기 까지 -->
+						</div>
+					</section>
+
+					<!-- 업체분양    -->
 					<section>
 						<header class="major">
 							<h2>업체분양</h2>

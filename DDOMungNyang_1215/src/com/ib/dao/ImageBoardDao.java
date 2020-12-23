@@ -75,6 +75,14 @@ public class ImageBoardDao {
 		return list;
 	}
 
+	// 강아지 업체분양(+Top3)
+	public List<IbDTO> getImageTopList() {
+		SqlSession session = factory.openSession();
+		List<IbDTO> list = session.selectList("mybatis.IbMapper.getImageTopList");
+		session.close();
+		return list;
+	}
+	
 	// 강아지 개인분양
 	public List<IbDTO> getImageList2(Map<String, Object> map) {
 		SqlSession session = factory.openSession();

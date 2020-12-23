@@ -32,12 +32,16 @@ public class IbListService1 implements CommandAction{
 		ImageBoardDao dao = ImageBoardDao.getInstance();
 		List<IbDTO> list = dao.getImageList(map);
 		
+		//강아지 인기 top3
+		List<IbDTO> toplist = dao.getImageTopList();
+		
 		//페이지처리
 		Ibpaging ibpaging = new Ibpaging(pg,2,pageSize);
 		ibpaging.makePagingHTML();
 		
 		//request객체에 등록
 		request.setAttribute("list", list);
+		request.setAttribute("toplist", toplist);
 		request.setAttribute("pg", pg);
 		request.setAttribute("ibpaging", ibpaging);
 		return "dogboard/dogCompany.jsp";

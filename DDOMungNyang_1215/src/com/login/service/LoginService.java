@@ -25,13 +25,10 @@ public class LoginService implements CommandAction{
 			//세션설정
 			HttpSession session=request.getSession();
 			session.setAttribute("logOK", entity);
+			session.setAttribute("sessionID", id);
 			return "login/loginOK.jsp";
 		}else {
 			return "login/loginFail.jsp";
 		}
 	}
 }
-
-
-
-

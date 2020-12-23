@@ -120,7 +120,7 @@
 										<section class="box">
 											<a href="#" class="image featured"
 												onclick="dogView('${ibDTO.petid}','<%=pg%>')"><img
-												src="/bbs/storage/${ibDTO.pic}" alt="" /></a>
+												src="/bbs/storage/${ibDTO.pic}" style="height:220.39px;" alt="" /></a>
 											<header>
 												<h3>${ibDTO.dogkortype}${ibDTO.dogengtype}</h3>
 												<%

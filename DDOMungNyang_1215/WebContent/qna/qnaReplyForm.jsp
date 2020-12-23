@@ -63,7 +63,6 @@ function checkBoardReply(){
 <!-- ReplyForm -->
 <%
 	LoginDTO entity=(LoginDTO)session.getAttribute("logOK");
-    BoardDTO dto=(BoardDTO)request.getAttribute("dto");
 	int pseq=(Integer)request.getAttribute("pseq");
 	int pg=(Integer)request.getAttribute("pg");
 %>
@@ -74,11 +73,11 @@ function checkBoardReply(){
 <table border="1" >
 	<tr>
 		<td>아이디</td>
-		<td><input type="text" name="id" size="50"  value="<%=dto.getId()%>" readonly></td>
+		<td><input type="text" name="id" size="50"  value="<%=entity.getId()%>" readonly></td>
 	</tr>
 	<tr>
 		<td>이름</td>
-		<td><input type="text" name="name" size="50" value="<%=dto.getName()%>" readonly></td>
+		<td><input type="text" name="name" size="50" value="<%=entity.getName()%>" readonly></td>
 	</tr>	
 	<tr>
 		<td>제 목</td>

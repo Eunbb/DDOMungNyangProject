@@ -153,7 +153,7 @@ function myProfile(){
                               <img src="assets/css/images/sibal.jpg"   class="img1">
                               
                               <header>
-                                 <h2>인기순위 1위</h2>
+                                 <h2>웃음이 예쁜 강아지</h2>
                               </header>
                               <h2>시바견</h2>
                            </section>
@@ -163,7 +163,7 @@ function myProfile(){
                               <img src="assets/css/images/po.jpg"   class="img1">
                               
                               <header>
-                                 <h2>포메</h2>
+                                 <h2>추천</h2>
                               </header>
                               <h2>먼치맨</h2>
                            </section>
@@ -172,7 +172,7 @@ function myProfile(){
                            <section class="last">
                               <img src="assets/css/images/mun.jpg" class="img1">
                               <header>
-                                 <h2>인기순위3위</h2>
+                                 <h2>눈매가 초롱초롱한 고양이</h2>
                               </header>
                               <h2>먼치맨</h2>
                            </section>

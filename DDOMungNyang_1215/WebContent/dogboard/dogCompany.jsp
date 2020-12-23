@@ -176,7 +176,7 @@
 									<section class="box">
 										<a href="#" class="image featured"
 											onclick="dogView('${ibDTO.petid}','<%=pg%>')"><img
-											src="/bbs/storage/${ibDTO.pic}" alt="" /></a>
+											src="/bbs/storage/${ibDTO.pic}" style="height:220.39px;"  alt="" /></a>
 										<header>
 											<h3>${ibDTO.dogkortype}${ibDTO.dogengtype}</h3>
 											<%
@@ -203,13 +203,8 @@
 												<input type="text" name="${ibDTO.petid}" value="${ibDTO.heart}"
 													style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
 													readonly />
-<!-- 											<form style="margin-top: 10px"> -->
-<!-- 												<input type="checkbox" style="margin-top: 210px" -->
-<!-- 													onclick="location.href='/bbs/login/login.jsp'" id="heart6" /> -->
-<!-- 												<label for="heart6">❤</label> <input type="text" -->
-<!-- 													style="width: 70px; height: 20px; font-size: 20px; text-align: center;" -->
-<%-- 													value="${ibDTO.heart}" disabled /> --%>
-<!-- 											</form> -->
+											</form>
+
 											<%
 												}
 											%>
@@ -265,7 +260,7 @@
 									<section class="box">
 										<a href="#" class="image featured"
 											onclick="dogView('${ibDTO.petid}','<%=pg%>')"><img
-											src="/bbs/storage/${ibDTO.pic}" style="max-height:220.39px "alt="" /></a>
+											src="/bbs/storage/${ibDTO.pic}" style="height:220.39px;" alt="" /></a>
 										<header>
 											<h3>${ibDTO.dogkortype}${ibDTO.dogengtype}</h3>
 											<%
@@ -284,12 +279,14 @@
 											<%
 												} else {
 											%>
-											<form style="margin-top: 10px">
-												<input type="checkbox" style="margin-top: 210px"
-													onclick="location.href='/bbs/login/login.jsp'" id="heart6" />
-												<label for="heart6">❤</label> <input type="text"
+											<form id="heart">
+												<button type="button" style="color: red; cursor: pointer;"
+													onclick="location.href='/bbs/login/login.jsp'">😍</button>
+												<button type="button" style="color: red; cursor: pointer;"
+													onclick="location.href='/bbs/login/login.jsp'">🙁</button>
+												<input type="text" name="${ibDTO.petid}" value="${ibDTO.heart}"
 													style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
-													value="${ibDTO.heart}" disabled />
+													readonly />
 											</form>
 											<%
 												}

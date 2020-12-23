@@ -154,13 +154,15 @@
                                     <%
                                        } else {
                                     %>
-                                    <form style="margin-top: 10px">
-                                       <input type="checkbox" style="margin-top: 210px"
-                                          onclick="location.href='/bbs/login/login.jsp'" id="heart6" />
-                                       <label for="heart6">❤</label> <input type="text"
-                                          style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
-                                          value="${ibDTO.heart}" disabled />
-                                    </form>
+										<form id="heart">
+											<button type="button" style="color: red; cursor: pointer;"
+												onclick="location.href='/bbs/login/login.jsp'">😍</button>
+											<button type="button" style="color: red; cursor: pointer;"
+												onclick="location.href='/bbs/login/login.jsp'">🙁</button>
+											<input type="text" name="${ibDTO.petid}" value="${ibDTO.heart}"
+												style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
+												readonly />
+										</form>
                                     <%
                                        }
                                     %>

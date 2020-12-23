@@ -71,7 +71,9 @@
       
       <div><img style="display:block;margin:0 auto;margin-top:20pt;" name="imagepath" id="imagepath" class="pic" src="/bbs/storage/<%=dto.getPic()%>" alt="" /><br>
       
-      <div style="text-align:center;" ><input type="file" style="color:#f44336;" name="imagepath" id="imagepath" size="40" value="<%=dto.getPic()%>"></div>      
+      <div style="text-align:center;"><input type="file" style="color:#f44336;"name="pic" id="pic" size="40">
+                                      <input type="hidden" name="pichi" id="pichi" value="<%=dto.getPic()%>">
+      </div>  
    	</div>
    
    <div>

@@ -33,19 +33,23 @@ public class IbUpdateService implements CommandAction {
 //      // 파일업로드
 //      MultipartRequest multi = new MultipartRequest(request, uploadDir, 1024 * 1024 * 100, "UTF-8",
 //            new DefaultFileRenamePolicy());
-      
-      //실제 저장 경로
-            String realFolder=request.getServletContext().getRealPath("/storage");
-            //System.out.println("저장 폴더:" + realFolder);
-            
-            //파일업로드
-            MultipartRequest multi=new MultipartRequest(
-                      request, realFolder, 5*1024*1024, "UTF-8",new DefaultFileRenamePolicy());
+
+      // 실제 저장 경로
+      String realFolder = request.getServletContext().getRealPath("/storage");
+      // System.out.println("저장 폴더:" + realFolder);
+
+      // 파일업로드
+      MultipartRequest multi = new MultipartRequest(request, realFolder, 5 * 1024 * 1024, "UTF-8",
+            new DefaultFileRenamePolicy());
 
       // 데이터 얻어오기
       request.setCharacterEncoding("UTF-8");
       int pg = Integer.parseInt(request.getParameter("pg"));
       int petid = Integer.parseInt(request.getParameter("petid"));
+      String pic = multi.getFilesystemName("pic"); // 사진\
+      System.out.println("pic " + pic);
+      String pichi = multi.getParameter("pichi");; // 사진\
+      System.out.println("pichi " + pichi);
       String classify1 = multi.getParameter("classify1"); // 강아지 고양이
       System.out.println("classify1 " + classify1);
       String classify2 = multi.getParameter("classify2"); // 분양
@@ -62,7 +66,6 @@ public class IbUpdateService implements CommandAction {
       System.out.println("price " + price);
       String jusa = multi.getParameter("jusa");
       System.out.println("jusa " + jusa);
-      String pic = multi.getFilesystemName("pic"); // 사진
 
       IbDTO dto = new IbDTO();
       dto.setPetid(petid);
@@ -74,8 +77,11 @@ public class IbUpdateService implements CommandAction {
       dto.setAge(age);
       dto.setPrice(price);
       dto.setJusa(jusa);
-      dto.setPic(pic);
-
+      if (pic == null) {
+         dto.setPic(pichi);
+      } else {
+         dto.setPic(pic);
+      }
       // update DB
       ImageBoardDao dao = new ImageBoardDao();
       dao.dogUpdate(dto);

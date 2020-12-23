@@ -292,23 +292,33 @@ section#btn {
  <%
 	if(entity == null) {
 %>      
-      <input type="button" value="목록" onclick="location.href='/bbs/Iblist1.do?pg=1'">
+      <input type="button" value="목록" onclick="history.back()">
 <% 
-     }else if(session.getAttribute("id") !=null) {
-         if(session.getAttribute("id").equals(entity.getId())) {
+     }else if(session.getAttribute("sessionID") !=null) {
+         if(dto.getClassify2().equals("A1")) {
+        	 if(entity.getId().equals("ddomungyang@gmail.com")) {
 %>
-        <input type="button" value="목록" onclick="location.href='/bbs/Iblist1.do?pg=1'">
+        <input type="button" value="목록" onclick="history.back()">
 		<input type="button" value="글수정" onclick="location.href='dogModify.do?petid=<%=petid%>&pg=<%=pg%>'">
 		<input type="button" value="글삭제" onclick="del()"> 
 <%
-    }
-     }else {
+            } else { 
 %>
-        <input type="button" value="목록" onclick="location.href='/bbs/Iblist1.do?pg=1'">
+        <input type="button" value="목록" onclick="history.back()">
         <input type="button" value="찜하기" onclick="location.href='#'">
 <%
-    }
-%>        
+         }
+     } else if(session.getAttribute("sessionID").equals(entity.getId())) {
+%> 
+        <input type="button" value="목록" onclick="history.back()">
+		<input type="button" value="글수정" onclick="location.href='dogModify.do?petid=<%=petid%>&pg=<%=pg%>'">
+		<input type="button" value="글삭제" onclick="del()">        
+<%
+     }
+     }
+%>
+		
+		
 		</section>		   
 </div>
 <br>

@@ -16,13 +16,19 @@
 	]]>
 	</select>
 	
+	<select id="getMember" resultType="LoginDTO">
+		<![CDATA[
+			SELECT *
+			FROM TEST1
+		]]>
+	</select>
+	
 	<select id="getLoginData" parameterType="java.lang.String" resultType="LoginDTO">
 		<![CDATA[
 			SELECT *
 			FROM TEST1
 			WHERE ID =#{id} 
 		]]>
-	
 	</select>
 	
 	<update id="loginmodify" parameterType="LoginDTO">
@@ -32,4 +38,10 @@
 			WHERE id=#{id} 
 		]]>
 	</update>
+	
+	<delete id="memberDelete" parameterType="java.lang.String">
+		<![CDATA[
+			DELETE TEST1 WHERE ID=#{id}
+		]]>
+	</delete>
 </mapper>

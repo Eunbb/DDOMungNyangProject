@@ -7,7 +7,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
 	int pg = (Integer) request.getAttribute("pg");
-	Ibpaging paging = (Ibpaging) request.getAttribute("ibpaging");
+Ibpaging paging = (Ibpaging) request.getAttribute("ibpaging");
 %>
 <!DOCTYPE html>
 <html>
@@ -96,13 +96,26 @@
 
 				<%
 					LoginDTO entity = (LoginDTO) session.getAttribute("logOK");
-				IbDTO dto = (IbDTO) request.getAttribute("dto");
-				if (entity == null) {
+					IbDTO dto = (IbDTO) request.getAttribute("dto");
+					if (entity == null) {
 				%>
 				<button id="login_btn"
-					onclick="location.href='/bbs/login/login.jsp' ">로그인</button>
+					onclick="location.href='/bbs/login/login.jsp'">로그인</button>
 				<button id="register_btn"
-					onclick="location.href='/bbs/login/register.jsp' ">회원가입</button>
+					onclick="location.href='/bbs/login/register.jsp'">회원가입</button>
+				<%
+					} else if (entity != null && entity.getId().equals("ddomungyang@gmail.com")) {
+				%>
+				<button id="logout_btn"
+					onclick="location.href='/bbs/member.do'">회원관리</button>
+				<button id="logout_btn" onclick="location.href='/bbs/logout.do'">로그아웃</button>
+				<form name="MyProfile" method="post"
+					action="/bbs/myPro.do?id=<%=entity.getId()%>">
+					<button id="profile_btn" onclick="myProfile()">내정보</button>
+					<br>
+				</form>
+				<%=entity.getNick()%>님 반가워요<img src="images/mypage.png" width="15"
+					height="15" style="margin-right: 20px;">
 				<%
 					} else {
 				%>
@@ -132,7 +145,7 @@
 		<nav id="nav">
 
 			<ul>
-				<li><a href="/bbs/about.jsp">ABOUT US</a></li>
+				<li><a href="/bbs/index.jsp">ABOUT US</a></li>
 				<li class="current"><a href="/bbs/Iblist1.do?pg=1">강아지 분양</a>
 					<ul>
 						<li><a href="/bbs/Iblist1.do?pg=1" style="color: #FA8072">업체
@@ -167,7 +180,7 @@
 					<!-- 또멍냥 인기 Top3    -->
 					<section>
 						<header class="major">
-							<h2><span style="color: #FA8072; font-size: 2em">인기 Top3</span></h2>
+							<h2>인기 Top3</h2>
 						</header>
 						<div class="row">
 							<c:forEach var="ibDTO" items="${toplist}">
@@ -176,7 +189,7 @@
 									<section class="box">
 										<a href="#" class="image featured"
 											onclick="dogView('${ibDTO.petid}','<%=pg%>')"><img
-											src="/bbs/storage/${ibDTO.pic}" style="height:220.39px;"  alt="" /></a>
+											src="/bbs/storage/${ibDTO.pic}" alt="" /></a>
 										<header>
 											<h3>${ibDTO.dogkortype}${ibDTO.dogengtype}</h3>
 											<%
@@ -200,11 +213,11 @@
 													onclick="location.href='/bbs/login/login.jsp'">😍</button>
 												<button type="button" style="color: red; cursor: pointer;"
 													onclick="location.href='/bbs/login/login.jsp'">🙁</button>
-												<input type="text" name="${ibDTO.petid}" value="${ibDTO.heart}"
+												<input type="text" name="${ibDTO.petid}"
+													value="${ibDTO.heart}"
 													style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
 													readonly />
 											</form>
-
 											<%
 												}
 											%>
@@ -215,44 +228,45 @@
 							</c:forEach>
 							<!--  여기 까지 -->
 						</div>
-					</section><br><br>
+					</section>
+					<br>
+					<br>
 
-					
+
 
 					<!-- 업체분양    -->
 					<section>
-						<header class="major" style="margin-top:4em">
+						<header class="major">
 							<h2>업체분양</h2>
 						</header>
-						
-					<!-- 강아지 검색하기 -->
-					<div>
-						<form>
-							<div class="selectform"  style="margin-bottom:4em; text-align:center;">
-										<select data-trigger="" id="petgender" style="width:20em; display:inline">
-											<option placeholder="">성별(전체)</option>
-											<option>수컷</option>
-											<option>암컷</option>
-										</select> 
-								
-										
-										<select data-trigger="" id="petprice" style="width:20em; display:inline">
-											<option placeholder="">가격</option>
-											<option>가격(높은 순)</option>
-											<option>가격(낮은 순)</option>
-										</select>
-								
-									<input id="searchdog" type="text" placeholder="찾으시는 종의 이름을 입력해주세요" 
-									style="width:20em; display:inline"/>
-								
-									<button id="searchdogbtn" type="button" style="display:inline">검색</button>
-							</div>
-						</form>
-					</div>
 
-<!-- --------------------------------------------------------------------->	
-						
-						
+						<!-- 강아지 검색하기 -->
+						<div>
+							<form>
+								<div class="selectform"
+									style="margin-bottom: 4em; text-align: center;">
+									<select data-trigger="" id="petgender"
+										style="width: 20em; display: inline">
+										<option placeholder="">성별(전체)</option>
+										<option>수컷</option>
+										<option>암컷</option>
+									</select> <select data-trigger="" id="petprice"
+										style="width: 20em; display: inline">
+										<option placeholder="">가격</option>
+										<option>가격(높은 순)</option>
+										<option>가격(낮은 순)</option>
+									</select> <input id="searchdog" type="text"
+										placeholder="찾으시는 종의 이름을 입력해주세요"
+										style="width: 20em; display: inline" />
+
+									<button id="searchdogbtn" type="button" style="display: inline">검색</button>
+								</div>
+							</form>
+						</div>
+
+						<!-- --------------------------------------------------------------------->
+
+
 						<div class="row">
 							<c:forEach var="ibDTO" items="${list}">
 								<!-- 추가한 부분 -->
@@ -260,7 +274,7 @@
 									<section class="box">
 										<a href="#" class="image featured"
 											onclick="dogView('${ibDTO.petid}','<%=pg%>')"><img
-											src="/bbs/storage/${ibDTO.pic}" style="height:220.39px;" alt="" /></a>
+											src="/bbs/storage/${ibDTO.pic}" alt="" /></a>
 										<header>
 											<h3>${ibDTO.dogkortype}${ibDTO.dogengtype}</h3>
 											<%
@@ -284,7 +298,8 @@
 													onclick="location.href='/bbs/login/login.jsp'">😍</button>
 												<button type="button" style="color: red; cursor: pointer;"
 													onclick="location.href='/bbs/login/login.jsp'">🙁</button>
-												<input type="text" name="${ibDTO.petid}" value="${ibDTO.heart}"
+												<input type="text" name="${ibDTO.petid}"
+													value="${ibDTO.heart}"
 													style="width: 70px; height: 20px; font-size: 20px; text-align: center;"
 													readonly />
 											</form>
@@ -301,21 +316,21 @@
 					</section>
 
 
-<!-- 					<div class=doglist_bottom_search_form> -->
-						<%
-							if (entity != null && entity.getId().equals("ddomungyang@gmail.com")) {
-						%>
-						<button id="hi"
-							onclick="location.href='/bbs/dogboard/imageBoardWrite.jsp'" style="float:right;">글등록</button>
-						<%
-							}
-						else {
-						%>
-						<button id="hi" onclick="notGwanrija()" style="float:right;">글등록</button>
-						<%
-							}
-						%>
-<!-- 					</div> -->
+					<!-- 					<div class=doglist_bottom_search_form> -->
+					<%
+						if (entity != null && entity.getId().equals("ddomungyang@gmail.com")) {
+					%>
+					<button id="hi"
+						onclick="location.href='/bbs/dogboard/imageBoardWrite.jsp'"
+						style="text-align: right;">글등록</button>
+					<%
+						} else {
+					%>
+					<button id="hi" onclick="notGwanrija()" style="float: right;">글등록</button>
+					<%
+						}
+					%>
+					<!-- 					</div> -->
 					<div class="paging-block">
 						<table>
 							<tr>

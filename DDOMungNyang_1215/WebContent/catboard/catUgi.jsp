@@ -63,16 +63,51 @@
 </head>
 <body class="left-sidebar is-preload">
 	<div id="page-wrapper">
+			<section id="starter">
+			<div id="menu">
 		<%
 			LoginDTO entity = (LoginDTO) session.getAttribute("logOK");
 			IbDTO dto = (IbDTO) request.getAttribute("dto");
+			if (entity == null) {
 		%>
+			<button id="login_btn" onclick="location.href='/bbs/login/login.jsp'">로그인</button>
+			<button id="register_btn"
+			onclick="location.href='/bbs/login/register.jsp'">회원가입</button>
+		<%
+			} else if (entity != null && entity.getId().equals("ddomungyang@gmail.com")) {
+		%>
+			<button id="logout_btn"
+				onclick="location.href='/bbs/member.do'">회원관리</button>
+			<button id="logout_btn" onclick="location.href='/bbs/logout.do'">로그아웃</button>
+			<form name="MyProfile" method="post"
+				action="/bbs/myPro.do?id=<%=entity.getId()%>">
+				<button id="profile_btn" onclick="myProfile()">내정보</button>
+				<br>
+			</form>
+		<%=entity.getNick()%>님 반가워요<img src="images/mypage.png" width="15"
+			height="15" style="margin-right: 20px;">
+		<%
+			} else {
+		%>
+			<button id="logout_btn" onclick="location.href='/bbs/logout.do'">로그아웃</button>
+			<form name="MyProfile" method="post"
+				action="/bbs/myPro.do?id=<%=entity.getId()%>">
+				<button id="profile_btn" onclick="myProfile()">내정보</button>
+				<br>
+			</form>
+		<%=entity.getNick()%>님 반가워요<img src="images/mypage.png" width="15"
+			height="15" style="margin-right: 20px;">
+		<%
+			}
+		%>
+		</div>
+		</section>
 		<!-- Header -->
 		<section id="header">
 
 			<!-- Logo -->
 			<h1>
-				<a href="/bbs/index.jsp">강아지 분양</a>
+				<a href="/bbs/index.jsp">고양이 분양</a>
 			</h1>
 
 			<!-- Nav -->

@@ -40,6 +40,15 @@ function myProfile(){
             <button id="login_btn" onclick="location.href='/bbs/login/login.jsp'">로그인</button>
             <button id="register_btn" onclick="location.href='/bbs/login/register.jsp'">회원가입</button>
 <%
+   }else if(entity != null && entity.getId().equals("ddomungyang@gmail.com")){
+%>
+            <button id="member_btn" onclick="location.href='/bbs/member.do'">회원관리</button>
+            <button id="logout_btn" onclick="location.href='/bbs/logout.do'">로그아웃</button>
+            <form name="MyProfile" method="post" action="/bbs/myPro.do?id=<%= entity.getId() %>">
+               <button id="profile_btn" onclick="myProfile()">내정보</button><br>
+            </form>
+            <%= entity.getNick() %>님 반가워요<img src="images/mypage.png" width="15" height="15" style=margin-right:20px;>		
+<%
    }else{
 %>
             <button id="logout_btn" onclick="location.href='/bbs/logout.do'">로그아웃</button>

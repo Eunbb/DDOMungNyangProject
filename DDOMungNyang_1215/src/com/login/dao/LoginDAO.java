@@ -2,6 +2,7 @@ package com.login.dao;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -33,6 +34,14 @@ public class LoginDAO {
 		return entity;
 	}
 
+	//전체 member 가져오기
+	public List<LoginDTO> getMemberList() {
+		SqlSession session = factory.openSession();
+		List<LoginDTO> list = session.selectList("mybatis.LoginMapper.getMember");
+		session.close();
+		return list;
+	}	
+	
 	//id로 데이터검색해서 가져오기
 	public LoginDTO getLoginData(String id) {
 		SqlSession session = factory.openSession();
@@ -73,6 +82,23 @@ public class LoginDAO {
 		}finally {
 			session.close();
 		}
+	}
+	//멤버 삭제하기(관리자만)-------------------------------------------
+	public void memberDelete(String id) {
+		SqlSession session=factory.openSession();
+		int n=0;
+
+		try{
+			n=session.delete("mybatis.LoginMapper.memberDelete",id);
+			if(n > 0)
+				session.commit();
+		}catch(Exception e) {
+			e.printStackTrace();
+			session.rollback();
+		}finally {
+			session.close();
+		}
+		
 	}
 
 }

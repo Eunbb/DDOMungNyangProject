@@ -101,7 +101,7 @@
    </div>
    <div>
     
-      <div style="color:#f44336; margin-left:20pt">가격(원)<input type="text" style="width:200pt;" name="price" value="<%=dto.getPrice()%>원" size="50"></div>
+      <div style="color:#f44336; margin-left:20pt">가격(원)<input type="text" style="width:200pt;" name="price" value="<%=dto.getPrice()%>" size="50"></div>
    </div>
    
    <div>
